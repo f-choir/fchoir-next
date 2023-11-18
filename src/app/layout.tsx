@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import NavBar from "@/ui/NavBar";
+import NavBar from "../ui/molecules/NavBar";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <head>
+      <title>F*Choir</title>
+      <link rel="stylesheet" href={"https://indestructibletype.com/fonts/Jost.css"} type="text/css" charSet="utf-8" />
+    </head>
       <body className={`${inter.className} bg-pink`}>
         <NavBar />
         {children}

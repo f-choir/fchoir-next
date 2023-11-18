@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -18,6 +19,11 @@ const config: Config = {
       'm': '640px',
       'l': '1024px',
     },
+    extend: {
+      fontFamily: {
+        jost: ['"Jost"', ...defaultTheme.fontFamily.sans]
+      }
+    }
   },
   plugins: [],
 }

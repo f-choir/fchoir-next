@@ -1,4 +1,4 @@
-import { NavLink } from '@/ui/NavBar';
+import { NavLink } from '../ui/molecules/NavBar';
 
 const navLinks = [
   {label: 'HOME', url: '/'},
