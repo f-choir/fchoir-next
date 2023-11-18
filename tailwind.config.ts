@@ -14,6 +14,7 @@ const config: Config = {
       purple: '#5137AC',
       lilac: '#b6bcec',
       white: '#ffffff',
+      black: '#112233'
     },
     screens: {
       'm': '640px',

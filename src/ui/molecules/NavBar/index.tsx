@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
     <nav className="bg-purple sticky top-0">
       <button onClick={() => setMenuOpen(!isMenuOpen)} className="absolute flex flex-row items-center right-5 top-2 m:hidden z-10">
-        <span className="text-red text-xl font-jost font-medium">MENU</span>
+        <span className="text-red text-xl font-medium">MENU</span>
         <Icon
           {...chevronRight}
           size="30px"
@@ -38,7 +38,7 @@ const NavBar = () => {
               className={classNames(
                 'transition-bg ease-in-out duration-150',
                 'm-2',
-                'l:px-2 hover:bg-lilac font-medium font-jost text-xl l:text-2xl text-shadow',
+                'l:px-2 hover:bg-lilac font-medium text-xl l:text-2xl text-shadow',
                 link.isActive ? 'text-white' : 'text-red',
               )}
               href={link.url}
