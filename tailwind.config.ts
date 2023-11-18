@@ -6,23 +6,19 @@ const config: Config = {
     './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  colors: {
-    fStar: {
+  theme: {
+    colors: {
       pink: '#e594d9',
       red: '#ff0000',
       purple: '#5137AC',
-      white: '#ffffff'
-    }
-  },
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      lilac: '#b6bcec',
+      white: '#ffffff',
+    },
+    screens: {
+      'm': '640px',
+      'l': '1024px',
     },
   },
   plugins: [],
 }
-export default config
+export default config;
