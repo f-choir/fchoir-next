@@ -3,5 +3,5 @@ export default function Merch() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <p>Merch Page</p>
     </main>
-  )
+  );
 }

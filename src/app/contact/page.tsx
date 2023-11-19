@@ -3,5 +3,5 @@ export default function Contact() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <p>Contact Page</p>
     </main>
-  )
+  );
 }

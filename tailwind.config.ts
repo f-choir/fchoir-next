@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
@@ -14,18 +14,18 @@ const config: Config = {
       purple: '#5137AC',
       lilac: '#b6bcec',
       white: '#ffffff',
-      black: '#112233'
+      black: '#112233',
     },
     screens: {
-      'm': '640px',
-      'l': '1024px',
+      m: '640px',
+      l: '1024px',
     },
     extend: {
       fontFamily: {
-        jost: ['"Jost"', ...defaultTheme.fontFamily.sans]
-      }
-    }
+        jost: ['"Jost"', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
-}
+};
 export default config;

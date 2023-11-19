@@ -25,7 +25,7 @@ interface IconProps {
 
 const xmlns = 'http://www.w3.org/2000/svg';
 
-const Icon = ({ path, viewBox, transform, size, className, width, height }:IconProps) => {
+const Icon = ({ path, viewBox, transform, size, className, width, height }: IconProps) => {
   const svgProps: SVGProps<SVGSVGElement> = {
     width: width || size,
     height: height || size,
@@ -42,6 +42,6 @@ const Icon = ({ path, viewBox, transform, size, className, width, height }:IconP
       <path d={path} transform={transform} />
     </svg>
   );
-}
+};
 
 export default Icon;
