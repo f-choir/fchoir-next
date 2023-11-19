@@ -25,23 +25,29 @@ interface IconProps {
 
 const xmlns = 'http://www.w3.org/2000/svg';
 
-const Icon = ({ path, viewBox, transform, size, className, width, height }: IconProps) => {
-  const svgProps: SVGProps<SVGSVGElement> = {
-    width: width || size,
-    height: height || size,
-    viewBox,
-    xmlns,
-    className: `${
-      className ?? ''
-    } sw-transition sw-ease sw-duration-350 motion-reduce:sw-transition-none`,
-    'aria-hidden': 'true',
-    focusable: 'false',
-  };
-  return (
-    <svg {...svgProps}>
-      <path d={path} transform={transform} />
-    </svg>
-  );
+const Icon = ({ path, viewBox = '0 0 32 32', transform, size, className, width, height }: IconProps) => {
+  const renderSvg = () => {
+    const svgProps: SVGProps<SVGSVGElement> = {
+      width: width || size,
+      height: height || size,
+      viewBox,
+      xmlns,
+      className: `${
+        className ?? ''
+      } sw-transition sw-ease sw-duration-350 motion-reduce:sw-transition-none`,
+      'aria-hidden': 'true',
+      focusable: 'false',
+    };
+    return (
+      <svg {...svgProps}>
+        <path d={path} transform={transform} />
+      </svg>
+    );
+  }
+
+  if (path) return renderSvg();
+
+  return null;
 };
 
 export default Icon;

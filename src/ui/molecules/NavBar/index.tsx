@@ -16,15 +16,15 @@ const NavBar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const links = getNavLinks(usePathname());
   return (
-    <nav className="bg-purple sticky top-0">
+    <nav className="bg-purple sticky top-0 z-10">
       <button
         onClick={() => setMenuOpen(!isMenuOpen)}
-        className="absolute flex flex-row items-center right-5 top-2 m:hidden z-10"
+        className="absolute flex flex-row items-center right-5 top-2 m:hidden z-20"
       >
         <span className="text-red text-xl font-medium">MENU</span>
         <Icon
           {...chevronRight}
-          size="30px"
+          size="16px"
           className={classNames(
             'transition duration-150 fill-red ml-2 rotate-90',
             isMenuOpen && '-scale-x-100',
