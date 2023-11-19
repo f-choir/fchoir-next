@@ -15,8 +15,20 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  previewHead: (head) => `
+    ${head}
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+    <style>
+      html, body {
+        background: #e594d9;
+        font-family: 'Jost', sans-serif;
+      }
+    </style>
+ `,
   webpackFinal: async (config) => {
-    return { ...config, resolve: { ...config.resolve, alias: {...config.resolve?.alias, '@': path.resolve(__dirname, '../src')}} };
+    const { resolve } = config;
+    const alias = { ...resolve?.alias, '@' : path.resolve(__dirname, '../src') }
+    return { ...config, resolve: { ...config.resolve, alias } };
   }
 };
 export default config;

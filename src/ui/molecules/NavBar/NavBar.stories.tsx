@@ -9,6 +9,6 @@ export default meta;
 
 type Story = StoryObj<typeof NavBar>;
 
-export const Chevron: Story = {
+export const Main: Story = {
   render: () => <NavBar />,
 };
