@@ -37,7 +37,7 @@ const NavBar = () => {
             key={link.url}
             className={classNames(
               isMenuOpen ? 'visible' : 'hidden m:visible m:inline-block',
-              'bg-purple m:bg-none ',
+              'bg-purple m:bg-none',
               'py-2 last:pb-2 m:py-2 l:py-4 px-4 m:px-1',
             )}
           >
@@ -45,7 +45,7 @@ const NavBar = () => {
               className={classNames(
                 'transition-bg ease-in-out duration-150',
                 'm-2',
-                'l:px-2 hover:bg-lilac font-medium text-xl l:text-2xl text-shadow',
+                'l:px-2 hover:bg-lilac font-medium text-xl l:text-2xl',
                 link.isActive ? 'text-white' : 'text-red',
               )}
               href={link.url}

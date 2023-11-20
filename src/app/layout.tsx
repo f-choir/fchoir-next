@@ -5,7 +5,7 @@ import { Jost } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'F*Choir',
-  description: 'causing a racket // singing together',
+  description: 'Queer-led, femme-centred ',
 };
 
 const jost = Jost({
