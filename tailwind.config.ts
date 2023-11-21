@@ -19,6 +19,7 @@ const config: Config = {
     screens: {
       m: '640px',
       l: '1024px',
+      xl: '1280px',
     },
     extend: {
       fontFamily: {

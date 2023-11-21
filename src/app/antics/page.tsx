@@ -4,7 +4,7 @@ import Headline from '@/ui/atoms/Headline';
 
 export default function Antics() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center pt-12 m:pt-8">
       <Headline text={'antics'} />
     </main>
   );
