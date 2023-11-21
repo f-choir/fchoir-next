@@ -1,9 +1,11 @@
-import galleries from '@/app/gallery/[id]/galleries';
+import galleries from '@/model/galleries';
 
-const Gallery = ({ params }: { params: { id: string } }) => <div>gallery page for id {params.id}</div>;
+const Gallery = ({ params }: { params: { id: string } }) => (
+  <div>gallery page for id {params.id}</div>
+);
 
 export async function generateStaticParams() {
-  return galleries.map(gallery => ({id: gallery}));
+  return galleries.map((gallery) => ({ id: gallery }));
 }
 
 export default Gallery;
