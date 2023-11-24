@@ -5,7 +5,7 @@ const Gallery = ({ params }: { params: { id: string } }) => (
 );
 
 export async function generateStaticParams() {
-  return galleries.map((gallery) => ({ id: gallery }));
+  return galleries().map((gallery) => ({ id: gallery }));
 }
 
 export default Gallery;

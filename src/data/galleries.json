@@ -1,0 +1,37 @@
+[
+  {
+    "name": "test gallery",
+    "title": "F* Test Gallery",
+    "heroImageIndex": 0,
+    "images": [
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      },
+      {
+        "url": "foo",
+        "alt": "some alt text"
+      },
+      { "url":"foo",
+        "alt": "some alt text"
+      }
+    ]
+  }
+]

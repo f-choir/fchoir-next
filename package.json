@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next lint && next build",
+    "publish-site": "cd gcloud && yarn push-site && cd -",
     "serve": "http-server ./out",
     "start": "next start",
     "lint": "next lint",

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import SquareImage from '@/ui/atoms/SquareImage';
 
 interface ImagePreviewProps {
   size: number;
@@ -8,14 +8,7 @@ interface ImagePreviewProps {
 
 const ImagePreview = ({ size, altText, src }: ImagePreviewProps) => (
   <div className={'hover:fill-lilac hover:opacity-40 transition duration-100'}>
-    <Image
-      src={src}
-      alt={altText}
-      width={size}
-      height={size}
-      unoptimized={true}
-      className={`aspect-square`}
-    />
+    <SquareImage src={src} altText={altText} size={size} />
   </div>
 );
 
