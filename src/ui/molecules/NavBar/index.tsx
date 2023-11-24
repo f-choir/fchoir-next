@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import Icon from '@/ui/atoms/Icon';
 import chevronRight from '@/ui/atoms/Icon/paths/chevronRight';
+import Link from 'next/link';
 
 export type NavLink = {
   label: string;
@@ -41,7 +42,7 @@ const NavBar = () => {
               'py-2 last:pb-2 m:py-2 l:py-4 px-4 m:px-1',
             )}
           >
-            <a
+            <Link
               className={classNames(
                 'transition-bg ease-in-out duration-150',
                 'm-2',
@@ -51,7 +52,7 @@ const NavBar = () => {
               href={link.url}
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

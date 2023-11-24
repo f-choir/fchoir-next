@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next lint && next build",
-    "publish-site": "cd gcloud && yarn push-site && cd -",
     "serve": "http-server ./out",
     "start": "next start",
     "lint": "next lint",
@@ -37,6 +36,7 @@
     "http-server": "^14.1.1",
     "postcss": "^8",
     "prettier": "^3.1.0",
+    "ts-node": "^10.9.1",
     "storybook": "^7.5.3",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
