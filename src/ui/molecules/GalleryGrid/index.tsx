@@ -1,11 +1,11 @@
 import Grid from '@/ui/atoms/Grid';
 import GalleryPreview from '@/ui/molecules/GalleryPreview';
 
-interface GridGalleryProps {
+interface GalleryGridProps {
   galleries: string[];
 }
 
-const GridGallery = ({ galleries }: GridGalleryProps) => {
+const GalleryGrid = ({ galleries }: GalleryGridProps) => {
   return (
     <Grid>
       {galleries.map((gallery, idx) => (
@@ -21,4 +21,4 @@ const GridGallery = ({ galleries }: GridGalleryProps) => {
   );
 };
 
-export default GridGallery;
+export default GalleryGrid;
