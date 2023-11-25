@@ -16,6 +16,7 @@ export type NavLink = {
 const NavBar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const links = getNavLinks(usePathname());
+  const doSetMenuClosed = () => setMenuOpen(false);
   return (
     <nav className="bg-purple sticky top-0 z-10">
       <button
@@ -50,6 +51,7 @@ const NavBar = () => {
                 link.isActive ? 'text-white' : 'text-red',
               )}
               href={link.url}
+              onClick={doSetMenuClosed}
             >
               {link.label}
             </Link>

@@ -13,6 +13,7 @@ const config: Config = {
       red: '#ff0000',
       purple: '#5137AC',
       lilac: '#b6bcec',
+      dove: '#d3defc',
       white: '#ffffff',
       black: '#112233',
     },
