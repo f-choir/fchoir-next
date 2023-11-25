@@ -1,7 +1,6 @@
 import galleries, { getGalleryById } from '@/model/galleries';
 import SubHeader from '@/ui/atoms/SubHeader';
 import Wrap from '@/ui/atoms/Wrap';
-import GalleryPreview from '@/ui/molecules/GalleryPreview';
 import ImageGrid from '@/ui/molecules/ImageGrid';
 
 const Gallery = ({ params }: { params: { id: string } }) => {
@@ -10,7 +9,7 @@ const Gallery = ({ params }: { params: { id: string } }) => {
 
   return (
     <Wrap className={'m-auto flex justify-center pt-4'}>
-      <div className={'flex flex-col'}>
+      <div className={'flex flex-col p-2'}>
         <SubHeader text={gallery.title} className={'inline-block'} />
         <ImageGrid images={gallery.images.slice(0, 9).map((image) => image.imageUrl)} />
       </div>
