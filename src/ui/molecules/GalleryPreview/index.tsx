@@ -8,6 +8,8 @@ interface GalleryPreviewProps {
   galleryHref: string;
 }
 
+// TODO a different way of surfacing titles on mobile, where we have no hover states.
+
 const GalleryPreview = ({ size, titleText, imgSrc, galleryHref }: GalleryPreviewProps) => (
   <div className={'relative group'}>
     <a href={galleryHref}>

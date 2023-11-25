@@ -1,35 +1,43 @@
 [
   {
-    "name": "test gallery",
+    "id": "test-gallery",
     "title": "F* Test Gallery",
     "heroImageIndex": 0,
     "images": [
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
-        "alt": "some alt text"
-      },
-      { "url":"foo",
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
         "alt": "some alt text"
       },
       {
-        "url": "foo",
+        "imageUrl": "https://picsum.photos/id/10/300/200",
         "alt": "some alt text"
       },
-      { "url":"foo",
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
+        "alt": "some alt text"
+      },
+      {
+        "imageUrl": "https://picsum.photos/id/10/300/200",
         "alt": "some alt text"
       }
     ]
