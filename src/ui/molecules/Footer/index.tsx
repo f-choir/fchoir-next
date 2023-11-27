@@ -9,7 +9,7 @@ const linkClasses = classNames(
 );
 
 const Footer = () => (
-  <footer className={'flex flex-col m:flex-row justify-center bg-purple w-full'}>
+  <footer className={'flex flex-col m:flex-row justify-center bg-purple w-full '}>
     <a
       href={INSTAGRAM}
       className={linkClasses}
