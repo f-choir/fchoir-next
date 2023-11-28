@@ -9,7 +9,8 @@ export const getGalleryById = (id: string) => {
 const galleryJsonToGalleryPreviewProps = (gallery: any): GalleryPreviewProps => ({
   size: 256,
   titleText: gallery.title,
-  imgSrc: gallery.images[gallery.heroImageIndex].imageUrl,
+  imgSrc:
+    gallery.images[gallery.heroImageIndex ?? 0]?.imageUrl ?? 'https://picsum.photos/id/10/300/200',
   uri: gallery.id,
 });
 
