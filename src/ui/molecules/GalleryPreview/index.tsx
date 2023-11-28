@@ -1,18 +1,18 @@
 import ImagePreview from '@/ui/molecules/ImagePreview';
 import SquareImage from '@/ui/atoms/SquareImage';
 
-interface GalleryPreviewProps {
+export interface GalleryPreviewProps {
   size: number;
   titleText: string;
   imgSrc: string;
-  galleryHref: string;
+  uri: string;
 }
 
 // TODO a different way of surfacing titles on mobile, where we have no hover states.
 
-const GalleryPreview = ({ size, titleText, imgSrc, galleryHref }: GalleryPreviewProps) => (
+const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) => (
   <div className={'relative group w-[256px]'}>
-    <a href={galleryHref}>
+    <a href={uri}>
       <div
         className={`absolute text-center hover:bg-lilac hover:opacity-80 h-full w-full border-purple border-4`}
       >

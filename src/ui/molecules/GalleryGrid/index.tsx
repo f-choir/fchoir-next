@@ -1,8 +1,8 @@
 import Grid from '@/ui/atoms/Grid';
-import GalleryPreview from '@/ui/molecules/GalleryPreview';
+import GalleryPreview, { GalleryPreviewProps } from '@/ui/molecules/GalleryPreview';
 
 interface GalleryGridProps {
-  galleries: string[];
+  galleries: GalleryPreviewProps[];
 }
 
 const GalleryGrid = ({ galleries }: GalleryGridProps) => {
@@ -12,9 +12,9 @@ const GalleryGrid = ({ galleries }: GalleryGridProps) => {
         <GalleryPreview
           key={idx}
           size={256}
-          titleText={'foo'}
-          imgSrc={gallery}
-          galleryHref={'foo'}
+          titleText={gallery.titleText}
+          imgSrc={gallery.imgSrc}
+          uri={`gallery/${gallery.uri}`}
         />
       ))}
     </Grid>
