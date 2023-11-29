@@ -34,7 +34,12 @@ const Gallery = ({ title, images }: GalleryProps) => {
           onClickCallback={images.slice(0, 9).map((_, idx) => onImageClick(idx))}
         />
       </div>
-      <div className={classNames('absolute bg-black p-8', isViewMode ? 'inline-block' : 'hidden')}>
+      <div
+        className={classNames(
+          'absolute w-full h-full bg-black p-8',
+          isViewMode ? 'inline-block' : 'hidden',
+        )}
+      >
         <GalleryView
           images={images}
           viewIdx={viewIdx}

@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
 import Image from 'next/image';
 import Icon from '@/ui/atoms/Icon';
 import ChevronRight from '@/ui/atoms/Icon/paths/chevronRight';
 import classNames from 'classnames';
+import Cross from '@/ui/atoms/Icon/paths/cross';
 
 export interface GalleryImageProps {
   uri: string;
@@ -35,18 +35,25 @@ const GalleryView = ({
   const scrollLeft = () => scroll(false);
 
   return (
-    <div className={'flex flex-row w-full h-full'}>
+    <div className={'flex flex-row justify-center m-auto'}>
       <button onClick={scrollLeft}>
         <Icon
           path={ChevronRight.path}
           className={classNames(
-            'bg-lilac rotate-180 opacity-60 p-1.5',
+            'bg-lilac rotate-180 opacity-60 p-1.5 m-auto',
             viewIdx === 0 ? 'fill-dove' : 'fill-black hover:p-1 hover:fill-red hover:opacity-100',
           )}
           size={'32px'}
         />
       </button>
-      <Image src={images[viewIdx].uri} alt={'foo'} width={300} height={200} unoptimized={true} />
+      <Image
+        className={'opacity-100'}
+        src={images[viewIdx].uri}
+        alt={images[viewIdx].alt ?? ''}
+        width={300}
+        height={200}
+        unoptimized={true}
+      />
       <button onClick={scrollRight}>
         <Icon
           path={ChevronRight.path}
@@ -61,9 +68,9 @@ const GalleryView = ({
       </button>
       <button onClick={closeViewCallback}>
         <Icon
-          path={ChevronRight.path}
-          className={'absolute fill-white top-0 right-0 p-2'}
-          size={'32px'}
+          path={Cross.path}
+          className={'absolute fill-white top-0 right-0 pt-4'}
+          size={'48px'}
         />
       </button>
     </div>
