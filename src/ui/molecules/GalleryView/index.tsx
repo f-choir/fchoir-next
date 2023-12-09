@@ -1,9 +1,8 @@
 'use client';
 import Image from 'next/image';
 import Icon from '@/ui/atoms/Icon';
-import ChevronRight from '@/ui/atoms/Icon/paths/chevronRight';
-import classNames from 'classnames';
 import Cross from '@/ui/atoms/Icon/paths/cross';
+import CarouselButton from '@/ui/atoms/CarouselButton';
 
 export interface GalleryImageProps {
   uri: string;
@@ -23,8 +22,6 @@ const GalleryView = ({
   closeViewCallback,
   updateViewIdxCallback,
 }: GalleryViewProps) => {
-  // const [imageIndex, updateImageIndex] = useState(viewIdx);
-
   const scroll = (isRight: boolean) => {
     isRight
       ? updateViewIdxCallback(Math.min(images.length - 1, viewIdx + 1))
@@ -36,16 +33,12 @@ const GalleryView = ({
 
   return (
     <div className={'flex flex-row justify-center m-auto'}>
-      <button onClick={scrollLeft}>
-        <Icon
-          path={ChevronRight.path}
-          className={classNames(
-            'bg-lilac rotate-180 opacity-60 p-1.5 m-auto',
-            viewIdx === 0 ? 'fill-dove' : 'fill-black hover:p-1 hover:fill-red hover:opacity-100',
-          )}
-          size={'32px'}
-        />
-      </button>
+      <CarouselButton
+        scrollFn={scrollLeft}
+        viewIdx={viewIdx}
+        isAtEnd={(idx) => idx === 0}
+        isRight={false}
+      />
       <Image
         className={'opacity-100'}
         src={images[viewIdx].uri}
@@ -54,18 +47,12 @@ const GalleryView = ({
         height={200}
         unoptimized={true}
       />
-      <button onClick={scrollRight}>
-        <Icon
-          path={ChevronRight.path}
-          className={classNames(
-            'bg-lilac fill-black opacity-60 p-1.5',
-            viewIdx === images.length - 1
-              ? 'fill-dove'
-              : 'fill-black hover:p-1 hover:fill-red hover:opacity-100',
-          )}
-          size={'32px'}
-        />
-      </button>
+      <CarouselButton
+        scrollFn={scrollRight}
+        viewIdx={viewIdx}
+        isAtEnd={(idx) => idx === images.length - 1}
+        isRight={true}
+      />
       <button onClick={closeViewCallback}>
         <Icon
           path={Cross.path}
