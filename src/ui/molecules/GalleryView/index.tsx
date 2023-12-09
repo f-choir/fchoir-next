@@ -1,8 +1,7 @@
 'use client';
 import Image from 'next/image';
-import Icon from '@/ui/atoms/Icon';
-import Cross from '@/ui/atoms/Icon/paths/cross';
 import CarouselButton from '@/ui/atoms/CarouselButton';
+import CloseButton from '@/ui/atoms/CloseButton';
 
 export interface GalleryImageProps {
   uri: string;
@@ -53,13 +52,7 @@ const GalleryView = ({
         isAtEnd={(idx) => idx === images.length - 1}
         isRight={true}
       />
-      <button onClick={closeViewCallback}>
-        <Icon
-          path={Cross.path}
-          className={'absolute fill-white top-0 right-0 pt-4'}
-          size={'48px'}
-        />
-      </button>
+      <CloseButton onClose={closeViewCallback} />
     </div>
   );
 };

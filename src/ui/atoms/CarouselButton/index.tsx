@@ -16,7 +16,9 @@ const CarouselButton = ({ scrollFn, isRight, viewIdx, isAtEnd }: CarouselButtonP
       className={classNames(
         'bg-lilac opacity-60 p-1.5 m-auto',
         !isRight && 'rotate-180',
-        isAtEnd(viewIdx) ? 'fill-dove' : 'fill-black hover:p-1 hover:fill-red hover:opacity-100',
+        isAtEnd(viewIdx)
+          ? 'fill-dove'
+          : 'fill-black hover:p-1 hover:fill-red hover:opacity-100 transform duration-200',
       )}
       size={'32px'}
     />
