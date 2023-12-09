@@ -14,6 +14,7 @@ export const Main: Story = {
     <ImagePreview
       size={256}
       altText={'some alt text'}
+      onClickCallback={() => {}}
       src={'https://picsum.photos/id/10/300/200'}
     />
   ),

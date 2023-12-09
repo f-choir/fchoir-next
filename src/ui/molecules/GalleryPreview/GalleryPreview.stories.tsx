@@ -15,7 +15,7 @@ export const Main: Story = {
     <Wrap>
       <GalleryPreview
         size={256}
-        galleryHref={'foo'}
+        uri={'foo'}
         imgSrc={'https://picsum.photos/id/10/300/200'}
         titleText={'some exciting title text'}
       />
