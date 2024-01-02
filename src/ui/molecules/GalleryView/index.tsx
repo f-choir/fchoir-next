@@ -11,7 +11,7 @@ export interface GalleryImageProps {
 interface GalleryViewProps {
   images: GalleryImageProps[];
   viewIdx: number;
-  closeViewCallback: () => void;
+  closeViewCallback?: () => void;
   updateViewIdxCallback: (idx: number) => void;
 }
 
@@ -52,7 +52,7 @@ const GalleryView = ({
         isAtEnd={(idx) => idx === images.length - 1}
         isRight={true}
       />
-      <CloseButton onClose={closeViewCallback} />
+      {closeViewCallback && <CloseButton onClose={closeViewCallback} />}
     </div>
   );
 };

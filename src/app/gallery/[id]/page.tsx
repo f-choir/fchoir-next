@@ -1,6 +1,6 @@
 import galleries, { getGalleryById } from '@/model/galleries';
 import Wrap from '@/ui/atoms/Wrap';
-import GalleryView, { GalleryImageProps } from '@/ui/molecules/GalleryView';
+import { GalleryImageProps } from '@/ui/molecules/GalleryView';
 import GalleryComponent from '@/ui/molecules/Gallery';
 
 const Gallery = ({ params }: { params: { id: string } }) => {
