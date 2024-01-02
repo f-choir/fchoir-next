@@ -6,9 +6,10 @@ import { useState } from 'react';
 
 interface AttractGalleryProps {
   id: string;
+  interval: number;
 }
 
-const AttractGallery = ({ id }: AttractGalleryProps) => {
+const AttractGallery = ({ id, interval }: AttractGalleryProps) => {
   const [viewIdx, setViewIdx] = useState(0);
   const gallery = getGalleryById(id);
   if (!gallery) return;
@@ -24,7 +25,7 @@ const AttractGallery = ({ id }: AttractGalleryProps) => {
 
   setTimeout(() => {
     setViewIdx((viewIdx + 1) % gallery.images.length);
-  }, 5000);
+  }, interval);
 
   return (
     <GalleryView

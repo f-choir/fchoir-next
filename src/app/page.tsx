@@ -9,7 +9,7 @@ export default function Home() {
         <Headline text={'f*choir'} wrapClasses={'foo'} />
       </div>
       <div className={'pt-20'}>
-        <AttractGallery id={'test-gallery'} />
+        <AttractGallery id={'test-gallery'} interval={2000} />
       </div>
       <SubHeader className={'text-center mt-4'} text={'causing a racket // singing together'} />
     </main>
