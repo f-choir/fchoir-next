@@ -10,5 +10,5 @@ export default meta;
 type Story = StoryObj<typeof AttractGallery>;
 
 export const Main: Story = {
-  render: () => <AttractGallery />,
+  render: () => <AttractGallery id={'test-gallery'} interval={2000} />,
 };
