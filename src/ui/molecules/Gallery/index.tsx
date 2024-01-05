@@ -28,7 +28,7 @@ const Gallery = ({ title, images }: GalleryProps) => {
   return (
     <>
       <div className={'flex flex-col p-2 pb-4'}>
-        <SubHeader text={title} className={'inline-block text-center mb-4'} />
+        {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
         <ImageGrid
           images={images.slice(0, 9).map((image, idx) => image.uri)}
           onClickCallback={images.slice(0, 9).map((_, idx) => onImageClick(idx))}

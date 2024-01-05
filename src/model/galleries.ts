@@ -18,4 +18,18 @@ export const getGalleryPreviews = () => {
   return galleryData.map(galleryJsonToGalleryPreviewProps);
 };
 
+export const getMerchGalleryImages = () => {
+  const merchGallery = {
+    id: 'merch-gallery',
+    title: 'merch',
+    heroImageIndex: 0,
+    images: [
+      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
+      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
+      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
+    ],
+  };
+  return merchGallery.images;
+};
+
 export default galleries;
