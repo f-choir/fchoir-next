@@ -1,5 +1,6 @@
 import ImagePreview from '@/ui/molecules/ImagePreview';
 import SquareImage from '@/ui/atoms/SquareImage';
+import Link from 'next/link';
 
 export interface GalleryPreviewProps {
   size: number;
@@ -12,7 +13,7 @@ export interface GalleryPreviewProps {
 
 const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) => (
   <div className={'relative group w-[256px]'}>
-    <a href={uri}>
+    <Link href={uri}>
       <div
         className={`absolute text-center hover:bg-lilac hover:opacity-80 h-full w-full border-purple border-4`}
       >
@@ -25,7 +26,7 @@ const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) =
         </p>
       </div>
       <SquareImage size={size} altText={titleText} src={imgSrc} />
-    </a>
+    </Link>
   </div>
 );
 

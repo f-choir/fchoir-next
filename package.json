@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next lint && next build",
+    "deploy": "gcloud storage rsync ./out gs://f-choir-website-static --recursive --delete-unmatched-destination-objects",
     "serve": "http-server ./out",
     "start": "next start",
     "lint": "next lint",
@@ -36,9 +37,10 @@
     "http-server": "14.1.1",
     "postcss": "8",
     "prettier": "3.1.0",
-    "ts-node": "10.9.1",
     "storybook": "7.5.3",
     "tailwindcss": "3.3.0",
+    "ts-node": "10.9.1",
     "typescript": "5"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

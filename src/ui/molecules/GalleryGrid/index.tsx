@@ -14,7 +14,7 @@ const GalleryGrid = ({ galleries }: GalleryGridProps) => {
           size={256}
           titleText={gallery.titleText}
           imgSrc={gallery.imgSrc}
-          uri={`gallery/${gallery.uri}`}
+          uri={`/gallery/${gallery.uri}`}
         />
       ))}
     </Grid>
