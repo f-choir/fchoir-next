@@ -25,6 +25,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         jost: ['"Jost"', ...defaultTheme.fontFamily.sans],
+        barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

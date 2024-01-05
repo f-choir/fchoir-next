@@ -1,19 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import NavBar from '../ui/molecules/NavBar';
-import { Jost } from 'next/font/google';
 import Footer from '@/ui/molecules/Footer';
 import classNames from 'classnames';
+import { jost } from '@/ui/fonts';
 
 export const metadata: Metadata = {
   title: 'F*Choir',
   description: 'Queer-led, femme-centred choir from London.',
 };
-
-const jost = Jost({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
