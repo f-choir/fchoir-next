@@ -23,8 +23,6 @@ const Gallery = ({ title, images }: GalleryProps) => {
 
   const onCloseViewClick = () => setIsViewMode(false);
 
-  // this also needs to provide a callback to gallery view. View needs to rely on this viewIdx rather than having its own state.
-
   return (
     <>
       <div className={'flex flex-col p-2 pb-4'}>
