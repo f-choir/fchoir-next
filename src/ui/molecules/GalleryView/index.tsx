@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import CarouselButton from '@/ui/atoms/CarouselButton';
 import CloseButton from '@/ui/atoms/CloseButton';
+import { imageSrc } from '@/ui/helpers';
+import gallery from '@/ui/molecules/Gallery';
 
 export interface GalleryImageProps {
   uri: string;
@@ -9,6 +11,7 @@ export interface GalleryImageProps {
 }
 
 interface GalleryViewProps {
+  galleryId: string;
   images: GalleryImageProps[];
   viewIdx: number;
   closeViewCallback?: () => void;
@@ -16,6 +19,7 @@ interface GalleryViewProps {
 }
 
 const GalleryView = ({
+  galleryId,
   images,
   viewIdx,
   closeViewCallback,
@@ -40,7 +44,7 @@ const GalleryView = ({
       />
       <Image
         className={'opacity-100'}
-        src={images[viewIdx].uri}
+        src={imageSrc(galleryId, images[viewIdx].uri)}
         alt={images[viewIdx].alt ?? ''}
         width={300}
         height={200}

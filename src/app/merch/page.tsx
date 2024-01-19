@@ -4,11 +4,12 @@ import { getMerchGalleryImages } from '@/model/galleries';
 import { getImageUrl } from '@/model/image';
 
 export default function Merch() {
+  const merchImages = getMerchGalleryImages();
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'merch'} />
       <p className={'text-center text-xl m:text-2xl py-8 w-5/6 m:w-3/4 l:w-2/3 xl:w-1/2 m-auto'}>
-        Roll up, roll up, we've got t-shirts! Head over to our{' '}
+        Roll up, roll up, we&apos;ve got t-shirts! Head over to our{' '}
         <a
           className={'text-purple underline hover:text-black'}
           href={'https://fchoir.bandcamp.com/merch'}
@@ -18,8 +19,10 @@ export default function Merch() {
         to grab one of these limited edition, handpainted beauties while stocks last x
       </p>
       <Gallery
+        id={''}
         title={''}
-        images={getMerchGalleryImages().map((img) => ({
+        pathOverride={true}
+        images={merchImages.map((img) => ({
           uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
           alt: img.alt,
         }))}

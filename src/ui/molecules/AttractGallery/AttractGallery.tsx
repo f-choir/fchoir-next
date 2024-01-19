@@ -29,6 +29,7 @@ const AttractGallery = ({ id, interval }: AttractGalleryProps) => {
 
   return (
     <GalleryView
+      galleryId={id}
       images={gallery.images.map(imagesToViewProps)}
       viewIdx={viewIdx}
       updateViewIdxCallback={updateViewIdxCallback}

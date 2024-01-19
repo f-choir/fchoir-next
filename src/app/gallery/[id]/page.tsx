@@ -17,7 +17,11 @@ const Gallery = ({ params }: { params: { id: string } }) => {
 
   return (
     <Wrap className={'m-auto flex justify-center pt-4'}>
-      <GalleryComponent title={gallery.title} images={gallery.images.map(imagesToViewProps)} />
+      <GalleryComponent
+        id={gallery.id}
+        title={gallery.title}
+        images={gallery.images.map(imagesToViewProps)}
+      />
     </Wrap>
   );
 };

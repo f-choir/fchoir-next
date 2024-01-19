@@ -6,11 +6,13 @@ import GalleryView, { GalleryImageProps } from '@/ui/molecules/GalleryView';
 import { useState } from 'react';
 
 interface GalleryProps {
+  id: string;
   title: string;
   images: GalleryImageProps[];
+  pathOverride?: boolean;
 }
 
-const Gallery = ({ title, images }: GalleryProps) => {
+const Gallery = ({ id, title, images, pathOverride }: GalleryProps) => {
   const [isViewMode, setIsViewMode] = useState(false);
   const [viewIdx, setViewIdx] = useState(0);
 
@@ -28,6 +30,7 @@ const Gallery = ({ title, images }: GalleryProps) => {
       <div className={'flex flex-col p-2 pb-4'}>
         {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
         <ImageGrid
+          path={pathOverride ? '' : id}
           images={images.slice(0, 9).map((image, idx) => image.uri)}
           onClickCallback={images.slice(0, 9).map((_, idx) => onImageClick(idx))}
         />
@@ -39,6 +42,7 @@ const Gallery = ({ title, images }: GalleryProps) => {
         )}
       >
         <GalleryView
+          galleryId={id}
           images={images}
           viewIdx={viewIdx}
           closeViewCallback={onCloseViewClick}

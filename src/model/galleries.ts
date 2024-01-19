@@ -20,13 +20,13 @@ export const getGalleryPreviews = () => {
 
 export const getMerchGalleryImages = () => {
   const merchGallery = {
-    id: 'merch-gallery',
-    title: 'merch',
+    id: '',
+    title: '',
     heroImageIndex: 0,
     images: [
-      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
-      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
-      { imageUrl: 'merch-test', alt: 'a bunch of hot F* members modelling shirts' },
+      { imageUrl: 'merch-test', alt: 'a bunch of F* members modelling shirts' },
+      { imageUrl: 'merch-test', alt: 'a bunch of F* members modelling shirts' },
+      { imageUrl: 'merch-test', alt: 'a bunch of F* members modelling shirts' },
     ],
   };
   return merchGallery.images;
