@@ -8,7 +8,7 @@ function hasGallery(id, galleries) {
 }
 
 function imageFrom(id) {
-  return { imageUrl: id.split('.')[0], alt: 'alt text' };
+  return { imageUrl: id, alt: 'alt text' };
 }
 
 async function parseBucketContents() {
@@ -31,7 +31,7 @@ async function parseBucketContents() {
           id: elems[0],
           title: elems[0],
           heroImageIndex: 0,
-          images: [imageFrom(elems[1])],
+          images: [imageFrom(`${elems[1]}`)],
         });
       }
     });
@@ -40,7 +40,10 @@ async function parseBucketContents() {
 
 async function writeJson() {
   const content = await parseBucketContents();
-  fs.writeFile('./galleries.json', JSON.stringify(content), (err) => {
+  fs.rename('./src/data/galleries.json', './src/data/_old_galleries.json', (err) => {
+    if (err) console.error(err);
+  });
+  fs.writeFile('./src/data/galleries.json', JSON.stringify(content), (err) => {
     if (err) console.error(err);
   });
 }

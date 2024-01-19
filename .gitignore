@@ -40,3 +40,6 @@ next-env.d.ts
 
 # temp
 /public/
+
+/src/data/galleries.json
+/src/data/_old_galleries.json
