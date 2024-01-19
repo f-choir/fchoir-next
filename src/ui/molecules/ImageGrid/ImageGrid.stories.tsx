@@ -9,8 +9,8 @@ export default meta;
 
 type Story = StoryObj<typeof ImageGrid>;
 
-const images = Array(9).fill('https://picsum.photos/id/10/300/200');
+const images = Array(9).fill('');
 
 export const Main: Story = {
-  render: () => <ImageGrid images={images} onClickCallback={[() => {}]} />,
+  render: () => <ImageGrid path={''} images={images} onClickCallback={[() => {}]} />,
 };
