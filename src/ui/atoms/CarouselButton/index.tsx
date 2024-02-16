@@ -10,7 +10,7 @@ interface CarouselButtonProps {
 }
 
 const CarouselButton = ({ scrollFn, isRight, viewIdx, isAtEnd }: CarouselButtonProps) => (
-  <button onClick={scrollFn}>
+  <button onClick={scrollFn} className={'z-5'}>
     <Icon
       path={ChevronRight.path}
       className={classNames(

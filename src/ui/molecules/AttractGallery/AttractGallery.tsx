@@ -28,12 +28,14 @@ const AttractGallery = ({ id, interval }: AttractGalleryProps) => {
   }, interval);
 
   return (
-    <GalleryView
-      galleryId={id}
-      images={gallery.images.map(imagesToViewProps)}
-      viewIdx={viewIdx}
-      updateViewIdxCallback={updateViewIdxCallback}
-    />
+    <div className={'h-[60vw] w-[100vw] relative z-0'}>
+      <GalleryView
+        galleryId={id}
+        images={gallery.images.map(imagesToViewProps)}
+        viewIdx={viewIdx}
+        updateViewIdxCallback={updateViewIdxCallback}
+      />
+    </div>
   );
 };
 

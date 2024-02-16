@@ -10,9 +10,10 @@ interface GalleryProps {
   title: string;
   images: GalleryImageProps[];
   pathOverride?: boolean;
+  viewClassName?: string;
 }
 
-const Gallery = ({ id, title, images, pathOverride }: GalleryProps) => {
+const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProps) => {
   const [isViewMode, setIsViewMode] = useState(false);
   const [viewIdx, setViewIdx] = useState(0);
 
@@ -27,7 +28,7 @@ const Gallery = ({ id, title, images, pathOverride }: GalleryProps) => {
 
   return (
     <>
-      <div className={'flex flex-col p-2 pb-4'}>
+      <div className={`flex flex-col p-2 pb-4 ${isViewMode ? 'hidden' : 'inline-block'}`}>
         {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
         <ImageGrid
           path={pathOverride ? '' : id}
@@ -37,8 +38,9 @@ const Gallery = ({ id, title, images, pathOverride }: GalleryProps) => {
       </div>
       <div
         className={classNames(
-          'absolute w-full h-full bg-black p-8',
+          'absolute bg-black p-8 w-5/6 h-5/6',
           isViewMode ? 'inline-block' : 'hidden',
+          `${viewClassName ? viewClassName : ''}`,
         )}
       >
         <GalleryView

@@ -18,15 +18,18 @@ export default function Merch() {
         </a>{' '}
         to grab one of these limited edition, handpainted beauties while stocks last x
       </p>
-      <Gallery
-        id={''}
-        title={''}
-        pathOverride={true}
-        images={merchImages.map((img) => ({
-          uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
-          alt: img.alt,
-        }))}
-      />
+      <div className={'flex flex-row justify-center'}>
+        <Gallery
+          id={''}
+          title={''}
+          pathOverride={true}
+          images={merchImages.map((img) => ({
+            uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
+            alt: img.alt,
+          }))}
+          // viewClassName={'mb-8'}
+        />
+      </div>
     </main>
   );
 }

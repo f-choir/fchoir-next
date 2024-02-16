@@ -15,7 +15,7 @@ const SquareImage = ({ src, altText, size, style }: SquareImageProps) => (
     height={size}
     // unoptimized={true}
     style={style}
-    className={`aspect-square`}
+    className={`aspect-square object-cover`}
   />
 );
 

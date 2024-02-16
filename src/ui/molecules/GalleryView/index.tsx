@@ -16,6 +16,7 @@ interface GalleryViewProps {
   viewIdx: number;
   closeViewCallback?: () => void;
   updateViewIdxCallback: (idx: number) => void;
+  // viewClassName?: string;
 }
 
 const GalleryView = ({
@@ -23,7 +24,7 @@ const GalleryView = ({
   images,
   viewIdx,
   closeViewCallback,
-  updateViewIdxCallback,
+  updateViewIdxCallback, // viewClassName,
 }: GalleryViewProps) => {
   const scroll = (isRight: boolean) => {
     isRight
@@ -35,21 +36,23 @@ const GalleryView = ({
   const scrollLeft = () => scroll(false);
 
   return (
-    <div className={'flex flex-row justify-center m-auto'}>
+    <div className={`flex flex-row justify-center m-auto h-3/4`}>
       <CarouselButton
         scrollFn={scrollLeft}
         viewIdx={viewIdx}
         isAtEnd={(idx) => idx === 0}
         isRight={false}
       />
-      <Image
-        className={'opacity-100'}
-        src={imageSrc(galleryId, images[viewIdx].uri)}
-        alt={images[viewIdx].alt ?? ''}
-        width={300}
-        height={200}
-        unoptimized={true}
-      />
+      <div className={`w-3/4 flex flex-row relative`}>
+        {/* TODO doesn't handle portrait very well */}
+        <Image
+          className={`opacity-100 object-cover`}
+          src={imageSrc(galleryId, images[viewIdx].uri)}
+          alt={images[viewIdx].alt ?? ''}
+          fill={true}
+          unoptimized={true}
+        />
+      </div>
       <CarouselButton
         scrollFn={scrollRight}
         viewIdx={viewIdx}

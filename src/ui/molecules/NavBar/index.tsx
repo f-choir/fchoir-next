@@ -18,10 +18,10 @@ const NavBar = () => {
   const links = getNavLinks(usePathname());
   const doSetMenuClosed = () => setMenuOpen(false);
   return (
-    <nav className="bg-purple sticky top-0 z-10">
+    <nav className="bg-purple sticky top-0 z-30">
       <button
         onClick={() => setMenuOpen(!isMenuOpen)}
-        className="absolute flex flex-row items-center right-5 top-2 m:hidden z-20"
+        className="absolute flex flex-row items-center right-5 top-2 m:hidden z-40"
       >
         <span className="text-red text-xl font-medium">MENU</span>
         <Icon
@@ -33,7 +33,11 @@ const NavBar = () => {
           )}
         />
       </button>
-      <ul className="flex flex-col m:flex-row w-full m:w-auto justify-center absolute m:relative divide-y m:divide-y-0 border-lilac">
+      <ul
+        className={`flex flex-col m:flex-row w-full m:w-auto justify-center absolute m:relative divide-y m:divide-y-0 border-lilac ${
+          isMenuOpen ? 'z-11' : ''
+        }`}
+      >
         {links.map((link) => (
           <li
             key={link.url}
