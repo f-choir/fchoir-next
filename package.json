@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "monorepo for f-choir site and backend",
-  "main": "index.js",
   "repository": "git@github.com:f-choir/fchoir-next.git",
   "author": "Bee Godwin <bee.godwin@bbc.co.uk>",
   "license": "MIT",
