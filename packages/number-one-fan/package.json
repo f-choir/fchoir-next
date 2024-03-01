@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:site": "next dev",
-    "build:site": "next lint && next build",
-    "deploy:site": "gcloud storage rsync ./out gs://f-choir-website-static --recursive --delete-unmatched-destination-objects",
-    "serve:site": "http-server ./out",
-    "start:site": "next start",
+    "dev": "next dev",
+    "build": "next lint && next build",
+    "deploy": "gcloud storage rsync ./out gs://f-choir-website-static --recursive --delete-unmatched-destination-objects",
+    "serve": "http-server ./out",
+    "start": "next start",
     "lint": "next lint",
-    "storybook:site": "storybook dev -p 6006",
-    "build-storybook:site": "storybook build",
-    "make-galleries": "node ./gcloud/makeGalleries.js"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -20,7 +19,6 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@google-cloud/storage": "^7.7.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
     "@storybook/addon-links": "7.5.3",

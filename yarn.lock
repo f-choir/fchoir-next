@@ -8131,7 +8131,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fchoir-next@workspace:packages/number-one-fan"
   dependencies:
-    "@google-cloud/storage": "npm:^7.7.0"
     "@storybook/addon-essentials": "npm:7.5.3"
     "@storybook/addon-interactions": "npm:7.5.3"
     "@storybook/addon-links": "npm:7.5.3"
@@ -8558,6 +8557,14 @@ __metadata:
   checksum: 10c0/89b390d6a3776fcb706dc9ef9728c424595fca15afb6a7c6fb8a164a06708203189cd71e39f1617ece39e1d7ec6964f8882b2cafaf1b823a02175f758c1b8738
   languageName: node
   linkType: hard
+
+"gcloud@workspace:packages/gcloud":
+  version: 0.0.0-use.local
+  resolution: "gcloud@workspace:packages/gcloud"
+  dependencies:
+    "@google-cloud/storage": "npm:^7.7.0"
+  languageName: unknown
+  linkType: soft
 
 "gcp-metadata@npm:^6.1.0":
   version: 6.1.0
