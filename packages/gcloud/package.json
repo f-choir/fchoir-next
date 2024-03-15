@@ -1,0 +1,10 @@
+{
+  "name": "gcloud",
+  "packageManager": "yarn@4.1.0",
+  "scripts": {
+    "make-galleries": "node ./makeGalleries.js"
+  },
+  "devDependencies": {
+    "@google-cloud/storage": "^7.7.0"
+  }
+}
