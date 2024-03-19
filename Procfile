@@ -1,0 +1,1 @@
+web: cd packages/we-rise && npm run build && npm run start
