@@ -1,1 +1,1 @@
-web: yarn set version berry && cd packages/we-rise && npm run build && npm run start
+web: cd packages/we-rise && npm run build && npm run start
