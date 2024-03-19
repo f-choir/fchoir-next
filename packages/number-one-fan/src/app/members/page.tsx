@@ -24,7 +24,6 @@ export default async function Members() {
       <Wrap>
         <p className='font-bold text-xl'>{news.title}</p>
         <p>{news.body}</p>
-
       </Wrap>
     </main>
   );
