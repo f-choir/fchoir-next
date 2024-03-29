@@ -1,5 +1,6 @@
 import Headline from '@/ui/atoms/Headline';
 import Wrap from "@/ui/atoms/Wrap";
+import { fetchApi } from "@/api";
 
 type News = {
   title: string;
@@ -7,7 +8,7 @@ type News = {
 }
 
 const getData = async (): Promise<News> => {
-  const res = await fetch('http://127.0.0.1:1337/api/news/1');
+  const res = await fetchApi('news/1');
   const strapi = await res.json();
   return {
     title: strapi.data.attributes.Title,
