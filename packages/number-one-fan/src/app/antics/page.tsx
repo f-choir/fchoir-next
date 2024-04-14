@@ -6,7 +6,7 @@ export default function Antics() {
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'antics'} />
-      <GalleryGrid galleries={getGalleryPreviews()} />
+      {/*<GalleryGrid galleries={getGalleryPreviews()} />*/}
     </main>
   );
 }

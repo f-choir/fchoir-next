@@ -1,10 +1,24 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
-import { getMerchGalleryImages } from '@/model/galleries';
-import { getImageUrl } from '@/model/image';
+// import { getMerchGalleryImages } from '@/model/galleries';
+// import { getImageUrl } from '@/model/image';
+import { firstImageTest } from '@/api/firstImageTest';
 
-export default function Merch() {
-  const merchImages = getMerchGalleryImages();
+const getData = async () => {
+  const res = await firstImageTest();
+  const strapi = await res.json();
+  return [
+    {
+      uri: strapi.data.attributes.media.data.attributes.url,
+      alt: strapi.data.attributes.description,
+    },
+  ];
+};
+export default async function Merch() {
+  // const merchImages = getMerchGalleryImages();
+
+  const merchImages = await getData();
+
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'merch'} />
@@ -23,10 +37,11 @@ export default function Merch() {
           id={''}
           title={''}
           pathOverride={true}
-          images={merchImages.map((img) => ({
-            uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
-            alt: img.alt,
-          }))}
+          // images={merchImages.map((img) => ({
+          //   uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
+          //   alt: img.alt,
+          // }))}
+          images={merchImages}
           // viewClassName={'mb-8'}
         />
       </div>
