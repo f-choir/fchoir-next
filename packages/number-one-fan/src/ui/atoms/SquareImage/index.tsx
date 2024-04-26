@@ -14,7 +14,7 @@ const SquareImage = ({ src, altText, size, style }: SquareImageProps) => (
     width={size}
     height={size}
     // unoptimized={true}
-    // TODO this needs a loader to handle the multiple URLS for different sizes
+    // TODO Cloudinary could use a loader to handle the multiple URLS for different sizes
     style={style}
     className={`aspect-square object-cover`}
   />
