@@ -35,7 +35,7 @@ export default function Members() {
     <>
       <Headline text={'f*members'} />
       <Wrap>
-        {!window.localStorage.getItem('f-choir-tkn') && (
+        {!window.localStorage.getItem('f-choir-tkn') && ( // TODO change this code to use a cookie, and refactor all this auth code to be nice.
           <form onSubmit={() => false}>
             <label htmlFor="user">user</label>
             <input
