@@ -5,7 +5,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
 import { postAuth } from '@/api';
-import { getFromLocalStorage, setToLocalStorage } from '@/cookie';
+import { getCookieNamed, setCookieWith } from '@/cookie';
 
 export default function Members() {
   const [userField, setUserField] = useState('');
@@ -17,11 +17,11 @@ export default function Members() {
   const { data } = useQuery({
     queryKey: ['hello-world'],
     queryFn: async () => {
-      if (!getFromLocalStorage('f-choir-tkn')) {
+      if (!getCookieNamed('f-choir-tkn')) {
         const login = await postAuth(user);
-        login.jwt && setToLocalStorage('f-choir-tkn', login.jwt);
+        login.jwt && setCookieWith('f-choir-tkn', login.jwt);
       }
-      const jwt = getFromLocalStorage('f-choir-tkn');
+      const jwt = getCookieNamed('f-choir-tkn');
       const data = await firstNewsPost(jwt ?? undefined);
       const strapi = await data.json();
       return {
@@ -36,7 +36,7 @@ export default function Members() {
     <>
       <Headline text={'f*members'} />
       <Wrap>
-        {!getFromLocalStorage('f-choir-tkn') && ( // TODO change this code to use a cookie, and refactor all this auth code to be nice.
+        {!getCookieNamed('f-choir-tkn') && (
           <form onSubmit={() => false}>
             <label htmlFor="user">user</label>
             <input
