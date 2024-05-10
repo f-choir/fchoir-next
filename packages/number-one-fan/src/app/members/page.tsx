@@ -1,7 +1,7 @@
 'use client';
 import Headline from '@/ui/atoms/Headline';
 import Wrap from '@/ui/atoms/Wrap';
-import { queryOptions, useQuery, useQueryClient } from '@tanstack/react-query';
+import { queryOptions, useQuery } from '@tanstack/react-query';
 import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
 import { authenticate } from '@/api';
