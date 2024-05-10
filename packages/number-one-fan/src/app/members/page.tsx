@@ -15,7 +15,7 @@ export default function Members() {
     queryOptions({
       queryKey: ['hello-world'],
       queryFn: async () => {
-        const jwt = await authenticate(user);
+        const jwt = await authenticate(user); // TEMP: manually change the cookie domain in @/cookie to have this work on localhost
         const data = await firstNewsPost(jwt);
         const strapi = await data.json();
         return {
@@ -24,7 +24,6 @@ export default function Members() {
         };
       },
       staleTime: 24 * 60 * 60 * 1000,
-      // retryDelay: (attempt) => attempt * 60 * 1000,
     }),
   );
 
