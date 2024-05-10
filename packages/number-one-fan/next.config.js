@@ -3,8 +3,9 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true,
     domains: ['res.cloudinary.com'],
+    loader: 'custom',
+    loaderFile: './src/model/cloudinaryLoader.ts',
   },
 };
 
