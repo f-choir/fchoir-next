@@ -5,12 +5,11 @@ import { firstImageTest } from '@/api/firstImageTest';
 const getData = async () => {
   const res = await firstImageTest();
   const strapi = await res.json();
-  return [
-    {
-      uri: strapi.data.attributes.media.data.attributes.url,
-      alt: strapi.data.attributes.description,
-    },
-  ];
+  const dataItem = {
+    uri: strapi.data.attributes.media.data.attributes.url,
+    alt: strapi.data.attributes.description,
+  };
+  return [dataItem, dataItem, dataItem];
 };
 export default async function Merch() {
   const merchImages = await getData();
