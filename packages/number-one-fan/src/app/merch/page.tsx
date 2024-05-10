@@ -1,7 +1,5 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
-// import { getMerchGalleryImages } from '@/model/galleries';
-// import { getImageUrl } from '@/model/image';
 import { firstImageTest } from '@/api/firstImageTest';
 
 const getData = async () => {
@@ -15,8 +13,6 @@ const getData = async () => {
   ];
 };
 export default async function Merch() {
-  // const merchImages = getMerchGalleryImages();
-
   const merchImages = await getData();
 
   return (
@@ -33,17 +29,7 @@ export default async function Merch() {
         to grab one of these limited edition, handpainted beauties while stocks last x
       </p>
       <div className={'flex flex-row justify-center'}>
-        <Gallery
-          id={''}
-          title={''}
-          pathOverride={true}
-          // images={merchImages.map((img) => ({
-          //   uri: getImageUrl(img.imageUrl, 'merch/gallery/'),
-          //   alt: img.alt,
-          // }))}
-          images={merchImages}
-          // viewClassName={'mb-8'}
-        />
+        <Gallery id={''} title={''} pathOverride={true} images={merchImages} />
       </div>
     </main>
   );
