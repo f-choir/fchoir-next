@@ -11,8 +11,6 @@ import LoginForm from '@/ui/molecules/LoginForm';
 export default function Members() {
   const [user, setUser] = useState({ identifier: '', password: '' });
 
-  const queryClient = useQueryClient();
-
   const { data } = useQuery({
     queryKey: ['hello-world'],
     queryFn: async () => {
@@ -33,7 +31,7 @@ export default function Members() {
       <Headline text={'f*members'} />
       <Wrap>
         {!getCookieNamed('f-choir-tkn') && (
-          <LoginForm setUser={setUser} queryClient={queryClient} queryKey={['hello-world']} />
+          <LoginForm setUser={setUser} queryKey={['hello-world']} />
         )}
         {data && (
           <p>

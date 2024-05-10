@@ -1,14 +1,15 @@
-import { QueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 
 interface LoginFormProps {
   setUser: ({ identifier, password }: { identifier: string; password: string }) => void;
-  queryClient: QueryClient;
   queryKey: string[];
 }
-const LoginForm = ({ setUser, queryClient, queryKey }: LoginFormProps) => {
+const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
   const [userField, setUserField] = useState('');
   const [passwordField, setPasswordField] = useState('');
+
+  const queryClient = useQueryClient();
 
   return (
     <form onSubmit={() => false}>
