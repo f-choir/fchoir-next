@@ -12,20 +12,28 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
   const queryClient = useQueryClient();
 
   return (
-    <form onSubmit={() => false}>
-      <label htmlFor="user">user</label>
+    <form onSubmit={() => false} className="py-4">
+      <label htmlFor="user" className="px-2">
+        user
+      </label>
       <input
         type="text"
         name="user"
+        autoComplete="username"
         value={userField}
         onChange={(e) => setUserField(e.target.value)}
+        className="px-2"
       />
-      <label htmlFor="password">password</label>
+      <label htmlFor="password" className="px-2">
+        password
+      </label>
       <input
         type="password"
         name="password"
+        autoComplete="current-password"
         value={passwordField}
         onChange={(e) => setPasswordField(e.target.value)}
+        className="px-2"
       />
       <input
         type="button"
@@ -34,6 +42,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
           setUser({ identifier: userField, password: passwordField });
           queryClient.invalidateQueries({ queryKey: queryKey });
         }}
+        className="px-2 font-bold text-black"
       />
     </form>
   );

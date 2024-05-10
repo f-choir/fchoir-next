@@ -26,9 +26,14 @@ const postAuth = async (user: any): Promise<StrapiAuthResponse> => {
   return loginResponseData as StrapiAuthResponse;
 };
 
-export const authenticate = async (user: { identifier: string; password: string }) => {
-  if (!getCookieNamed('f-choir-tkn')) {
+export const authenticate = async (user: {
+  identifier: string;
+  password: string;
+}): Promise<string> => {
+  if (!getCookieNamed('f-choir-tkn') && user.identifier && user.password) {
     const login = await postAuth(user);
     login.jwt && setCookieWith('f-choir-tkn', login.jwt);
+    return login.jwt;
   }
+  return getCookieNamed('f-choir-tkn') ?? '';
 };

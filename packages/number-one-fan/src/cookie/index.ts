@@ -1,9 +1,20 @@
 import { getCookie, setCookie } from 'typescript-cookie';
 
+// TODO turn this into config
+const DOMAIN = 'vercel.app';
+// const DOMAIN = 'localhost';
+
 export const getCookieNamed = (name: string): string | undefined | null => {
   if (typeof window !== 'undefined') return getCookie(name);
 };
 
 export const setCookieWith = (name: string, value: string) => {
-  if (typeof window !== 'undefined') setCookie(name, value);
+  if (typeof window !== 'undefined') {
+    setCookie(name, value, {
+      domain: DOMAIN,
+      expires: 7,
+      sameSite: 'None',
+      secure: true,
+    });
+  }
 };
