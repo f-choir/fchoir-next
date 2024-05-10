@@ -1,5 +1,5 @@
 const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
-
+// TODO this could use a 'dev mode' where it fetches from the local Strapi
 export const fetchApi = async (path: string, jwt?: string): Promise<Response> => {
   const options = jwt ? { headers: { Authorization: `Bearer ${jwt}` } } : {};
 
