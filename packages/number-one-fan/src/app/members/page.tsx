@@ -4,12 +4,11 @@ import Wrap from '@/ui/atoms/Wrap';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
-import { authenticate, postAuth } from '@/api';
-import { getCookieNamed, setCookieWith } from '@/cookie';
+import { authenticate } from '@/api';
+import { getCookieNamed } from '@/cookie';
+import LoginForm from '@/ui/molecules/LoginForm';
 
 export default function Members() {
-  const [userField, setUserField] = useState('');
-  const [passwordField, setPasswordField] = useState('');
   const [user, setUser] = useState({ identifier: '', password: '' });
 
   const queryClient = useQueryClient();
@@ -34,30 +33,7 @@ export default function Members() {
       <Headline text={'f*members'} />
       <Wrap>
         {!getCookieNamed('f-choir-tkn') && (
-          <form onSubmit={() => false}>
-            <label htmlFor="user">user</label>
-            <input
-              type="text"
-              name="user"
-              value={userField}
-              onChange={(e) => setUserField(e.target.value)}
-            />
-            <label htmlFor="password">password</label>
-            <input
-              type="password"
-              name="password"
-              value={passwordField}
-              onChange={(e) => setPasswordField(e.target.value)}
-            />
-            <input
-              type="button"
-              value="go"
-              onClick={() => {
-                setUser({ identifier: userField, password: passwordField });
-                queryClient.invalidateQueries({ queryKey: ['hello-world'] });
-              }}
-            />
-          </form>
+          <LoginForm setUser={setUser} queryClient={queryClient} queryKey={['hello-world']} />
         )}
         {data && (
           <p>
