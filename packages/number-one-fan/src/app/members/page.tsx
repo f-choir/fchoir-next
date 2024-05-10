@@ -5,7 +5,6 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
 import { authenticate } from '@/api';
-import { getCookieNamed } from '@/cookie';
 import LoginForm from '@/ui/molecules/LoginForm';
 
 export default function Members() {
@@ -31,9 +30,7 @@ export default function Members() {
     <>
       <Headline text={'f*members'} />
       <Wrap>
-        {!getCookieNamed('f-choir-tkn') && (
-          <LoginForm setUser={setUser} queryKey={['hello-world']} />
-        )}
+        {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
           <p>
             <span className="font-bold">{`${data.title ? data.title : ''} `}</span>
