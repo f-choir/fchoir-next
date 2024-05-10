@@ -1,3 +1,5 @@
+import { getCookieNamed, setCookieWith } from '@/cookie';
+
 const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
 // TODO this could use a 'dev mode' where it fetches from the local Strapi
 export const fetchApi = async (path: string, jwt?: string): Promise<Response> => {
@@ -10,7 +12,7 @@ type StrapiAuthResponse = {
   jwt: string;
 };
 
-export const postAuth = async (user: any): Promise<StrapiAuthResponse> => {
+const postAuth = async (user: any): Promise<StrapiAuthResponse> => {
   const login = await fetch(`${HEROKU_API_ROOT}/auth/local`, {
     method: 'POST',
     headers: {
@@ -22,4 +24,11 @@ export const postAuth = async (user: any): Promise<StrapiAuthResponse> => {
   const loginResponseData = await login.json();
 
   return loginResponseData as StrapiAuthResponse;
+};
+
+export const authenticate = async (user: { identifier: string; password: string }) => {
+  if (!getCookieNamed('f-choir-tkn')) {
+    const login = await postAuth(user);
+    login.jwt && setCookieWith('f-choir-tkn', login.jwt);
+  }
 };

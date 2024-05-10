@@ -4,7 +4,7 @@ import Wrap from '@/ui/atoms/Wrap';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
-import { postAuth } from '@/api';
+import { authenticate, postAuth } from '@/api';
 import { getCookieNamed, setCookieWith } from '@/cookie';
 
 export default function Members() {
@@ -17,10 +17,7 @@ export default function Members() {
   const { data } = useQuery({
     queryKey: ['hello-world'],
     queryFn: async () => {
-      if (!getCookieNamed('f-choir-tkn')) {
-        const login = await postAuth(user);
-        login.jwt && setCookieWith('f-choir-tkn', login.jwt);
-      }
+      await authenticate(user);
       const jwt = getCookieNamed('f-choir-tkn');
       const data = await firstNewsPost(jwt ?? undefined);
       const strapi = await data.json();
