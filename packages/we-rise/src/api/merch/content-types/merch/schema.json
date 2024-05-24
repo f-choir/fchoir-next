@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "merches",
+  "info": {
+    "singularName": "merch",
+    "pluralName": "merches",
+    "displayName": "merch"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gallery": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gallery.gallery"
+    },
+    "pitch": {
+      "type": "text"
+    }
+  }
+}

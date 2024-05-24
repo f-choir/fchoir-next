@@ -783,6 +783,40 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnticAntic extends Schema.SingleType {
+  collectionName: 'antics';
+  info: {
+    singularName: 'antic';
+    pluralName: 'antics';
+    displayName: 'antics';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    galleries: Attribute.Relation<
+      'api::antic.antic',
+      'oneToMany',
+      'api::gallery.gallery'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::antic.antic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::antic.antic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGalleryGallery extends Schema.CollectionType {
   collectionName: 'galleries';
   info: {
@@ -825,6 +859,7 @@ export interface ApiGalleryImageGalleryImage extends Schema.CollectionType {
     singularName: 'gallery-image';
     pluralName: 'gallery-images';
     displayName: 'GalleryImage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -833,6 +868,7 @@ export interface ApiGalleryImageGalleryImage extends Schema.CollectionType {
     img: Attribute.Media;
     caption: Attribute.String;
     alt: Attribute.Text;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -877,6 +913,41 @@ export interface ApiImageTestImageTest extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::image-test.image-test',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMerchMerch extends Schema.SingleType {
+  collectionName: 'merches';
+  info: {
+    singularName: 'merch';
+    pluralName: 'merches';
+    displayName: 'merch';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    gallery: Attribute.Relation<
+      'api::merch.merch',
+      'oneToOne',
+      'api::gallery.gallery'
+    >;
+    pitch: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::merch.merch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::merch.merch',
       'oneToOne',
       'admin::user'
     > &
@@ -933,9 +1004,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::antic.antic': ApiAnticAntic;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-image.gallery-image': ApiGalleryImageGalleryImage;
       'api::image-test.image-test': ApiImageTestImageTest;
+      'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
     }
   }

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "antics",
+  "info": {
+    "singularName": "antic",
+    "pluralName": "antics",
+    "displayName": "antics"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "galleries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gallery.gallery"
+    }
+  }
+}
