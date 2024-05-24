@@ -4,7 +4,8 @@
   "info": {
     "singularName": "merch",
     "pluralName": "merches",
-    "displayName": "merch"
+    "displayName": "merch",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,9 +16,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::gallery.gallery"
-    },
-    "pitch": {
-      "type": "text"
     }
   }
 }

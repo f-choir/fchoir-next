@@ -926,6 +926,7 @@ export interface ApiMerchMerch extends Schema.SingleType {
     singularName: 'merch';
     pluralName: 'merches';
     displayName: 'merch';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -936,7 +937,6 @@ export interface ApiMerchMerch extends Schema.SingleType {
       'oneToOne',
       'api::gallery.gallery'
     >;
-    pitch: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
