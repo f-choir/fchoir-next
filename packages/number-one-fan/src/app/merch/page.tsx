@@ -1,15 +1,22 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
 import { firstImageTest } from '@/api/firstImageTest';
+import { merch } from '@/api/merch';
 
+// const getData = async () => {
+//   const res = await firstImageTest();
+//   const strapi = await res.json();
+//   const dataItem = {
+//     uri: strapi.data.attributes.media.data.attributes.url,
+//     alt: strapi.data.attributes.description,
+//   };
+//   return [dataItem, dataItem, dataItem];
+// };
 const getData = async () => {
-  const res = await firstImageTest();
+  const res = await merch();
   const strapi = await res.json();
-  const dataItem = {
-    uri: strapi.data.attributes.media.data.attributes.url,
-    alt: strapi.data.attributes.description,
-  };
-  return [dataItem, dataItem, dataItem];
+  console.log('BEEBUG: strapi', strapi);
+  return [];
 };
 export default async function Merch() {
   const merchImages = await getData();
