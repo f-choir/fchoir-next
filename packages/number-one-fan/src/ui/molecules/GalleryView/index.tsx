@@ -47,7 +47,7 @@ const GalleryView = ({
         {/* TODO doesn't handle portrait very well */}
         <Image
           className={`opacity-100 object-cover`}
-          src={imageSrc(galleryId, images[viewIdx].uri)}
+          src={images[viewIdx].uri}
           alt={images[viewIdx].alt ?? ''}
           fill={true}
           unoptimized={true}
