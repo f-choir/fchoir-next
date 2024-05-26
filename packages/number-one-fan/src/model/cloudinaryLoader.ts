@@ -6,7 +6,7 @@ const imageSizePrefix = (width: number): string => {
   return '';
 };
 
-const CLOUDINARY_PREFIX = 'https://res.cloudinary.com/f-choir-cloudinary/image/upload/v1712915258/';
+const CLOUDINARY_PREFIX = 'https://res.cloudinary.com/f-choir-cloudinary/image/upload/'; // v1712915258/';
 
 const cloudinaryLoader = ({
   src,
@@ -17,7 +17,11 @@ const cloudinaryLoader = ({
   width: number;
   quality?: number;
 }): string => {
-  return `${CLOUDINARY_PREFIX}${imageSizePrefix(width)}${src.split(CLOUDINARY_PREFIX)[1]}`;
+  const [_, path] = src.split(CLOUDINARY_PREFIX);
+
+  const [bucket, uri] = path.split('/');
+
+  return `${CLOUDINARY_PREFIX}${bucket}/${imageSizePrefix(width)}${uri}`;
 };
 
 export default cloudinaryLoader;
