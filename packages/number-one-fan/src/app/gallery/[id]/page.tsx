@@ -1,7 +1,8 @@
-import galleries, { getGalleryById } from '@/model/galleries';
 import Wrap from '@/ui/atoms/Wrap';
 import { GalleryImageProps } from '@/ui/molecules/GalleryView';
 import GalleryComponent from '@/ui/molecules/Gallery';
+import { QueryClient, queryOptions } from '@tanstack/react-query';
+import { anticGalleryList } from '@/api/galleries';
 
 const Gallery = ({ params }: { params: { id: string } }) => {
   // const gallery = getGalleryById(params.id);
@@ -26,9 +27,32 @@ const Gallery = ({ params }: { params: { id: string } }) => {
   );
 };
 
+const paramsFromStrapi = (strapi: any) => {
+  const {
+    data: {
+      attributes: {
+        galleries: { data: galleryData },
+      },
+    },
+  } = strapi;
+
+  return galleryData.map((gallery: any) => ({ id: `${gallery.id}` }));
+};
+
+const getParams = async () => {
+  const res = await anticGalleryList();
+  return await res.json();
+};
+
 export async function generateStaticParams() {
-  // make an API call and work out the list of pages, by generating a list of gallery api uris for them to hit
-  return galleries().map((gallery) => ({ id: gallery }));
+  const queryClient = new QueryClient();
+  const data = await queryClient.fetchQuery(
+    queryOptions({
+      queryKey: ['gallery-list'],
+      queryFn: getParams,
+    }),
+  );
+  return paramsFromStrapi(data);
 }
 
 export default Gallery;
