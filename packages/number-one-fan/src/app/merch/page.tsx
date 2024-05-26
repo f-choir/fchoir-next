@@ -1,7 +1,7 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
 import { firstImageTest } from '@/api/firstImageTest';
-import { merch } from '@/api/merch';
+import { QueryClient, queryOptions } from '@tanstack/react-query';
 
 const getData = async () => {
   const res = await firstImageTest();
@@ -19,7 +19,14 @@ const getData = async () => {
 //   return [];
 // };
 export default async function Merch() {
-  const merchImages = await getData();
+  const queryClient = new QueryClient();
+
+  const data = await queryClient.fetchQuery(
+    queryOptions({
+      queryKey: ['merch'],
+      queryFn: getData,
+    }),
+  );
 
   return (
     <main className="min-h-screen pt-12 m:pt-8">
@@ -35,7 +42,7 @@ export default async function Merch() {
         to grab one of these limited edition, handpainted beauties while stocks last x
       </p>
       <div className={'flex flex-row justify-center'}>
-        <Gallery id={''} title={''} pathOverride={true} images={merchImages} />
+        <Gallery id={''} title={''} pathOverride={true} images={data} />
       </div>
     </main>
   );
