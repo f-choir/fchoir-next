@@ -887,35 +887,28 @@ export interface ApiGalleryImageGalleryImage extends Schema.CollectionType {
   };
 }
 
-export interface ApiImageTestImageTest extends Schema.CollectionType {
-  collectionName: 'image_tests';
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
   info: {
-    singularName: 'image-test';
-    pluralName: 'image-tests';
-    displayName: 'image test';
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    media: Attribute.Media;
-    date: Attribute.DateTime;
-    description: Attribute.Text;
+    gallery: Attribute.Relation<
+      'api::home.home',
+      'oneToOne',
+      'api::gallery.gallery'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::image-test.image-test',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::image-test.image-test',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1007,7 +1000,7 @@ declare module '@strapi/types' {
       'api::antic.antic': ApiAnticAntic;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-image.gallery-image': ApiGalleryImageGalleryImage;
-      'api::image-test.image-test': ApiImageTestImageTest;
+      'api::home.home': ApiHomeHome;
       'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
     }
