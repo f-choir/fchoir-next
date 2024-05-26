@@ -27,6 +27,7 @@ const Gallery = ({ params }: { params: { id: string } }) => {
 };
 
 export async function generateStaticParams() {
+  // make an API call and work out the list of pages, by generating a list of gallery api uris for them to hit
   return galleries().map((gallery) => ({ id: gallery }));
 }
 
