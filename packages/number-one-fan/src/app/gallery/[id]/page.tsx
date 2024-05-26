@@ -1,28 +1,52 @@
 import Wrap from '@/ui/atoms/Wrap';
-import { GalleryImageProps } from '@/ui/molecules/GalleryView';
 import GalleryComponent from '@/ui/molecules/Gallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
-import { anticGalleryList } from '@/api/galleries';
+import { anticGalleryList, gallery } from '@/api/galleries';
 
-const Gallery = ({ params }: { params: { id: string } }) => {
-  // const gallery = getGalleryById(params.id);
-  // if (!gallery) return null;
+const galleryFromApi = (strapi: any) => {
+  const {
+    data: {
+      attributes: { gallery_images: galleryImages },
+    },
+  } = strapi;
 
-  const imagesToViewProps = ({
-    imageUrl,
-    alt,
-  }: {
-    imageUrl: string;
-    alt?: string;
-  }): GalleryImageProps => ({ uri: imageUrl, alt });
+  return {
+    id: `${strapi.data.id}`,
+    title: strapi.data.attributes.title,
+    images: galleryImages,
+  };
+};
+const getData = (id: string) => async () => {
+  const res = await gallery(id);
+  const strapi = await res.json();
+  return galleryFromApi(strapi);
+};
+const Gallery = async ({ params }: { params: { id: string } }) => {
+  const queryClient = new QueryClient();
+
+  const {
+    id,
+    title,
+    images: { data: imageData },
+  } = await queryClient.fetchQuery(
+    queryOptions({
+      queryKey: [`gallery-${params.id}`],
+      queryFn: getData(params.id),
+    }),
+  );
 
   return (
     <Wrap className={'m-auto flex justify-center pt-4'}>
-      {/*<GalleryComponent*/}
-      {/*  id={gallery.id}*/}
-      {/*  title={gallery.title}*/}
-      {/*  images={gallery.images.map(imagesToViewProps)}*/}
-      {/*/>*/}
+      <GalleryComponent
+        id={id}
+        title={title}
+        images={imageData.map((image: any) => {
+          return {
+            uri: image.attributes.img.data.attributes.url,
+            alt: image.attributes.caption,
+          };
+        })}
+      />
     </Wrap>
   );
 };
