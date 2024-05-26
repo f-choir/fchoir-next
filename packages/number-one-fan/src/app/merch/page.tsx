@@ -1,6 +1,7 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
 import { firstImageTest } from '@/api/firstImageTest';
+import { merch } from '@/api/merch';
 
 const getData = async () => {
   const res = await firstImageTest();
@@ -11,6 +12,12 @@ const getData = async () => {
   };
   return [dataItem, dataItem, dataItem];
 };
+// const getData = async () => {
+//   const res = await merch();
+//   const strapi = await res.json();
+//   console.log('BEEBUG: strapi', strapi);
+//   return [];
+// };
 export default async function Merch() {
   const merchImages = await getData();
 
