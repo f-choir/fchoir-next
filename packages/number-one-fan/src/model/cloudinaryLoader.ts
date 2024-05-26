@@ -19,6 +19,8 @@ const cloudinaryLoader = ({
 }): string => {
   const [_, path] = src.split(CLOUDINARY_PREFIX);
 
+  if (!path) return '';
+
   const [bucket, uri] = path.split('/');
 
   return `${CLOUDINARY_PREFIX}${bucket}/${imageSizePrefix(width)}${uri}`;
