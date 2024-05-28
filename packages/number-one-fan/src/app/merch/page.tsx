@@ -1,7 +1,7 @@
 import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
-import { merch } from '@/api/merch';
+import { merch } from '@/api/staticRoutes';
 
 const merchPropsfromStrapi = (strapi: any) => {
   const {

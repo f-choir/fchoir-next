@@ -1,8 +1,8 @@
 import Headline from '@/ui/atoms/Headline';
 import GalleryGrid from '@/ui/molecules/GalleryGrid';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
-import { anticGalleryList } from '@/api/galleries';
 import { GalleryPreviewProps } from '@/ui/molecules/GalleryPreview';
+import { antics } from '@/api/staticRoutes';
 
 const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
   const {
@@ -42,7 +42,7 @@ const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
 };
 
 const getData = async () => {
-  const res = await anticGalleryList();
+  const res = await antics();
   return await res.json();
 };
 

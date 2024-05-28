@@ -2,10 +2,10 @@
 import Headline from '@/ui/atoms/Headline';
 import Wrap from '@/ui/atoms/Wrap';
 import { queryOptions, useQuery } from '@tanstack/react-query';
-import { firstNewsPost } from '@/api/firstNewsPost';
 import { useState } from 'react';
 import { authenticate } from '@/api';
 import LoginForm from '@/ui/molecules/LoginForm';
+import { firstNewsPost } from '@/api/dynamicRoutes';
 
 export default function Members() {
   const [user, setUser] = useState({ identifier: '', password: '' });
