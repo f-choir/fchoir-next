@@ -5,6 +5,7 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 
 const homePropsFromStrapi = (strapi: any) => {
+  // TODO wip
   return strapi;
 };
 
