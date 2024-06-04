@@ -5,7 +5,8 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 
 const homePropsFromStrapi = (strapi: any) => {
-  // TODO wip
+  console.log('BEEBUG: home', strapi);
+
   return strapi;
 };
 
@@ -31,6 +32,7 @@ export default async function Home() {
       </div>
       <div className={'pt-20'}>
         <AttractGallery id={'test-gallery'} interval={2000} />
+        {/*// TODO refactor AttractGallery to take Strapi gallery*/}
         <SubHeader
           className={'relative top-0 m:-top-16 l:-top-24 text-center mb-8'}
           text={'causing a racket // singing together'}
