@@ -3,8 +3,6 @@ import { contact } from '@/api/staticRoutes';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 
 const contactPropsFromStrapi = (strapi: any) => {
-  console.log('BEEBUG: contact', strapi);
-
   return strapi;
 };
 

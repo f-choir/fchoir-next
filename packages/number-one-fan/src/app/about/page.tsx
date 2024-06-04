@@ -3,7 +3,6 @@ import { about } from '@/api/staticRoutes';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  console.log('BEEBUG: about', strapi);
   return strapi;
 };
 
