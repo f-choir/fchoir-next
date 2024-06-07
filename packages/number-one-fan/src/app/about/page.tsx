@@ -1,10 +1,27 @@
 import Headline from '@/ui/atoms/Headline';
-// import Embed from '@/ui/atoms/Embed/Embed';
+import { about } from '@/api/staticRoutes';
+import { QueryClient, queryOptions } from '@tanstack/react-query';
 
-// const RICK: string =
-//   '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=INGiHrL63avQtahV&amp;start=13" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+const aboutPropsFromStrapi = (strapi: any) => {
+  return strapi;
+};
 
-export default function About() {
+const getData = async () => {
+  const res = await about();
+  const strapi = await res.json();
+  return aboutPropsFromStrapi(strapi);
+};
+
+export default async function About() {
+  const queryClient = new QueryClient();
+
+  const data = await queryClient.fetchQuery(
+    queryOptions({
+      queryKey: ['about'],
+      queryFn: getData,
+    }),
+  );
+
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center'} />

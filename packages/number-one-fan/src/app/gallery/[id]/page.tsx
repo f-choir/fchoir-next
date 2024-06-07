@@ -1,7 +1,8 @@
 import Wrap from '@/ui/atoms/Wrap';
 import GalleryComponent from '@/ui/molecules/Gallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
-import { anticGalleryList, gallery } from '@/api/galleries';
+import { gallery } from '@/api/dynamicRoutes';
+import { antics } from '@/api/staticRoutes';
 
 const galleryFromApi = (strapi: any) => {
   const {
@@ -64,7 +65,7 @@ const paramsFromStrapi = (strapi: any) => {
 };
 
 const getParams = async () => {
-  const res = await anticGalleryList();
+  const res = await antics();
   return await res.json();
 };
 
