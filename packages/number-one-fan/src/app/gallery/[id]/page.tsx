@@ -24,6 +24,7 @@ const getData = (id: string) => async () => {
 };
 const Gallery = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
+  // Galleries need a bit more building out with a headline, a blurb, a link, photo credit.
 
   const {
     id,
@@ -38,7 +39,7 @@ const Gallery = async ({ params }: { params: { id: string } }) => {
 
   return (
     <Wrap className={'m-auto flex justify-center pt-4'}>
-      <GalleryComponent
+      <GalleryComponent // these also need building out a bit to allow captions etc
         id={id}
         title={title}
         images={imageData.map((image: any) => {

@@ -7,8 +7,7 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer = ({ videoId }: VideoPlayerProps) => {
-  const playerId = `f-video-${videoId}`;
-  return <CldVideoPlayer id={'foo'} width="480" height="360" src={videoId} />;
+  return <CldVideoPlayer id={videoId} width="1920" height="1080" src={videoId} />;
 };
 
 export default VideoPlayer;
