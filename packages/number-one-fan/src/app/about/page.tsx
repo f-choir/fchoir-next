@@ -3,7 +3,16 @@ import { about } from '@/api/staticRoutes';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  return strapi;
+  console.log('BEEBUG: strapi.data.attributes.video', strapi.data.attributes.video);
+
+  const result = {
+    words: strapi.data.attributes.words.flatMap((block: any) =>
+      block.children.map((child: any) => child.text),
+    ),
+    video: strapi.data.attributes.video,
+  };
+
+  return result;
 };
 
 const getData = async () => {
@@ -25,7 +34,11 @@ export default async function About() {
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center'} />
-      <div className={'py-8'}>{/*<Embed htmlString={RICK} isCentered={true} />*/}</div>
+      {/* video embed here */}
+      {/* simple mapping of words for now */}
+      {data.words.map((fragment: string) => (
+        <p>{fragment}</p>
+      ))}
     </main>
   );
 }
