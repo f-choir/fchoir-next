@@ -9,12 +9,17 @@ import HorizontalDivider from '@/ui/atoms/HorizontalDivider';
 import Humanifesto from '@/ui/organisms/Humanifesto';
 
 const aboutPropsFromStrapi = (strapi: any) => {
+  console.log('BEEBUG: strapi', strapi);
+
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
       block.children.map((child: any) => child.text),
     ),
     videoId: strapi.data.attributes.video.data.attributes.provider_metadata.public_id,
     // the API should also have an embed. we should only have one up, not both, obvs.
+    choirBio: strapi.data.attributes.choirBio?.flatMap((block: any) =>
+      block.children.map((child: any) => child.text),
+    ),
   };
 };
 
@@ -43,7 +48,11 @@ export default async function About() {
         {/*<Embed htmlString={super8} />*/}
         <Humanifesto words={data.words} />
         <HorizontalDivider />
-        <p>Choir Bio Goes Here</p>
+        {data.choirBio?.map((para: string, idx: number) => (
+          <p className="px-2 py-4 font-medium" key={`bio-${idx}`}>
+            {para}
+          </p>
+        ))}
         <HorizontalDivider />
         <p>Leader Bios Go Here</p>
         <HorizontalDivider />

@@ -29,6 +29,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'text-red font-medium',
             'my-1 l:my-2 ',
             'text-center l:text-left',
+            'text-shadow',
           )}
         >
           {words[0]}
