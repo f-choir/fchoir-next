@@ -33,6 +33,7 @@ export default function Members() {
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
           <p>
+            {/* we could do with a share button on anything timely */}
             <span className="font-bold">{`${data.title ? data.title : ''} `}</span>
             {data.body}
           </p>
