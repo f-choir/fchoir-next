@@ -45,7 +45,8 @@ const Gallery = async ({ params }: { params: { id: string } }) => {
         images={imageData.map((image: any) => {
           return {
             uri: image.attributes.img.data.attributes.url,
-            alt: image.attributes.caption,
+            caption: image.attributes.caption,
+            alt: image.attributes.alt,
           };
         })}
       />
