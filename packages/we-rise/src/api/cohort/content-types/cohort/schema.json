@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cohorts",
+  "info": {
+    "singularName": "cohort",
+    "pluralName": "cohorts",
+    "displayName": "Cohort"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "singers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::singer.singer"
+    },
+    "startDate": {
+      "type": "date"
+    }
+  }
+}
