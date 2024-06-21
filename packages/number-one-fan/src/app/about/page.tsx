@@ -48,7 +48,11 @@ export default async function About() {
         {/*<Embed htmlString={super8} />*/}
         <Humanifesto words={data.words} />
         <HorizontalDivider />
-        {data.choirBio?.map((para: string) => <p className="px-2 py-4 font-medium">{para}</p>)}
+        {data.choirBio?.map((para: string, idx: number) => (
+          <p className="px-2 py-4 font-medium" key={`bio-${idx}`}>
+            {para}
+          </p>
+        ))}
         <HorizontalDivider />
         <p>Leader Bios Go Here</p>
         <HorizontalDivider />
