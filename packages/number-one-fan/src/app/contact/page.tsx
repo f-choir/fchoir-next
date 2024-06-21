@@ -1,6 +1,8 @@
 import Headline from '@/ui/atoms/Headline';
 import { contact } from '@/api/staticRoutes';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
+import React from 'react';
+import Wrap from '@/ui/atoms/Wrap';
 
 const contactPropsFromStrapi = (strapi: any) => {
   return strapi;
@@ -25,6 +27,9 @@ export default async function Contact() {
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'contact'} />
+      <Wrap>
+        <p>Links</p>
+      </Wrap>
     </main>
   );
 }

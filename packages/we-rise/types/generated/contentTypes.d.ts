@@ -737,7 +737,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -789,6 +788,7 @@ export interface ApiAboutAbout extends Schema.SingleType {
     singularName: 'about';
     pluralName: 'abouts';
     displayName: 'About';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -796,6 +796,17 @@ export interface ApiAboutAbout extends Schema.SingleType {
   attributes: {
     video: Attribute.Media;
     words: Attribute.Blocks;
+    choirBio: Attribute.Blocks;
+    cohort: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'api::cohort.cohort'
+    >;
+    leaders: Attribute.Relation<
+      'api::about.about',
+      'oneToMany',
+      'api::singer.singer'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -848,18 +859,55 @@ export interface ApiAnticAntic extends Schema.SingleType {
   };
 }
 
+export interface ApiCohortCohort extends Schema.CollectionType {
+  collectionName: 'cohorts';
+  info: {
+    singularName: 'cohort';
+    pluralName: 'cohorts';
+    displayName: 'Cohort';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    singers: Attribute.Relation<
+      'api::cohort.cohort',
+      'oneToMany',
+      'api::singer.singer'
+    >;
+    startDate: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cohort.cohort',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cohort.cohort',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.SingleType {
   collectionName: 'contacts';
   info: {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     words: Attribute.Blocks;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1072,6 +1120,39 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiSingerSinger extends Schema.CollectionType {
+  collectionName: 'singers';
+  info: {
+    singularName: 'singer';
+    pluralName: 'singers';
+    displayName: 'Singer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.String;
+    avatar: Attribute.Media;
+    bio: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::singer.singer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::singer.singer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1092,6 +1173,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
       'api::antic.antic': ApiAnticAntic;
+      'api::cohort.cohort': ApiCohortCohort;
       'api::contact.contact': ApiContactContact;
       'api::event.event': ApiEventEvent;
       'api::gallery.gallery': ApiGalleryGallery;
@@ -1099,6 +1181,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
+      'api::singer.singer': ApiSingerSinger;
     }
   }
 }
