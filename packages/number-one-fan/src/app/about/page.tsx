@@ -60,8 +60,6 @@ export default async function About() {
     }),
   );
 
-  console.log('BEEBUG: ', data.cohort);
-
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center'} />
