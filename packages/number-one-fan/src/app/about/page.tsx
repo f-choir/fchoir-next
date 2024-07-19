@@ -7,9 +7,10 @@ import HorizontalDivider from '@/ui/atoms/HorizontalDivider';
 // import Embed from '@/ui/atoms/Embed/Embed';
 // import super8 from '@/app/about/super8';
 import Humanifesto from '@/ui/organisms/Humanifesto';
+import Bio from '@/ui/organisms/Bio';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  console.log('BEEBUG: strapi', strapi);
+  // console.log('BEEBUG: strapi', strapi);
 
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
@@ -20,6 +21,19 @@ const aboutPropsFromStrapi = (strapi: any) => {
     choirBio: strapi.data.attributes.choirBio?.flatMap((block: any) =>
       block.children.map((child: any) => child.text),
     ),
+    leaders: strapi.data.attributes.leaders.data.map((leader: any) => ({
+      name: leader.attributes.name,
+      avatarUrl: leader.attributes.avatar.data.attributes.url,
+      title: leader.attributes.title,
+      bio: leader.attributes.bio
+        .flatMap((block: any) => block.children.map((child: any) => child.text))
+        .map((text: string) => text?.trim())
+        .filter((text: string) => Boolean(text)),
+      links: leader.attributes.bio
+        .filter((block: any) => block.children.find((child: any) => child.type === 'link'))
+        .flatMap((block: any) => block.children.filter((child: any) => child.type === 'link'))
+        .map((link: any) => ({ url: link.url, label: link.children[0].text })),
+    })),
   };
 };
 
@@ -39,6 +53,8 @@ export default async function About() {
     }),
   );
 
+  console.log('BEEBUG: ', data.leaders);
+
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center'} />
@@ -54,7 +70,7 @@ export default async function About() {
           </p>
         ))}
         <HorizontalDivider />
-        <p>Leader Bios Go Here</p>
+        <Bio leader={data.leaders[0]} />
         <HorizontalDivider />
         <p>Class of 24 Goes Here</p>
       </Wrap>
