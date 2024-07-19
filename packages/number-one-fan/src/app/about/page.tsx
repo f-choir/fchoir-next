@@ -8,10 +8,9 @@ import HorizontalDivider from '@/ui/atoms/HorizontalDivider';
 // import super8 from '@/app/about/super8';
 import Humanifesto from '@/ui/organisms/Humanifesto';
 import Bio from '@/ui/organisms/Bio';
+import Cohort from '@/ui/organisms/Cohort';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  // console.log('BEEBUG: strapi', strapi);
-
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
       block.children.map((child: any) => child.text),
@@ -34,6 +33,14 @@ const aboutPropsFromStrapi = (strapi: any) => {
         .flatMap((block: any) => block.children.filter((child: any) => child.type === 'link'))
         .map((link: any) => ({ url: link.url, label: link.children[0].text })),
     })),
+    cohort: {
+      title: `Current Voices - ${
+        Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4)) + 1
+      }`,
+      names: strapi.data.attributes.cohort.data.attributes.singers.data.map(
+        (singer: any) => singer.attributes.name,
+      ),
+    },
   };
 };
 
@@ -53,7 +60,7 @@ export default async function About() {
     }),
   );
 
-  console.log('BEEBUG: ', data.leaders);
+  console.log('BEEBUG: ', data.cohort);
 
   return (
     <main className="min-h-screen pt-12 m:pt-8">
@@ -72,7 +79,7 @@ export default async function About() {
         <HorizontalDivider />
         <Bio leader={data.leaders[0]} />
         <HorizontalDivider />
-        <p>Class of 24 Goes Here</p>
+        <Cohort cohort={data.cohort} />
       </Wrap>
     </main>
   );
