@@ -11,7 +11,7 @@ export interface GalleryImageProps {
 }
 
 interface GalleryViewProps {
-  galleryId: string;
+  // galleryId: string;
   images: GalleryImageProps[];
   viewIdx: number;
   closeViewCallback?: () => void;
@@ -20,7 +20,7 @@ interface GalleryViewProps {
 }
 
 const GalleryView = ({
-  galleryId,
+  // galleryId,
   images,
   viewIdx,
   closeViewCallback,
