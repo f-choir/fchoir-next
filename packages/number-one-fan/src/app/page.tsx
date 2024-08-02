@@ -5,6 +5,8 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 
 const homePropsFromStrapi = (strapi: any) => {
+  console.log('BEEBUG: strapi', strapi.data.attributes.galleries);
+
   return strapi;
 };
 
