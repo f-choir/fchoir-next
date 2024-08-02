@@ -765,6 +765,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    singer: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::singer.singer'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1034,14 +1039,15 @@ export interface ApiHomeHome extends Schema.SingleType {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'Home';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    gallery: Attribute.Relation<
+    galleries: Attribute.Relation<
       'api::home.home',
-      'oneToOne',
+      'oneToMany',
       'api::gallery.gallery'
     >;
     createdAt: Attribute.DateTime;
@@ -1126,6 +1132,7 @@ export interface ApiSingerSinger extends Schema.CollectionType {
     singularName: 'singer';
     pluralName: 'singers';
     displayName: 'Singer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1135,6 +1142,11 @@ export interface ApiSingerSinger extends Schema.CollectionType {
     title: Attribute.String;
     avatar: Attribute.Media;
     bio: Attribute.Blocks;
+    user: Attribute.Relation<
+      'api::singer.singer',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
