@@ -969,6 +969,7 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     singularName: 'gallery';
     pluralName: 'galleries';
     displayName: 'gallery';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -981,6 +982,13 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
       'oneToMany',
       'api::gallery-image.gallery-image'
     >;
+    hero_image: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'api::gallery-image.gallery-image'
+    >;
+    short_description: Attribute.String;
+    long_description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,6 +1023,7 @@ export interface ApiGalleryImageGalleryImage extends Schema.CollectionType {
     caption: Attribute.String;
     alt: Attribute.Text;
     description: Attribute.Text;
+    credit: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

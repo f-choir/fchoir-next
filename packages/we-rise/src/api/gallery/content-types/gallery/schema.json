@@ -4,7 +4,8 @@
   "info": {
     "singularName": "gallery",
     "pluralName": "galleries",
-    "displayName": "gallery"
+    "displayName": "gallery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::gallery-image.gallery-image"
+    },
+    "hero_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gallery-image.gallery-image"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "long_description": {
+      "type": "richtext"
     }
   }
 }
