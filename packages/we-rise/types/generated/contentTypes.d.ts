@@ -1020,9 +1020,6 @@ export interface ApiGalleryImageGalleryImage extends Schema.CollectionType {
   };
   attributes: {
     img: Attribute.Media;
-    caption: Attribute.String;
-    alt: Attribute.Text;
-    description: Attribute.Text;
     credit: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
