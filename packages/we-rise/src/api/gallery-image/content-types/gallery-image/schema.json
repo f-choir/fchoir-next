@@ -23,15 +23,6 @@
         "audios"
       ]
     },
-    "caption": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "text"
-    },
-    "description": {
-      "type": "text"
-    },
     "credit": {
       "type": "richtext"
     }
