@@ -44,7 +44,6 @@ const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProp
         )}
       >
         <GalleryView
-          galleryId={id}
           images={images}
           viewIdx={viewIdx}
           closeViewCallback={onCloseViewClick}
