@@ -1,37 +1,28 @@
 'use client';
 
-import { getGalleryById } from '@/model/galleries';
-import GalleryView, { GalleryImageProps } from '@/ui/molecules/GalleryView';
+import GalleryView from '@/ui/molecules/GalleryView';
 import { useState } from 'react';
 
+interface AttractGalleryItem {
+  galleryId: number;
+  galleryTitle: string;
+  galleryDescription?: string;
+  imgUrl: string;
+  imgAlt?: string;
+}
 interface AttractGalleryProps {
-  id: string;
-  interval: number;
+  items: AttractGalleryItem[];
 }
 
-const AttractGallery = ({ id, interval }: AttractGalleryProps) => {
+const AttractGallery = ({ items }: AttractGalleryProps) => {
   const [viewIdx, setViewIdx] = useState(0);
-  const gallery = getGalleryById(id);
-  if (!gallery) return;
-  const imagesToViewProps = ({
-    imageUrl,
-    alt,
-  }: {
-    imageUrl: string;
-    alt?: string;
-  }): GalleryImageProps => ({ uri: imageUrl, alt });
 
   const updateViewIdxCallback = (idx: number) => setViewIdx(idx);
-
-  setTimeout(() => {
-    setViewIdx((viewIdx + 1) % gallery.images.length);
-  }, interval);
 
   return (
     <div className={'h-[60vw] w-[100vw] relative z-0'}>
       <GalleryView
-        galleryId={id}
-        images={gallery.images.map(imagesToViewProps)}
+        images={items.map((item) => ({ uri: item.imgUrl, alt: item.imgAlt }))} // an array of objects with url and alt text
         viewIdx={viewIdx}
         updateViewIdxCallback={updateViewIdxCallback}
       />

@@ -5,7 +5,17 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 
 const homePropsFromStrapi = (strapi: any) => {
-  return strapi;
+  const props = strapi.data.attributes.galleries.data.map((gallery: any) => ({
+    galleryId: gallery.id,
+    galleryTitle: gallery.attributes.title,
+    galleryDescription: gallery.attributes.short_description,
+    imgUrl: gallery.attributes.hero_image.data.attributes.img.data.attributes.url,
+    imgAlt: gallery.attributes.hero_image.data.attributes.img.data.attributes.alternativeText,
+  }));
+
+  // console.log('BEEBUG: props', props);
+
+  return props;
 };
 
 const getData = async () => {
@@ -29,7 +39,7 @@ export default async function Home() {
         <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
       </div>
       <div className={'pt-20'}>
-        <AttractGallery id={'test-gallery'} interval={2000} />
+        <AttractGallery items={data} />
         {/*// TODO refactor AttractGallery to take Strapi gallery*/}
         <SubHeader
           className={'relative top-0 m:-top-16 l:-top-24 text-center mb-8'}
