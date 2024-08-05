@@ -17,7 +17,6 @@ const images: GalleryImageProps[] = [
 export const Main: Story = {
   render: () => (
     <GalleryView
-      galleryId={'foo'}
       images={images}
       closeViewCallback={() => {}}
       updateViewIdxCallback={() => {}}

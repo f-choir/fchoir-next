@@ -11,16 +11,13 @@ export interface GalleryImageProps {
 }
 
 interface GalleryViewProps {
-  // galleryId: string;
   images: GalleryImageProps[];
   viewIdx: number;
   closeViewCallback?: () => void;
   updateViewIdxCallback: (idx: number) => void;
-  // viewClassName?: string;
 }
 
 const GalleryView = ({
-  // galleryId,
   images,
   viewIdx,
   closeViewCallback,
