@@ -17,5 +17,5 @@ export const merch = async () => {
 };
 
 export const contact = async () => {
-  return await fetchApi('contact?populate=deep,7');
+  return await fetchApi('contact?populate=deep,67');
 };
