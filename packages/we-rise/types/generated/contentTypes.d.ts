@@ -913,6 +913,11 @@ export interface ApiContactContact extends Schema.SingleType {
   attributes: {
     words: Attribute.Blocks;
     image: Attribute.Media;
+    external_links: Attribute.Relation<
+      'api::contact.contact',
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -956,6 +961,39 @@ export interface ApiEventEvent extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExternalLinkExternalLink extends Schema.CollectionType {
+  collectionName: 'external_links';
+  info: {
+    singularName: 'external-link';
+    pluralName: 'external-links';
+    displayName: 'ExternalLink';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    img: Attribute.Media;
+    text: Attribute.String;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::external-link.external-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::external-link.external-link',
       'oneToOne',
       'admin::user'
     > &
@@ -1194,6 +1232,7 @@ declare module '@strapi/types' {
       'api::cohort.cohort': ApiCohortCohort;
       'api::contact.contact': ApiContactContact;
       'api::event.event': ApiEventEvent;
+      'api::external-link.external-link': ApiExternalLinkExternalLink;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-image.gallery-image': ApiGalleryImageGalleryImage;
       'api::home.home': ApiHomeHome;
