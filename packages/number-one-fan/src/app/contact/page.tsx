@@ -23,8 +23,6 @@ const contactPropsFromStrapi = (strapi: any) => {
     img: link.attributes.img.data.attributes.url,
   }));
 
-  console.log(socials);
-
   return {
     words: words,
     image: { url: strapi.data.attributes.image.data.attributes.url },
