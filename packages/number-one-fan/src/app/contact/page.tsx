@@ -17,9 +17,16 @@ const contactPropsFromStrapi = (strapi: any) => {
       }
     });
   });
+
+  const socials = strapi.data.attributes.external_links.data.map((link: any) => ({
+    url: link.attributes.url,
+    img: link.attributes.img.data.attributes.url,
+  }));
+
   return {
     words: words,
     image: { url: strapi.data.attributes.image.data.attributes.url },
+    socials: socials,
   };
 };
 
@@ -57,7 +64,7 @@ export default async function Contact() {
                     );
                   case 'link':
                     return (
-                      <span className="text-purple underline hover:text-black">
+                      <span className="text-purple underline hover:text-black" key={randomUUID()}>
                         <a href={fragment.url}>{fragment.text}</a>
                       </span>
                     );
@@ -70,20 +77,18 @@ export default async function Contact() {
       </Wrap>
       <Wrap>
         <div className="py-4 font-bold text-xl">
-          Find us elsewhere:
           <div className="flex flex-row">
-            <a className="pr-2" href="https://www.facebook.com/fchoirlondon">
-              Facebook
-            </a>
-            <a className="pr-2" href="https://www.youtube.com/channel/UCyJFkmsdMkAe0GhZonQdctQ">
-              YouTube
-            </a>
-            <a href="https://www.instagram.com/f__choir/">Instagram</a>
+            <div>Find us elsewhere:</div>
+            {data.socials.map((social: any) => (
+              <a href={social.url} className="pl-2" key={randomUUID()}>
+                <Image src={social.img} width={32} height={32} alt="" />
+              </a>
+            ))}
           </div>
         </div>
         <div>
           <Image
-            className="pt-4 m-auto"
+            className="py-4 m-auto"
             src={data.image.url}
             alt={'bar'}
             width={600}
