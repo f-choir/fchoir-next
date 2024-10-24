@@ -82,7 +82,7 @@ export default async function Contact() {
           <div className="flex flex-row">
             <div>Find us elsewhere:</div>
             {data.socials.map((social: any) => (
-              <a href={social.url} className="pl-2">
+              <a href={social.url} className="pl-2" key={randomUUID()}>
                 <Image src={social.img} width={32} height={32} alt="" />
               </a>
             ))}
