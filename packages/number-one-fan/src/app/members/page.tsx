@@ -5,7 +5,6 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { authenticate } from '@/api';
 import LoginForm from '@/ui/molecules/LoginForm';
-import { firstNewsPost } from '@/api/dynamicRoutes';
 import { members } from '@/api/staticRoutes';
 
 export default function Members() {
@@ -41,6 +40,12 @@ export default function Members() {
       <Headline text={'f*members'} />
       <Wrap>
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
+        {data &&
+          data.links.map((link: any) => (
+            <a key={link.text} href={link.url}>
+              {link.text}
+            </a>
+          ))}
         {data && (
           <p>
             <span className="font-bold">{`${data.calendar ? data.calendar : ''} `}</span>
