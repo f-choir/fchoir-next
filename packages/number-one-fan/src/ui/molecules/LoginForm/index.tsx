@@ -13,37 +13,43 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
 
   return (
     <form onSubmit={() => false} className="py-4">
-      <label htmlFor="user" className="p-2">
-        user
-      </label>
-      <input
-        type="text"
-        name="user"
-        autoComplete="username"
-        value={userField}
-        onChange={(e) => setUserField(e.target.value)}
-        className="p-2"
-      />
-      <label htmlFor="password" className="p-2">
-        password
-      </label>
-      <input
-        type="password"
-        name="password"
-        autoComplete="current-password"
-        value={passwordField}
-        onChange={(e) => setPasswordField(e.target.value)}
-        className="p-2"
-      />
-      <input
-        type="button"
-        value="go"
-        onClick={() => {
-          setUser({ identifier: userField, password: passwordField });
-          queryClient.invalidateQueries({ queryKey: queryKey });
-        }}
-        className="px-2 font-bold text-black"
-      />
+      <div className="flex flex-col">
+        <div className="p-2">
+          <label htmlFor="user" className="pr-2">
+            user
+          </label>
+          <input
+            type="text"
+            name="user"
+            autoComplete="username"
+            value={userField}
+            onChange={(e) => setUserField(e.target.value)}
+            className="p-2"
+          />
+        </div>
+        <div className="p-2">
+          <label htmlFor="password" className="pr-2">
+            password
+          </label>
+          <input
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            value={passwordField}
+            onChange={(e) => setPasswordField(e.target.value)}
+            className="p-2"
+          />
+          <input
+            type="button"
+            value="go"
+            onClick={() => {
+              setUser({ identifier: userField, password: passwordField });
+              queryClient.invalidateQueries({ queryKey: queryKey });
+            }}
+            className="px-2 font-bold text-black hover:underline"
+          />
+        </div>
+      </div>
     </form>
   );
 };
