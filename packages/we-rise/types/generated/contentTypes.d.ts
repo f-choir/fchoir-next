@@ -1104,6 +1104,42 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
 }
 
+export interface ApiMemberMember extends Schema.SingleType {
+  collectionName: 'members';
+  info: {
+    singularName: 'member';
+    pluralName: 'members';
+    displayName: 'Members';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    calendar: Attribute.Text;
+    external_links: Attribute.Relation<
+      'api::member.member',
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMerchMerch extends Schema.SingleType {
   collectionName: 'merches';
   info: {
@@ -1236,6 +1272,7 @@ declare module '@strapi/types' {
       'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-image.gallery-image': ApiGalleryImageGalleryImage;
       'api::home.home': ApiHomeHome;
+      'api::member.member': ApiMemberMember;
       'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
       'api::singer.singer': ApiSingerSinger;
