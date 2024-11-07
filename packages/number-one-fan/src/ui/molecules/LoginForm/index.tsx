@@ -6,14 +6,14 @@ interface LoginFormProps {
   queryKey: string[];
 }
 const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
-  const [userField, setUserField] = useState('');
+  const [userField, setUserField] = useState('default');
   const [passwordField, setPasswordField] = useState('');
 
   const queryClient = useQueryClient();
 
   return (
     <form onSubmit={() => false} className="py-4">
-      <label htmlFor="user" className="px-2">
+      <label htmlFor="user" className="p-2">
         user
       </label>
       <input
@@ -22,9 +22,9 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
         autoComplete="username"
         value={userField}
         onChange={(e) => setUserField(e.target.value)}
-        className="px-2"
+        className="p-2"
       />
-      <label htmlFor="password" className="px-2">
+      <label htmlFor="password" className="p-2">
         password
       </label>
       <input
@@ -33,7 +33,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
         autoComplete="current-password"
         value={passwordField}
         onChange={(e) => setPasswordField(e.target.value)}
-        className="px-2"
+        className="p-2"
       />
       <input
         type="button"
