@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { authenticate } from '@/api';
 import LoginForm from '@/ui/molecules/LoginForm';
 import { firstNewsPost } from '@/api/dynamicRoutes';
+import { members } from '@/api/staticRoutes';
 
 export default function Members() {
   const [user, setUser] = useState({ identifier: '', password: '' });
@@ -15,16 +16,25 @@ export default function Members() {
       queryKey: ['hello-world'],
       queryFn: async () => {
         const jwt = await authenticate(user); // TEMP: manually change the cookie domain in @/cookie to have this work on localhost
-        const data = await firstNewsPost(jwt); // TODO: make a new route and a Members API
+        const data = await members(jwt); // TODO: make a new route and a Members API
+        console.log(jwt);
         const strapi = await data.json();
-        return {
-          title: strapi.data.attributes.Title,
-          body: strapi.data.attributes.Body[0].children[0].text,
-        };
+        console.log(strapi);
+        return strapi
+          ? {
+              calendar: strapi.data.attributes.calendar,
+              links: strapi.data.attributes.external_links.data.map((link: any) => ({
+                text: link.attributes.text,
+                url: link.attributes.url,
+              })),
+            }
+          : undefined;
       },
       staleTime: 24 * 60 * 60 * 1000,
     }),
   );
+
+  console.log(data);
 
   return (
     <>
@@ -33,8 +43,7 @@ export default function Members() {
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
           <p>
-            <span className="font-bold">{`${data.title ? data.title : ''} `}</span>
-            {data.body}
+            <span className="font-bold">{`${data.calendar ? data.calendar : ''} `}</span>
           </p>
         )}
       </Wrap>
