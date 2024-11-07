@@ -15,10 +15,8 @@ export default function Members() {
       queryKey: ['hello-world'],
       queryFn: async () => {
         const jwt = await authenticate(user); // TEMP: manually change the cookie domain in @/cookie to have this work on localhost
-        const data = await members(jwt); // TODO: make a new route and a Members API
-        console.log(jwt);
+        const data = await members(jwt);
         const strapi = await data.json();
-        console.log(strapi);
         return strapi
           ? {
               calendar: strapi.data.attributes.calendar,
@@ -33,22 +31,23 @@ export default function Members() {
     }),
   );
 
-  console.log(data);
-
   return (
     <>
       <Headline text={'f*members'} />
       <Wrap>
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
-        {data &&
-          data.links.map((link: any) => (
-            <a key={link.text} href={link.url}>
-              {link.text}
-            </a>
-          ))}
+        {data && (
+          <div>
+            {data.links.map((link: any) => (
+              <a key={link.text} href={link.url}>
+                {link.text}
+              </a>
+            ))}
+          </div>
+        )}
         {data && (
           <p>
-            <span className="font-bold">{`${data.calendar ? data.calendar : ''} `}</span>
+            <span className="font-bold">{data.calendar}</span>
           </p>
         )}
       </Wrap>
