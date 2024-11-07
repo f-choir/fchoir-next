@@ -15,7 +15,7 @@ export default function Members() {
       queryKey: ['hello-world'],
       queryFn: async () => {
         const jwt = await authenticate(user); // TEMP: manually change the cookie domain in @/cookie to have this work on localhost
-        const data = await firstNewsPost(jwt);
+        const data = await firstNewsPost(jwt); // TODO: make a new route and a Members API
         const strapi = await data.json();
         return {
           title: strapi.data.attributes.Title,
@@ -33,7 +33,6 @@ export default function Members() {
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
           <p>
-            {/* we could do with a share button on anything timely */}
             <span className="font-bold">{`${data.title ? data.title : ''} `}</span>
             {data.body}
           </p>
