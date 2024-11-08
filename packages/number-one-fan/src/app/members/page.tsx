@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { authenticate } from '@/api';
 import LoginForm from '@/ui/molecules/LoginForm';
 import { members } from '@/api/staticRoutes';
+import Embed from '@/ui/atoms/Embed/Embed';
 
 export default function Members() {
   const [user, setUser] = useState({ identifier: '', password: '' });
@@ -37,20 +38,16 @@ export default function Members() {
       <Wrap>
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
-          <div>
+          <div className="flex flex-row justify-center pb-4">
             {data.links.map((link: any) => (
-              <a key={link.text} href={link.url}>
-                {link.text}
-              </a>
+              <div key={link.text} className="p-8 m-2 w-1/3 text-l m:text-2xl bg-lilac text-center">
+                <a href={link.url}>{link.text}</a>
+              </div>
             ))}
           </div>
         )}
-        {data && (
-          <p>
-            <span className="font-bold">{data.calendar}</span>
-          </p>
-        )}
       </Wrap>
+      {data && <Embed htmlString={data.calendar} isCentered={true} />}
     </>
   );
 }
