@@ -19,3 +19,7 @@ export const merch = async () => {
 export const contact = async () => {
   return await fetchApi('contact?populate=deep,15');
 };
+
+export const members = async (jwt?: string) => {
+  return await fetchApi('member?populate=deep,11', jwt);
+};
