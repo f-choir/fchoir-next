@@ -4,19 +4,14 @@ import AttractGallery from '@/ui/molecules/AttractGallery/AttractGallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 
-const homePropsFromStrapi = (strapi: any) => {
-  const props = strapi.data.attributes.galleries.data.map((gallery: any) => ({
+const homePropsFromStrapi = (strapi: any) =>
+  strapi.data.attributes.galleries.data.map((gallery: any) => ({
     galleryId: gallery.id,
     galleryTitle: gallery.attributes.title,
     galleryDescription: gallery.attributes.short_description,
     imgUrl: gallery.attributes.hero_image.data.attributes.img.data.attributes.url,
     imgAlt: gallery.attributes.hero_image.data.attributes.img.data.attributes.alternativeText,
   }));
-
-  // console.log('BEEBUG: props', props);
-
-  return props;
-};
 
 const getData = async () => {
   const res = await home();
@@ -33,8 +28,6 @@ export default async function Home() {
       queryFn: getData,
     }),
   );
-
-  // console.log('BEEBUG: data', data);
 
   return (
     <main className="pt-12 m:pt-8">
