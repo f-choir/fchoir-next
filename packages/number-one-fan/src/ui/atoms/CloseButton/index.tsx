@@ -7,7 +7,7 @@ interface CloseButtonProps {
 
 const CloseButton = ({ onClose }: CloseButtonProps) => (
   <button onClick={onClose}>
-    <div className={'absolute top-0 right-0 p-4'}>
+    <div className={'absolute top-0 right-0 p-4 z-20'}>
       <Icon
         path={Cross.path}
         className={'fill-white p-1 hover:fill-red transition-fill duration-300'}

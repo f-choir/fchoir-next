@@ -15,13 +15,17 @@ interface GalleryViewProps {
   viewIdx: number;
   closeViewCallback?: () => void;
   updateViewIdxCallback: (idx: number) => void;
+  updateIsViewingHeroCallback?: (isViewing: boolean) => void;
+  isClickableImage?: boolean;
 }
 
 const GalleryView = ({
   images,
   viewIdx,
   closeViewCallback,
-  updateViewIdxCallback, // viewClassName,
+  updateViewIdxCallback,
+  updateIsViewingHeroCallback,
+  isClickableImage,
 }: GalleryViewProps) => {
   const scroll = (isRight: boolean) => {
     isRight
@@ -32,6 +36,26 @@ const GalleryView = ({
   const scrollRight = () => scroll(true);
   const scrollLeft = () => scroll(false);
 
+  const containedImage = () => {
+    const containerClasses = 'w-3/4 flex flex-row relative';
+    const image = (
+      <Image
+        className={`opacity-100 object-cover`}
+        src={images[viewIdx].uri}
+        alt={images[viewIdx].alt ?? ''}
+        fill={true}
+        unoptimized={false}
+      />
+    );
+    return isClickableImage && updateIsViewingHeroCallback ? (
+      <button onClick={() => updateIsViewingHeroCallback(true)} className={containerClasses}>
+        {image}
+      </button>
+    ) : (
+      <div className={containerClasses}>{image}</div>
+    );
+  };
+
   return (
     <div className={`flex flex-row justify-center m-auto h-3/4`}>
       <CarouselButton
@@ -40,16 +64,7 @@ const GalleryView = ({
         isAtEnd={(idx) => idx === 0}
         isRight={false}
       />
-      <div className={`w-3/4 flex flex-row relative`}>
-        {/* TODO doesn't handle portrait very well */}
-        <Image
-          className={`opacity-100 object-cover`}
-          src={images[viewIdx].uri}
-          alt={images[viewIdx].alt ?? ''}
-          fill={true}
-          unoptimized={true}
-        />
-      </div>
+      {containedImage()}
       <CarouselButton
         scrollFn={scrollRight}
         viewIdx={viewIdx}
