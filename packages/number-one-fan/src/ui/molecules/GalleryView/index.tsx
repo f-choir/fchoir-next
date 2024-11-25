@@ -15,6 +15,7 @@ interface GalleryViewProps {
   viewIdx: number;
   closeViewCallback?: () => void;
   updateViewIdxCallback: (idx: number) => void;
+  updateIsViewingHeroCallback?: (isViewing: boolean) => void;
   isClickableImage?: boolean;
 }
 
@@ -23,6 +24,7 @@ const GalleryView = ({
   viewIdx,
   closeViewCallback,
   updateViewIdxCallback,
+  updateIsViewingHeroCallback,
   isClickableImage,
 }: GalleryViewProps) => {
   const scroll = (isRight: boolean) => {
@@ -42,11 +44,13 @@ const GalleryView = ({
         src={images[viewIdx].uri}
         alt={images[viewIdx].alt ?? ''}
         fill={true}
-        unoptimized={true}
+        unoptimized={false}
       />
     );
-    return isClickableImage ? (
-      <button className={containerClasses}>{image}</button>
+    return isClickableImage && updateIsViewingHeroCallback ? (
+      <button onClick={() => updateIsViewingHeroCallback(true)} className={containerClasses}>
+        {image}
+      </button>
     ) : (
       <div className={containerClasses}>{image}</div>
     );
