@@ -20,7 +20,7 @@ const CarouselButton = ({ scrollFn, isRight, viewIdx, isAtEnd }: CarouselButtonP
           ? 'fill-dove'
           : 'fill-black hover:p-1 hover:fill-red hover:opacity-100 transform duration-200',
       )}
-      size={'32px'}
+      size={'48px'}
     />
   </button>
 );

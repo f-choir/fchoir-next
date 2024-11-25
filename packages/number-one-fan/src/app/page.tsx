@@ -33,6 +33,9 @@ export default async function Home() {
       queryFn: getData,
     }),
   );
+
+  // console.log('BEEBUG: data', data);
+
   return (
     <main className="pt-12 m:pt-8">
       <div className={'absolute top-24 m:top-28 left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'}>
@@ -40,7 +43,6 @@ export default async function Home() {
       </div>
       <div className={'pt-20'}>
         <AttractGallery items={data} />
-        {/*// TODO refactor AttractGallery to take Strapi gallery*/}
         <SubHeader
           className={'relative top-0 m:-top-16 l:-top-24 text-center mb-8'}
           text={'causing a racket // singing together'}
