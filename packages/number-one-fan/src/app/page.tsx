@@ -3,22 +3,23 @@ import SubHeader from '@/ui/atoms/SubHeader';
 import AttractGallery from '@/ui/molecules/AttractGallery/AttractGallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
-// import { randomUUID } from 'node:crypto';
-// import Image from 'next/image';
-// import React from 'react';
+import Image from 'next/image';
+import Wrap from '@/ui/atoms/Wrap';
 
-const homePropsFromStrapi = (strapi: any) =>
-  strapi.data.attributes.galleries.data.map((gallery: any) => ({
+const homePropsFromStrapi = (strapi: any) => {
+  const galleries = strapi.data.attributes.galleries.data.map((gallery: any) => ({
     galleryId: gallery.id,
     galleryTitle: gallery.attributes.title,
     galleryDescription: gallery.attributes.short_description,
     imgUrl: gallery.attributes.hero_image.data.attributes.img.data.attributes.url,
     imgAlt: gallery.attributes.hero_image.data.attributes.img.data.attributes.alternativeText,
-    // socials: strapi.data.attributes.socials.data.map((social) => {
-    //   console.log('BEEBUG: social', social);
-    //   return social;
-    // }),
   }));
+
+  const socials = strapi.data.attributes.socials.data.map((social: any) => {
+    return { url: social.attributes.url, img: social.attributes.img.data.attributes.url };
+  });
+  return { galleries, socials };
+};
 
 const getData = async () => {
   const res = await home();
@@ -42,21 +43,24 @@ export default async function Home() {
         <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
       </div>
       <div className={'pt-20'}>
-        <AttractGallery items={data} />
-        {/*<div className="py-4 font-bold text-xl">*/}
-        {/*  <div className="flex flex-row">*/}
-        {/*    <div>Find us elsewhere:</div>*/}
-        {/*    {data.socials.map((social: any) => (*/}
-        {/*      <a href={social.url} className="pl-2" key={randomUUID()}>*/}
-        {/*        <Image src={social.img} width={32} height={32} alt="" />*/}
-        {/*      </a>*/}
-        {/*    ))}*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <AttractGallery items={data.galleries} />
+
         <SubHeader
-          className={'relative top-0 m:-top-16 l:-top-24 text-center mb-8'}
+          className={'relative top-0 m:-top-8 l:-top-24 text-center mb-2'}
           text={'causing a racket // singing together'}
         />
+        <Wrap>
+          <div className="py-4 font-bold text-xl mr-14">
+            <div className="flex flex-row justify-end">
+              {/*<div>Find us elsewhere:</div>*/}
+              {data.socials.map((social: any) => (
+                <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
+                  <Image src={social.img} width={32} height={32} alt="" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </Wrap>
       </div>
     </main>
   );

@@ -51,34 +51,34 @@ export default async function Contact() {
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'contact'} />
       <Wrap>
-        {data.words.map(
-          (line: any, idx: number) => (
-            <p className="py-2" key={randomUUID()}>
-              {line.map((fragment: any) => {
-                switch (fragment.type) {
-                  case 'text':
-                    return (
-                      <span className={`${fragment.bold && 'font-bold'}`} key={randomUUID()}>
-                        {fragment.text}
-                      </span>
-                    );
-                  case 'link':
-                    return (
-                      <span className="text-purple underline hover:text-black" key={randomUUID()}>
-                        <a href={fragment.url}>{fragment.text}</a>
-                      </span>
-                    );
-                }
-              })}
-            </p>
-          ),
-          // ),
-        )}
+        {data.words.map((line: any, idx: number) => (
+          <p className="py-2 px-2 m:px-0" key={randomUUID()}>
+            {line.map((fragment: any) => {
+              switch (fragment.type) {
+                case 'text':
+                  return (
+                    <span className={`text-xl ${fragment.bold && 'font-bold'}`} key={randomUUID()}>
+                      {fragment.text}
+                    </span>
+                  );
+                case 'link':
+                  return (
+                    <span
+                      className="font-bold text-2xl text-purple underline hover:text-black"
+                      key={randomUUID()}
+                    >
+                      <a href={fragment.url}>{fragment.text}</a>
+                    </span>
+                  );
+              }
+            })}
+          </p>
+        ))}
       </Wrap>
       <Wrap>
         <div className="py-4 font-bold text-xl">
           <div className="flex flex-row">
-            <div>Find us elsewhere:</div>
+            <div className="pl-2 m:pl-0">Find us elsewhere:</div>
             {data.socials.map((social: any) => (
               <a href={social.url} className="pl-2" key={randomUUID()}>
                 <Image src={social.img} width={32} height={32} alt="" />
