@@ -1094,6 +1094,11 @@ export interface ApiHomeHome extends Schema.SingleType {
       'oneToMany',
       'api::gallery.gallery'
     >;
+    socials: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
