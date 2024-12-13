@@ -38,7 +38,7 @@ const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProp
       </div>
       <div
         className={classNames(
-          'absolute bg-black p-8 w-5/6 h-5/6',
+          'absolute bg-black p-2 pt-10 m:p-8 w-full m:w-5/6 h-3/4 m:h-5/6',
           isViewMode ? 'inline-block' : 'hidden',
           `${viewClassName ? viewClassName : ''}`,
         )}

@@ -16,7 +16,7 @@ const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
   const props = galleryData.map((gallery: any) => {
     const {
       attributes: {
-        gallery_images: { data: imageData },
+        hero_image: { data: heroImageData },
       },
     } = gallery;
 
@@ -28,7 +28,7 @@ const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
           },
         },
       },
-    } = imageData[0];
+    } = heroImageData;
 
     return {
       size: 256,
