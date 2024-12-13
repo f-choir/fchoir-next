@@ -16,6 +16,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::gallery.gallery"
+    },
+    "socials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::external-link.external-link"
     }
   }
 }
