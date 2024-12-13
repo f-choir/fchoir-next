@@ -3,9 +3,9 @@ import SubHeader from '@/ui/atoms/SubHeader';
 import AttractGallery from '@/ui/molecules/AttractGallery/AttractGallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
-import { randomUUID } from 'node:crypto';
-import Image from 'next/image';
-import React from 'react';
+// import { randomUUID } from 'node:crypto';
+// import Image from 'next/image';
+// import React from 'react';
 
 const homePropsFromStrapi = (strapi: any) =>
   strapi.data.attributes.galleries.data.map((gallery: any) => ({
