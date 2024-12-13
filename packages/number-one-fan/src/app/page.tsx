@@ -39,20 +39,34 @@ export default async function Home() {
 
   return (
     <main className="pt-12 m:pt-8">
-      <div className={'absolute top-24 m:top-28 left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'}>
+      <div
+        className={
+          'absolute top-16 m:top-28 l:top-36 xl:top-32 left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'
+        }
+      >
         <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
       </div>
-      <div className={'pt-20'}>
+      <Wrap className="hidden l:inline-block">
+        <div className="font-bold ml-[10rem] xl:ml-[14rem] mt-[3rem] xl:mt-[2rem] xl:mb-[1rem]">
+          <div className="flex flex-row justify-start">
+            {data.socials.map((social: any) => (
+              <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
+                <Image src={social.img} width={48} height={48} alt="" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </Wrap>
+      <div className={'pt-12 m:pt-20 l:pt-4 xl:pt-0'}>
         <AttractGallery items={data.galleries} />
 
         <SubHeader
           className={'relative top-0 m:-top-8 l:-top-24 text-center mb-2'}
           text={'causing a racket // singing together'}
         />
-        <Wrap>
-          <div className="py-4 font-bold text-xl mr-14">
+        <Wrap className="l:hidden">
+          <div className="py-4 font-bold text-xl mr-14 m:mr-4">
             <div className="flex flex-row justify-end">
-              {/*<div>Find us elsewhere:</div>*/}
               {data.socials.map((social: any) => (
                 <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
                   <Image src={social.img} width={32} height={32} alt="" />
