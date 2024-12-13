@@ -62,6 +62,7 @@ const paramsFromStrapi = (strapi: any) => {
       },
     },
   } = strapi;
+  // console.log('BEEBUG: galleryData', galleryData);
 
   return galleryData.map((gallery: any) => ({ id: `${gallery.id}` }));
 };

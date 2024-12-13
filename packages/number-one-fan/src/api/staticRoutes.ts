@@ -1,7 +1,7 @@
 import { fetchApi } from '@/api/index';
 
 export const home = async () => {
-  return await fetchApi('home?populate=deep,13');
+  return await fetchApi('home?populate=deep,14');
 };
 
 export const about = async () => {

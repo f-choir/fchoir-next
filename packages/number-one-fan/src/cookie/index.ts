@@ -1,7 +1,8 @@
 import { getCookie, setCookie } from 'typescript-cookie';
 
 // TODO turn this into config
-const DOMAIN = 'fchoir-number-one-fan.vercel.app';
+const DOMAIN = 'fchoir.com';
+// const DOMAIN = 'fchoir-number-one-fan.vercel.app';
 // const DOMAIN = 'localhost';
 
 export const getCookieNamed = (name: string): string | undefined | null => {

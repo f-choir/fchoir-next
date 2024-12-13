@@ -10,19 +10,19 @@ const linkClasses = classNames(
 
 const Footer = () => (
   <footer className={'flex flex-col m:flex-row justify-center bg-purple w-full '}>
-    <a
-      href={INSTAGRAM}
-      className={linkClasses}
-      aria-label={'instagram.com @ f underscore underscore choir'}
-    >
-      instagram - @f__choir
-    </a>
+    {/*<a*/}
+    {/*  href={INSTAGRAM}*/}
+    {/*  className={linkClasses}*/}
+    {/*  aria-label={'instagram.com @ f underscore underscore choir'}*/}
+    {/*>*/}
+    {/*  instagram - @f__choir*/}
+    {/*</a>*/}
     <a href={EMAIL} className={linkClasses} aria-label={'we are f choir @ g mail.com'}>
       wearefchoir@gmail.com
     </a>
-    <a href={FACEBOOK} className={linkClasses} aria-label={'facebook dot com f choir london'}>
-      facebook - fchoirlondon
-    </a>
+    {/*<a href={FACEBOOK} className={linkClasses} aria-label={'facebook dot com f choir london'}>*/}
+    {/*  facebook - fchoirlondon*/}
+    {/*</a>*/}
   </footer>
 );
 
