@@ -38,6 +38,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::singer.singer"
+    },
+    "flair": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gallery-image.gallery-image"
     }
   }
 }
