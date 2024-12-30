@@ -7,26 +7,24 @@ import { randomUUID } from 'node:crypto';
 import Image from 'next/image';
 
 const contactPropsFromStrapi = (strapi: any) => {
-  const words = strapi.data.attributes.words.map((para: any) => {
-    return para.children.map((child: any) => {
-      switch (child.type) {
-        case 'text':
-          return { type: child.type, text: child.text, bold: child.bold };
-        case 'link':
-          return { type: child.type, text: child.children[0].text, url: child.url };
-      }
-    });
-  });
-
-  const socials = strapi.data.attributes.external_links.data.map((link: any) => ({
-    url: link.attributes.url,
-    img: link.attributes.img.data.attributes.url,
-  }));
+  const { words, image, external_links } = strapi.data.attributes;
 
   return {
-    words: words,
-    image: { url: strapi.data.attributes.image.data.attributes.url },
-    socials: socials,
+    words: words.map((para: any) => {
+      return para.children.map((child: any) => {
+        switch (child.type) {
+          case 'text':
+            return { type: child.type, text: child.text, bold: child.bold };
+          case 'link':
+            return { type: child.type, text: child.children[0].text, url: child.url };
+        }
+      });
+    }),
+    image: { url: image.data.attributes.url },
+    socials: external_links.data.map((link: any) => ({
+      url: link.attributes.url,
+      img: link.attributes.img.data.attributes.url,
+    })),
   };
 };
 

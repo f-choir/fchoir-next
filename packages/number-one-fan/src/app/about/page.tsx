@@ -12,16 +12,14 @@ import Cohort from '@/ui/organisms/Cohort';
 import Flair from '@/ui/molecules/Flair';
 
 const aboutPropsFromStrapi = (strapi: any) => {
+  const { words, video, choirBio, leaders, cohort, flair } = strapi.data.attributes;
+
   return {
-    words: strapi.data.attributes.words.flatMap((block: any) =>
-      block.children.map((child: any) => child.text),
-    ),
-    videoId: strapi.data.attributes.video.data.attributes.provider_metadata.public_id,
+    words: words.flatMap((block: any) => block.children.map((child: any) => child.text)),
+    videoId: video.data.attributes.provider_metadata.public_id,
     // the API should also have an embed. we should only have one up, not both, obvs.
-    choirBio: strapi.data.attributes.choirBio?.flatMap((block: any) =>
-      block.children.map((child: any) => child.text),
-    ),
-    leaders: strapi.data.attributes.leaders.data.map((leader: any) => ({
+    choirBio: choirBio?.flatMap((block: any) => block.children.map((child: any) => child.text)),
+    leaders: leaders.data.map((leader: any) => ({
       name: leader.attributes.name,
       avatarUrl: leader.attributes.avatar.data.attributes.url,
       title: leader.attributes.title,
@@ -35,15 +33,11 @@ const aboutPropsFromStrapi = (strapi: any) => {
         .map((link: any) => ({ url: link.url, label: link.children[0].text })),
     })),
     cohort: {
-      title: `Current Voices - ${
-        Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4)) + 1
-      }`,
-      names: strapi.data.attributes.cohort.data.attributes.singers.data.map(
-        (singer: any) => singer.attributes.name,
-      ),
+      title: `Current Voices - ${Number(cohort.data.attributes.startDate.slice(0, 4)) + 1}`,
+      names: cohort.data.attributes.singers.data.map((singer: any) => singer.attributes.name),
     },
     flair: {
-      items: strapi.data.attributes.flair.data.map((item: any) => ({
+      items: flair.data.map((item: any) => ({
         url: item.attributes.img.data.attributes.url,
       })),
     },

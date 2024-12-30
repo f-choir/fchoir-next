@@ -7,18 +7,21 @@ import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
 
 const homePropsFromStrapi = (strapi: any) => {
-  const galleries = strapi.data.attributes.galleries.data.map((gallery: any) => ({
-    galleryId: gallery.id,
-    galleryTitle: gallery.attributes.title,
-    galleryDescription: gallery.attributes.short_description,
-    imgUrl: gallery.attributes.hero_image.data.attributes.img.data.attributes.url,
-    imgAlt: gallery.attributes.hero_image.data.attributes.img.data.attributes.alternativeText,
-  }));
+  const { galleries, socials } = strapi.data.attributes;
 
-  const socials = strapi.data.attributes.socials.data.map((social: any) => {
-    return { url: social.attributes.url, img: social.attributes.img.data.attributes.url };
-  });
-  return { galleries, socials };
+  return {
+    galleries: galleries.data.map((gallery: any) => ({
+      galleryId: gallery.id,
+      galleryTitle: gallery.attributes.title,
+      galleryDescription: gallery.attributes.short_description,
+      imgUrl: gallery.attributes.hero_image.data.attributes.img.data.attributes.url,
+      imgAlt: gallery.attributes.hero_image.data.attributes.img.data.attributes.alternativeText,
+    })),
+    socials: socials.data.map((social: any) => ({
+      url: social.attributes.url,
+      img: social.attributes.img.data.attributes.url,
+    })),
+  };
 };
 
 const getData = async () => {
