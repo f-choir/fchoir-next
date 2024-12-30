@@ -812,6 +812,11 @@ export interface ApiAboutAbout extends Schema.SingleType {
       'oneToMany',
       'api::singer.singer'
     >;
+    flair: Attribute.Relation<
+      'api::about.about',
+      'oneToMany',
+      'api::gallery-image.gallery-image'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

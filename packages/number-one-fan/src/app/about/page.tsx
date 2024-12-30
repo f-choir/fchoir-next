@@ -11,6 +11,8 @@ import Bio from '@/ui/organisms/Bio';
 import Cohort from '@/ui/organisms/Cohort';
 
 const aboutPropsFromStrapi = (strapi: any) => {
+  // console.log('BEEBUG: strapi.data.attributes.flair', strapi.data.attributes.flair);
+
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
       block.children.map((child: any) => child.text),
