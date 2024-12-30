@@ -64,7 +64,7 @@ export default async function Home() {
         <AttractGallery items={data.galleries} />
 
         <SubHeader
-          className={'relative top-0 m:-top-8 l:-top-24 text-center mb-2'}
+          className={'relative top-0 m:-top-8 l:-top-40 text-center mb-2'}
           text={'causing a racket // singing together'}
         />
         <Wrap className="l:hidden">
