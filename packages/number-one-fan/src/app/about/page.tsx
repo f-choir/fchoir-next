@@ -9,13 +9,9 @@ import HorizontalDivider from '@/ui/atoms/HorizontalDivider';
 import Humanifesto from '@/ui/organisms/Humanifesto';
 import Bio from '@/ui/organisms/Bio';
 import Cohort from '@/ui/organisms/Cohort';
+import Flair from '@/ui/molecules/Flair';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  console.log(
-    'BEEBUG: strapi.data.attributes.flair',
-    strapi.data.attributes.flair.data[0].attributes.img.data.attributes.url,
-  );
-
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
       block.children.map((child: any) => child.text),
@@ -88,6 +84,8 @@ export default async function About() {
         <Bio leader={data.leaders[0]} />
         <HorizontalDivider />
         <Cohort cohort={data.cohort} />
+        <HorizontalDivider />
+        <Flair flair={data.flair} />
       </Wrap>
     </main>
   );
