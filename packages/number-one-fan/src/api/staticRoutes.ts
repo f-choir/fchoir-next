@@ -5,7 +5,7 @@ export const home = async () => {
 };
 
 export const about = async () => {
-  return await fetchApi('about?populate=deep,10');
+  return await fetchApi('about?populate=deep,11');
 };
 
 export const antics = async () => {
