@@ -11,7 +11,10 @@ import Bio from '@/ui/organisms/Bio';
 import Cohort from '@/ui/organisms/Cohort';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  // console.log('BEEBUG: strapi.data.attributes.flair', strapi.data.attributes.flair);
+  console.log(
+    'BEEBUG: strapi.data.attributes.flair',
+    strapi.data.attributes.flair.data[0].attributes.img.data.attributes.url,
+  );
 
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
@@ -42,6 +45,11 @@ const aboutPropsFromStrapi = (strapi: any) => {
       names: strapi.data.attributes.cohort.data.attributes.singers.data.map(
         (singer: any) => singer.attributes.name,
       ),
+    },
+    flair: {
+      items: strapi.data.attributes.flair.data.map((item: any) => ({
+        url: item.attributes.img.data.attributes.url,
+      })),
     },
   };
 };
