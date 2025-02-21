@@ -10,6 +10,7 @@ export interface GalleryImageProps {
   uri: string;
   alt?: string;
   caption?: string;
+  photoCredit?: string;
 }
 
 interface GalleryViewProps {
@@ -60,21 +61,27 @@ const GalleryView = ({
   };
 
   return (
-    <Wrap className={`flex flex-row justify-center m-auto h-3/4 min-w-full`}>
-      <CarouselButton
-        scrollFn={scrollLeft}
-        viewIdx={viewIdx}
-        isAtEnd={(idx) => idx === 0}
-        isRight={false}
-      />
-      {containedImage()}
-      <CarouselButton
-        scrollFn={scrollRight}
-        viewIdx={viewIdx}
-        isAtEnd={(idx) => idx === images.length - 1}
-        isRight={true}
-      />
-      {closeViewCallback && <CloseButton onClose={closeViewCallback} />}
+    <Wrap className={`h-3/4`}>
+      <div className="flex flex-row justify-center m-auto h-full w-full">
+        <CarouselButton
+          scrollFn={scrollLeft}
+          viewIdx={viewIdx}
+          isAtEnd={(idx) => idx === 0}
+          isRight={false}
+        />
+        {containedImage()}
+        <CarouselButton
+          scrollFn={scrollRight}
+          viewIdx={viewIdx}
+          isAtEnd={(idx) => idx === images.length - 1}
+          isRight={true}
+        />
+        {closeViewCallback && <CloseButton onClose={closeViewCallback} />}
+      </div>
+      <p className="text-lilac text-center text-2xl m:text-3xl pt-4 m:pt-8">
+        {images[viewIdx].caption ?? ''}
+      </p>
+      {images[viewIdx].photoCredit && <p>Photo credit: {images[viewIdx].photoCredit}</p>}
     </Wrap>
   );
 };
