@@ -12,7 +12,13 @@ const ImagePreview = ({ size, altText, src, onClickCallback }: ImagePreviewProps
     className={'hover:bg-lilac hover:opacity-50 transition duration-100'}
     onClick={onClickCallback}
   >
-    <SquareImage src={src} altText={altText} size={size} style={{ objectFit: 'cover' }} />
+    <SquareImage
+      src={src}
+      altText={altText}
+      size={size}
+      style={{ objectFit: 'cover' }}
+      title={altText}
+    />
   </button>
 );
 
