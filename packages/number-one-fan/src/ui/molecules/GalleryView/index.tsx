@@ -4,6 +4,7 @@ import CarouselButton from '@/ui/atoms/CarouselButton';
 import CloseButton from '@/ui/atoms/CloseButton';
 import { imageSrc } from '@/ui/helpers';
 import gallery from '@/ui/molecules/Gallery';
+import Wrap from '@/ui/atoms/Wrap';
 
 export interface GalleryImageProps {
   uri: string;
@@ -38,14 +39,15 @@ const GalleryView = ({
   const scrollLeft = () => scroll(false);
 
   const containedImage = () => {
-    const containerClasses = 'w-3/4 flex flex-row relative';
+    const containerClasses = 'w-11/12 flex flex-row relative';
     const image = (
       <Image
-        className={`opacity-100 object-cover`}
+        className={`opacity-100 object-cover cursor-pointer`}
         src={images[viewIdx].uri}
         alt={images[viewIdx].alt ?? ''}
         fill={true}
         unoptimized={false}
+        title={images[viewIdx].alt || ''}
       />
     );
     return isClickableImage && updateIsViewingHeroCallback ? (
@@ -58,7 +60,7 @@ const GalleryView = ({
   };
 
   return (
-    <div className={`flex flex-row justify-center m-auto h-3/4`}>
+    <Wrap className={`flex flex-row justify-center m-auto h-3/4 min-w-full`}>
       <CarouselButton
         scrollFn={scrollLeft}
         viewIdx={viewIdx}
@@ -73,7 +75,7 @@ const GalleryView = ({
         isRight={true}
       />
       {closeViewCallback && <CloseButton onClose={closeViewCallback} />}
-    </div>
+    </Wrap>
   );
 };
 
