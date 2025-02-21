@@ -10,7 +10,11 @@ interface CarouselButtonProps {
 }
 
 const CarouselButton = ({ scrollFn, isRight, viewIdx, isAtEnd }: CarouselButtonProps) => (
-  <button onClick={scrollFn} className={'z-5'}>
+  <button
+    onClick={scrollFn}
+    className={'z-5'}
+    aria-label={`${isRight ? 'next' : 'previous'} image`}
+  >
     <Icon
       path={ChevronRight.path}
       className={classNames(

@@ -32,13 +32,16 @@ const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProp
         {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
         <ImageGrid
           path={pathOverride ? '' : id}
-          images={images.slice(0, 9).map((image, idx) => image.uri)}
+          images={images
+            .slice(0, 9)
+            .map((image, idx) => ({ uri: image.uri, alt: image.alt, caption: image.caption }))}
           onClickCallback={images.slice(0, 9).map((_, idx) => onImageClick(idx))}
         />
       </div>
+      {/*<div className="h-5/6"> </div>*/}
       <div
         className={classNames(
-          'absolute bg-black p-2 pt-10 m:p-8 w-full m:w-5/6 h-3/4 m:h-5/6',
+          'absolute bg-black p-2 pt-10 m:p-8 w-full m:w-11/12 h-5/6 m:h-5/6',
           isViewMode ? 'inline-block' : 'hidden',
           `${viewClassName ? viewClassName : ''}`,
         )}

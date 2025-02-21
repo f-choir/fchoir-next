@@ -45,8 +45,8 @@ const Gallery = async ({ params }: { params: { id: string } }) => {
         images={imageData.map((image: any) => {
           return {
             uri: image.attributes.img.data.attributes.url,
-            caption: image.attributes.caption,
-            alt: image.attributes.alt,
+            caption: image.attributes.img.data.attributes.caption,
+            alt: image.attributes.img.data.attributes.alternativeText,
           };
         })}
       />
@@ -62,7 +62,6 @@ const paramsFromStrapi = (strapi: any) => {
       },
     },
   } = strapi;
-  // console.log('BEEBUG: galleryData', galleryData);
 
   return galleryData.map((gallery: any) => ({ id: `${gallery.id}` }));
 };
@@ -80,6 +79,7 @@ export async function generateStaticParams() {
       queryFn: getParams,
     }),
   );
+
   return paramsFromStrapi(data);
 }
 
