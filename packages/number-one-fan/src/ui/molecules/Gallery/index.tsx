@@ -32,7 +32,9 @@ const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProp
         {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
         <ImageGrid
           path={pathOverride ? '' : id}
-          images={images.slice(0, 9).map((image, idx) => image.uri)}
+          images={images
+            .slice(0, 9)
+            .map((image, idx) => ({ uri: image.uri, alt: image.alt, caption: image.caption }))}
           onClickCallback={images.slice(0, 9).map((_, idx) => onImageClick(idx))}
         />
       </div>

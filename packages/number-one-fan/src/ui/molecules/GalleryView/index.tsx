@@ -8,6 +8,7 @@ import gallery from '@/ui/molecules/Gallery';
 export interface GalleryImageProps {
   uri: string;
   alt?: string;
+  caption?: string;
 }
 
 interface GalleryViewProps {

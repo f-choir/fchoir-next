@@ -1,10 +1,11 @@
 import Grid from '@/ui/atoms/Grid';
 import ImagePreview from '@/ui/molecules/ImagePreview';
 import { imageSrc } from '@/ui/helpers';
+import { GalleryImageProps } from '@/ui/molecules/GalleryView';
 
 interface ImageGridProps {
   path: string;
-  images: string[];
+  images: GalleryImageProps[];
   onClickCallback: (() => void)[];
 }
 
@@ -14,8 +15,8 @@ const ImageGrid = ({ path, images, onClickCallback }: ImageGridProps) => (
       <ImagePreview
         key={idx}
         size={256}
-        altText={'foo'}
-        src={imageSrc(path, image)}
+        altText={image.alt || ''}
+        src={imageSrc(path, image.uri)}
         onClickCallback={onClickCallback[idx]}
       />
     ))}
