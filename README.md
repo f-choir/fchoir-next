@@ -17,8 +17,12 @@
 
 ## Staying alive
 ### DNS
-DNS means Domain Name Servers and it's how computers find each other online. We have our email with Wordpress (`MX` entries in the table below)
-and our site with Vercel. It's easy to get the wrong setting and break things, so we've got a working configuration here to fall back to:
+DNS means Domain Name Servers and it's how computers find each other online. We have our email with Wordpress (`MX` entries and related `TXT` entries in the table below)
+and our site with Vercel. 
+
+Wordpress (domain host) should be pointed at Vercel's nameservers `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, and Vercel given the MX and TXT configs to point back to Vercel.
+
+If Vercel DNS breaks for some reason, we've got a working configuration Wordpress configuration to fall back to:
 ```
 A       @                   Handled by WordPress.com
 TXT     titan1._domainkey   v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGrgDunmjhtIekmHJ0k+/nBYWrZNebIDxmbfIj7f0C/DmjCEmyIlkCgIIYFQp+ixc/Wq4RFR3IOVgzhXFHsEWLbDq6FkXKU5RKckVzIi9wW4K7pvwj+dNT3jptRsU7KhjzygDX5LKHQmFCxsrjHo9RtTLmNn1PrX5CZXP1QWG17wIDAQAB
@@ -35,3 +39,4 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 ### Change Log
 - 12/12/24: new site live
 - 24/01/25: broke DNS changing email servers, 307 redirect to Vercel app DNS
+- 22/02/25: restored DNS and removed redirect. Image alt text from Strapi now renders.
