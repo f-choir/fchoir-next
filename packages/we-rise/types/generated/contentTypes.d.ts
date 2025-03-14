@@ -1255,6 +1255,38 @@ export interface ApiSingerSinger extends Schema.CollectionType {
   };
 }
 
+export interface ApiSupportSupport extends Schema.SingleType {
+  collectionName: 'supports';
+  info: {
+    singularName: 'support';
+    pluralName: 'supports';
+    displayName: 'Support';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    richText: Attribute.Blocks;
+    media: Attribute.Media;
+    embed: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::support.support',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::support.support',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1286,6 +1318,7 @@ declare module '@strapi/types' {
       'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
       'api::singer.singer': ApiSingerSinger;
+      'api::support.support': ApiSupportSupport;
     }
   }
 }
