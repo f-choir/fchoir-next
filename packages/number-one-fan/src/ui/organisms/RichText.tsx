@@ -1,6 +1,7 @@
 import { FC, Fragment } from 'react';
 import { JSX } from 'react/jsx-runtime';
 import IntrinsicElements = JSX.IntrinsicElements;
+import { randomUUID } from 'node:crypto';
 
 interface RichTextNode {
   type: string;
@@ -49,15 +50,13 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
         </span>
       );
     }
-
     if (node.code) {
       return <code key={nodeKey(node.text)}>{node.text}</code>;
     }
-
     return node.text;
   };
 
-  const renderRichTextNode = (node: RichTextNode, index: number) => {
+  const renderRichTextNode = (node: RichTextNode) => {
     switch (node.type) {
       case 'heading': {
         const level = node.headingLevel || 2;
@@ -73,7 +72,7 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
         ];
 
         return (
-          <HeadingTag className={headingClasses[level]}>
+          <HeadingTag className={headingClasses[level]} key={nodeKey(node.children[0].text)}>
             {node.children.map((child, i) => (
               <Fragment key={nodeKey(child.text)}>{renderTextNode(child)}</Fragment>
             ))}
@@ -82,12 +81,13 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
       }
       case 'paragraph':
         return (
-          <p key={`p-${index}`}>
+          <p key={randomUUID()}>
             {node.children.map((child, i) => (
-              <Fragment>{renderTextNode(child)}</Fragment>
+              <Fragment key={nodeKey(child.text)}>{renderTextNode(child)}</Fragment>
             ))}
           </p>
         );
+
       case 'list':
         const ListTag = node.format === 'ordered' ? 'ol' : 'ul';
         const listClasses =
@@ -113,7 +113,7 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
   return (
     <div className="rich-content">
       <div className="rich-text">
-        {richText.map((node: RichTextNode, index: number) => renderRichTextNode(node, index))}
+        {richText.map((node: RichTextNode, index: number) => renderRichTextNode(node))}
       </div>
     </div>
   );
