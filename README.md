@@ -40,3 +40,4 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 - 12/12/24: new site live
 - 24/01/25: broke DNS changing email servers, 307 redirect to Vercel app DNS
 - 22/02/25: restored DNS and removed redirect. Image alt text from Strapi now renders.
+- 14/03/25: hidden `/support` page added to be developed FAO funders. Added RichText component to render Strapi rich text blocks nicely.
