@@ -23,3 +23,7 @@ export const contact = async () => {
 export const members = async (jwt?: string) => {
   return await fetchApi('member?populate=deep,11', jwt);
 };
+
+export const support = async () => {
+  return await fetchApi('support?populate=deep');
+};
