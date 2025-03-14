@@ -21,17 +21,19 @@ interface TextNode {
   children?: TextNode[];
 }
 
+const nodeKey = (text: string) => `${text}-${Math.floor(1024 * Math.random())}`;
+
 export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
   const renderTextNode = (node: TextNode) => {
     if (node.type === 'link' && node.url && node.children) {
       return (
-        <a href={node.url} key={node.url + node.text}>
+        <a href={node.url} key={nodeKey(node.text)}>
           {node.children.map((child, i) => renderTextNode(child))}
         </a>
       );
     }
 
-    if (node.bold || node.italic || node.underline || node.strikethrough || node.code) {
+    if (node.bold || node.italic || node.underline || node.strikethrough) {
       const classNames = [
         node.bold ? 'font-bold' : '',
         node.italic ? 'italic' : '',
@@ -41,15 +43,15 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
         .filter(Boolean)
         .join(' ');
 
-      if (node.code) {
-        return <code key={node.text.slice(0, 10)}>{node.text}</code>;
-      }
-
       return (
-        <span className={classNames} key={node.text.slice(0, 10)}>
+        <span className={classNames} key={nodeKey(node.text)}>
           {node.text}
         </span>
       );
+    }
+
+    if (node.code) {
+      return <code key={nodeKey(node.text)}>{node.text}</code>;
     }
 
     return node.text;
@@ -71,9 +73,9 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
         ];
 
         return (
-          <HeadingTag key={`heading-${index}`} className={headingClasses[level]}>
+          <HeadingTag className={headingClasses[level]}>
             {node.children.map((child, i) => (
-              <Fragment key={`heading-text-${index}-${i}`}>{renderTextNode(child)}</Fragment>
+              <Fragment key={nodeKey(child.text)}>{renderTextNode(child)}</Fragment>
             ))}
           </HeadingTag>
         );
@@ -82,7 +84,7 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
         return (
           <p key={`p-${index}`}>
             {node.children.map((child, i) => (
-              <Fragment key={`text-${index}-${i}`}>{renderTextNode(child)}</Fragment>
+              <Fragment>{renderTextNode(child)}</Fragment>
             ))}
           </p>
         );
@@ -93,11 +95,11 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
             ? 'list-decimal pl-5 mb-4 space-y-1'
             : 'list-disc pl-5 mb-4 space-y-1';
         return (
-          <ListTag key={`list-${index}`} className={listClasses}>
-            {node.children.map((item, i) => (
-              <li key={`list-item-${index}-${i}`}>
-                {item.children?.map((child, j) => (
-                  <Fragment key={`list-text-${index}-${i}-${j}`}>{renderTextNode(child)}</Fragment>
+          <ListTag className={listClasses}>
+            {node.children.map((item) => (
+              <li key={nodeKey(item.text)}>
+                {item.children?.map((child) => (
+                  <Fragment key={nodeKey(child.text)}>{renderTextNode(child)}</Fragment>
                 ))}
               </li>
             ))}
