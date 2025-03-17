@@ -13,30 +13,34 @@ const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
     },
   } = strapi;
 
-  const props = galleryData.map((gallery: any) => {
-    const {
-      attributes: {
-        hero_image: { data: heroImageData },
-      },
-    } = gallery;
+  const props = galleryData
+    .map((gallery: any) => {
+      const {
+        attributes: {
+          hero_image: { data: heroImageData },
+        },
+      } = gallery;
 
-    const {
-      attributes: {
-        img: {
-          data: {
-            attributes: { url },
+      if (!heroImageData) return null;
+
+      const {
+        attributes: {
+          img: {
+            data: {
+              attributes: { url },
+            },
           },
         },
-      },
-    } = heroImageData;
+      } = heroImageData;
 
-    return {
-      size: 256,
-      titleText: gallery.attributes.title,
-      imgSrc: url,
-      uri: gallery.id,
-    };
-  });
+      return {
+        size: 256,
+        titleText: gallery.attributes.title,
+        imgSrc: url,
+        uri: gallery.id,
+      };
+    })
+    .filter(Boolean);
 
   return props as GalleryPreviewProps[];
 };
@@ -55,6 +59,7 @@ export default async function Antics() {
       queryFn: getData,
     }),
   );
+
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'antics'} />
