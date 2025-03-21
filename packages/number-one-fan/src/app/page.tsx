@@ -48,7 +48,18 @@ export default async function Home() {
         <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
       </div>
       <Wrap className="hidden l:inline-block">
-        <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[3rem] xl:mt-[2rem] xl:mb-[1rem]">
+        <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
+          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] justify-self-center">
+            March 2025: our{' '}
+            <Link
+              className="text-purple underline"
+              href="https://www.crowdfunder.co.uk/p/fchoir2025"
+              target="_blank"
+            >
+              Crowdfunder
+            </Link>{' '}
+            is live!
+          </h2>
           <div className="flex flex-row justify-start">
             {data.socials.map((social: any) => (
               <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
@@ -61,22 +72,22 @@ export default async function Home() {
       <div className={'pt-12 m:pt-20 l:pt-4 xl:pt-0'}>
         <AttractGallery items={data.galleries} />
 
-        <h2 className="text-xl font-bold pl-2 pb-4 m:pb-12 l:pb-[10rem] l:-mt-[10rem] justify-self-center">
-          March 2025: our{' '}
-          <Link
-            className="text-purple underline"
-            href="https://www.crowdfunder.co.uk/p/fchoir2025"
-            target="_blank"
-          >
-            Crowdfunder
-          </Link>{' '}
-          is live!
-        </h2>
         <SubHeader
           className={'relative top-0 m:-top-8 l:-top-24 text-center mb-2'}
           text={'causing a racket // singing together'}
         />
         <Wrap className="l:hidden">
+          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] justify-self-center">
+            March 2025: our{' '}
+            <Link
+              className="text-purple underline"
+              href="https://www.crowdfunder.co.uk/p/fchoir2025"
+              target="_blank"
+            >
+              Crowdfunder
+            </Link>{' '}
+            is live!
+          </h2>
           <div className="py-4 font-bold text-xl mr-14 m:mr-4">
             <div className="flex flex-row justify-end">
               {data.socials.map((social: any) => (
