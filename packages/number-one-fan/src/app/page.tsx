@@ -5,6 +5,7 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
+import Link from 'next/link';
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data.map((gallery: any) => ({
@@ -47,7 +48,7 @@ export default async function Home() {
         <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
       </div>
       <Wrap className="hidden l:inline-block">
-        <div className="font-bold ml-[10rem] xl:ml-[14rem] mt-[3rem] xl:mt-[2rem] xl:mb-[1rem]">
+        <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[3rem] xl:mt-[2rem] xl:mb-[1rem]">
           <div className="flex flex-row justify-start">
             {data.socials.map((social: any) => (
               <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
@@ -60,6 +61,17 @@ export default async function Home() {
       <div className={'pt-12 m:pt-20 l:pt-4 xl:pt-0'}>
         <AttractGallery items={data.galleries} />
 
+        <h2 className="text-xl font-bold pl-2 pb-4 m:pb-12 l:pb-[10rem] l:-mt-[10rem] justify-self-center">
+          March 2025: our{' '}
+          <Link
+            className="text-purple underline"
+            href="https://www.crowdfunder.co.uk/p/fchoir2025"
+            target="_blank"
+          >
+            Crowdfunder
+          </Link>{' '}
+          is live!
+        </h2>
         <SubHeader
           className={'relative top-0 m:-top-8 l:-top-24 text-center mb-2'}
           text={'causing a racket // singing together'}
