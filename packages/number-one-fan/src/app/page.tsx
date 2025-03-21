@@ -49,7 +49,7 @@ export default async function Home() {
       </div>
       <Wrap className="hidden l:inline-block">
         <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
-          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] justify-self-center">
+          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[3rem] justify-self-center">
             March 2025: our{' '}
             <Link
               className="text-purple underline"
