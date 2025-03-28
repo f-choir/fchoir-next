@@ -42,4 +42,4 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 - 22/02/25: restored DNS and removed redirect. Image alt text from Strapi now renders.
 - 14/03/25: hidden `/support` page added to be developed FAO funders. Added RichText component to render Strapi rich text blocks nicely.
 - 21/03/25: added hardcoded crowdfunder link to frontpage
-- 28/03/25: updated About page with current roster and date range. Improve front page image aspect ratio
+- 28/03/25: updated About page with current roster and date range. Improve front page image aspect ratio and randomise the initial displayed gallery.

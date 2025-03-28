@@ -3,7 +3,6 @@ import GalleryGrid from '@/ui/molecules/GalleryGrid';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { GalleryPreviewProps } from '@/ui/molecules/GalleryPreview';
 import { antics } from '@/api/staticRoutes';
-import { blob } from 'node:stream/consumers';
 
 const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
   const {
