@@ -7,6 +7,7 @@ export interface GalleryPreviewProps {
   titleText: string;
   imgSrc: string;
   uri: string;
+  date?: string;
 }
 
 const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) => (

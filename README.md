@@ -20,7 +20,7 @@
 DNS means Domain Name Servers and it's how computers find each other online. We have our email with Wordpress (`MX` entries and related `TXT` entries in the table below)
 and our site with Vercel. 
 
-Wordpress (domain host) should be pointed at Vercel's nameservers `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, and Vercel given the MX and TXT configs to point back to Vercel.
+Wordpress (domain host) should be pointed at Vercel's nameservers `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, and Vercel given the MX and TXT configs to point back to Vercel for mail.
 
 If Vercel DNS breaks for some reason, we've got a working configuration Wordpress configuration to fall back to:
 ```
@@ -41,3 +41,5 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 - 24/01/25: broke DNS changing email servers, 307 redirect to Vercel app DNS
 - 22/02/25: restored DNS and removed redirect. Image alt text from Strapi now renders.
 - 14/03/25: hidden `/support` page added to be developed FAO funders. Added RichText component to render Strapi rich text blocks nicely.
+- 21/03/25: added hardcoded crowdfunder link to frontpage
+- 28/03/25: updated About page with current roster and date range. Improve front page image aspect ratio and randomise the initial displayed gallery.
