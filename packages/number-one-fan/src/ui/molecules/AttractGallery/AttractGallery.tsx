@@ -19,14 +19,19 @@ interface AttractGalleryProps {
 const AttractGallery = ({ items }: AttractGalleryProps) => {
   const [viewIdx, setViewIdx] = useState(0);
   const [isViewingHero, setIsViewingHero] = useState(false);
-
+  const [isInitialised, setIsInitialised] = useState(false);
   const updateViewIdxCallback = (idx: number) => setViewIdx(idx);
 
   const updateIsViewingHero = (isViewing: boolean) => setIsViewingHero(isViewing);
 
+  if (!isInitialised) {
+    setViewIdx(Math.floor(Math.random() * items.length));
+    setIsInitialised(true);
+  }
+
   return (
     <>
-      <div className={'h-[60vw] w-[100vw] relative z-0'}>
+      <div className={'h-[80vw] m:h-[50vw] w-[100vw] relative z-0'}>
         <GalleryView
           images={items.map((item) => ({ uri: item.imgUrl, alt: item.imgAlt }))}
           viewIdx={viewIdx}

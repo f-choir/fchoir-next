@@ -3,6 +3,7 @@ import GalleryGrid from '@/ui/molecules/GalleryGrid';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { GalleryPreviewProps } from '@/ui/molecules/GalleryPreview';
 import { antics } from '@/api/staticRoutes';
+import { blob } from 'node:stream/consumers';
 
 const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
   const {
@@ -38,9 +39,15 @@ const galleryPreviewPropsFromStrapi = (strapi: any): GalleryPreviewProps[] => {
         titleText: gallery.attributes.title,
         imgSrc: url,
         uri: gallery.id,
+        date: gallery.attributes.date,
       };
     })
     .filter(Boolean);
+
+  props.sort(
+    (a: GalleryPreviewProps, b: GalleryPreviewProps) =>
+      Date.parse(b.date || '') - Date.parse(a.date || ''),
+  );
 
   return props as GalleryPreviewProps[];
 };
