@@ -43,7 +43,9 @@ const GalleryView = ({
     const containerClasses = 'w-11/12 flex flex-row relative';
     const image = (
       <Image
-        className={`opacity-100 object-cover cursor-pointer`}
+        className={`opacity-100 object-cover pt-2 m:pt-4 l:pt-6 xl:pt-8 ${
+          isClickableImage ? 'cursor-pointer' : ''
+        }`}
         src={images[viewIdx].uri}
         alt={images[viewIdx].alt ?? ''}
         fill={true}
@@ -62,7 +64,7 @@ const GalleryView = ({
 
   return (
     <Wrap className={`h-3/4`}>
-      <div className="flex flex-row justify-center m-auto h-full w-full">
+      <div className="flex flex-row m-auto h-full w-full">
         <CarouselButton
           scrollFn={scrollLeft}
           viewIdx={viewIdx}
