@@ -5,6 +5,7 @@ import { support } from '@/api/staticRoutes';
 import { RichText } from '@/ui/organisms/RichText';
 import Image from 'next/image';
 import React from 'react';
+import Embed from '@/ui/atoms/Embed/Embed';
 // import Embed from '@/ui/atoms/Embed/Embed';
 
 const getData = async () => {
@@ -34,16 +35,20 @@ export default async function Support() {
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'support us'} />
       <Wrap>
-        <RichText richText={data.richText} />
+        <Embed className={'max-w[100vw]'} htmlString={data.embed} isCentered={true} />
+        <RichText richText={data.richText} className={'pt-8 mx-4 m:ml-0'} />
+        {mediaUrls.map((url: string) => (
+          <Image
+            className="py-6 m-auto"
+            src={url}
+            alt={'F*Choir loves you'}
+            width={1200}
+            height={800}
+            unoptimized={true}
+            key={`${Math.floor(Math.random() * 2048)}`}
+          />
+        ))}
       </Wrap>
-      <Image
-        className="py-6 m-auto"
-        src={mediaUrls[0]}
-        alt={'F*Choir loves you'}
-        width={600}
-        height={400}
-      />
-      {/*<Embed htmlString={data.embed} />*/}
     </main>
   );
 }

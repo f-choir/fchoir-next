@@ -7,7 +7,7 @@ interface RichTextNode {
   type: string;
   children: TextNode[];
   format?: 'ordered' | 'unordered';
-  headingLevel?: number;
+  level?: number; // the heading level
 }
 
 interface TextNode {
@@ -22,9 +22,12 @@ interface TextNode {
   children?: TextNode[];
 }
 
-const nodeKey = (text: string) => `${text}-${Math.floor(1024 * Math.random())}`;
+const nodeKey = (text: string) => `${text.slice(0, 12)}-${Math.floor(1024 * Math.random())}`;
 
-export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
+export const RichText: FC<{ richText: RichTextNode[]; className?: string }> = ({
+  richText,
+  className,
+}) => {
   const renderTextNode = (node: TextNode) => {
     if (node.type === 'link' && node.url && node.children) {
       return (
@@ -59,23 +62,24 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
   const renderRichTextNode = (node: RichTextNode) => {
     switch (node.type) {
       case 'heading': {
-        const level = node.headingLevel || 2;
+        const level = node.level || 2;
         const HeadingTag = `h${level}` as keyof IntrinsicElements;
 
         const headingClasses = [
-          'text-4xl font-bold mb-4',
-          'text-3xl font-bold mb-3',
-          'text-2xl font-bold mb-2',
-          'text-xl font-bold mb-2',
-          'text-lg font-bold mb-1',
-          'text-base font-bold mb-1',
+          'text-4xl mb-4',
+          'text-3xl mb-3',
+          'text-2xl mb-2',
+          'text-xl mb-3',
+          'text-lg mb-1 mt-4',
+          'text-base mb-1',
         ];
 
         return (
-          <HeadingTag className={headingClasses[level]} key={nodeKey(node.children[0].text)}>
-            {node.children.map((child, i) => (
-              <Fragment key={nodeKey(child.text)}>{renderTextNode(child)}</Fragment>
-            ))}
+          <HeadingTag
+            className={`${headingClasses[level]} font-bold`}
+            key={nodeKey(node.children[0].text)}
+          >
+            <span>{node.children[0].text}</span>
           </HeadingTag>
         );
       }
@@ -111,10 +115,8 @@ export const RichText: FC<{ richText: RichTextNode[] }> = ({ richText }) => {
   };
 
   return (
-    <div className="rich-content">
-      <div className="rich-text">
-        {richText.map((node: RichTextNode, index: number) => renderRichTextNode(node))}
-      </div>
+    <div className={className}>
+      {richText.map((node: RichTextNode, index: number) => renderRichTextNode(node))}
     </div>
   );
 };
