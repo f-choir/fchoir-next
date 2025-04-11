@@ -45,6 +45,7 @@ export default async function Support() {
             width={1200}
             height={800}
             unoptimized={true}
+            key={`${Math.floor(Math.random() * 2048)}`}
           />
         ))}
       </Wrap>
