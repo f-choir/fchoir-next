@@ -16,6 +16,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::gallery.gallery"
+    },
+    "pitchText": {
+      "type": "blocks"
+    },
+    "merchItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::merch-item.merch-item"
     }
   }
 }
