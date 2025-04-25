@@ -4,6 +4,7 @@ import NavBar from '../ui/molecules/NavBar';
 import Footer from '@/ui/molecules/Footer';
 import classNames from 'classnames';
 import { jost } from '@/ui/fonts';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'F*Choir',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavBar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
