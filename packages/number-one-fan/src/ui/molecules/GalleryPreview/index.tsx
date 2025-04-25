@@ -8,9 +8,10 @@ export interface GalleryPreviewProps {
   imgSrc: string;
   uri: string;
   date?: string;
+  isUnoptimised?: boolean;
 }
 
-const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) => (
+const GalleryPreview = ({ size, titleText, imgSrc, uri, isUnoptimised }: GalleryPreviewProps) => (
   <div className={'relative group w-[256px]'}>
     <Link href={uri}>
       <div
@@ -24,7 +25,12 @@ const GalleryPreview = ({ size, titleText, imgSrc, uri }: GalleryPreviewProps) =
           {titleText}
         </p>
       </div>
-      <SquareImage size={size} altText={titleText} src={imgSrc} />
+      <SquareImage
+        size={size}
+        altText={titleText}
+        src={imgSrc}
+        isUnoptimised={typeof isUnoptimised === 'boolean' ? isUnoptimised : false}
+      />
     </Link>
   </div>
 );
