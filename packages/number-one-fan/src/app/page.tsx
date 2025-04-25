@@ -6,6 +6,7 @@ import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
 import Link from 'next/link';
+import { RichText, RichTextNode } from '@/ui/organisms/RichText';
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -21,7 +22,8 @@ const homePropsFromStrapi = (strapi: any) => {
   const socials = strapi.data.attributes.socials.data.map((social: any) => {
     return { url: social.attributes.url, img: social.attributes.img.data.attributes.url };
   });
-  return { galleries, socials };
+
+  return { galleries, socials, motd: strapi.data.attributes.motd };
 };
 
 const getData = async () => {
@@ -40,6 +42,12 @@ export default async function Home() {
     }),
   );
 
+  const Motd = () => (
+    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3.5rem]">
+      <RichText richText={data.motd} className={'text-center'} />
+    </div>
+  );
+
   return (
     <main className="pt-12 m:pt-8">
       <div
@@ -51,17 +59,7 @@ export default async function Home() {
       </div>
       <Wrap className="hidden l:inline-block">
         <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
-          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[3rem] justify-self-center">
-            March 2025: our{' '}
-            <Link
-              className="text-purple underline"
-              href="https://www.crowdfunder.co.uk/p/fchoir2025"
-              target="_blank"
-            >
-              Crowdfunder
-            </Link>{' '}
-            is live!
-          </h2>
+          <Motd />
           <div className="flex flex-row justify-start">
             {data.socials.map((social: any) => (
               <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
@@ -79,17 +77,7 @@ export default async function Home() {
           text={'causing a racket // singing together'}
         />
         <Wrap className="l:hidden">
-          <h2 className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] justify-self-center">
-            March 2025: our{' '}
-            <Link
-              className="text-purple underline"
-              href="https://www.crowdfunder.co.uk/p/fchoir2025"
-              target="_blank"
-            >
-              Crowdfunder
-            </Link>{' '}
-            is live!
-          </h2>
+          <Motd />
           <div className="py-4 font-bold text-xl mr-14 m:mr-4">
             <div className="flex flex-row justify-end">
               {data.socials.map((social: any) => (
