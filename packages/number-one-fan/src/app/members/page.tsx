@@ -46,6 +46,7 @@ export default function Members() {
             ))}
           </div>
         )}
+        {/* embed the Google calendar - enabled in API */}
         {data && <Embed htmlString={data.calendar} />}
       </Wrap>
     </>
