@@ -23,11 +23,7 @@ const homePropsFromStrapi = (strapi: any) => {
     return { url: social.attributes.url, img: social.attributes.img.data.attributes.url };
   });
 
-  const motd = strapi.data.attributes.motd;
-
-  console.log('BEEBUG: motd', motd);
-
-  return { galleries, socials, motd };
+  return { galleries, socials, motd: strapi.data.attributes.motd };
 };
 
 const getData = async () => {
@@ -47,8 +43,8 @@ export default async function Home() {
   );
 
   const Motd = () => (
-    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3rem] justify-self-center">
-      <RichText richText={data.motd} />
+    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3.5rem]">
+      <RichText richText={data.motd} className={'text-center'} />
     </div>
   );
 
