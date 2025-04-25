@@ -6,9 +6,17 @@ interface SquareImageProps {
   size: number;
   style?: object;
   title?: string;
+  isUnoptimised?: boolean;
 }
 
-const SquareImage = ({ src, altText, size, style, title }: SquareImageProps) => (
+const SquareImage = ({
+  src,
+  altText,
+  size,
+  style,
+  title,
+  isUnoptimised = false,
+}: SquareImageProps) => (
   <Image
     src={src}
     alt={altText}
@@ -17,6 +25,7 @@ const SquareImage = ({ src, altText, size, style, title }: SquareImageProps) => 
     style={style}
     className={`aspect-square object-cover`}
     title={title}
+    unoptimized={isUnoptimised}
   />
 );
 

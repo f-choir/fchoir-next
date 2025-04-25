@@ -2,6 +2,9 @@ import Headline from '@/ui/atoms/Headline';
 import Gallery from '@/ui/molecules/Gallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { merch } from '@/api/staticRoutes';
+import { RichText } from '@/ui/organisms/RichText';
+import Wrap from '@/ui/atoms/Wrap';
+import GalleryPreview from '@/ui/molecules/GalleryPreview';
 
 const merchPropsfromStrapi = (strapi: any) => {
   const {
@@ -18,17 +21,21 @@ const merchPropsfromStrapi = (strapi: any) => {
     },
   } = strapi;
 
-  return galleryImages.map((galleryImage: any) => {
-    const {
-      attributes: {
-        img: { data: imageData },
-      },
-    } = galleryImage;
-    return {
-      uri: imageData.attributes.url,
-      alt: galleryImage.attributes.caption,
-    };
-  });
+  return {
+    gallery: galleryImages.map((galleryImage: any) => {
+      const {
+        attributes: {
+          img: { data: imageData },
+        },
+      } = galleryImage;
+      return {
+        uri: imageData.attributes.url,
+        alt: galleryImage.attributes.caption,
+      };
+    }),
+    pitchText: strapi.data.attributes.pitchText,
+    merchItems: strapi.data.attributes.merchItems,
+  };
 };
 
 const getData = async () => {
@@ -49,19 +56,25 @@ export default async function Merch() {
   return (
     <main className="min-h-screen pt-12 m:pt-8">
       <Headline text={'merch'} />
-      <p className={'text-center text-xl m:text-2xl py-8 w-5/6 m:w-3/4 l:w-2/3 xl:w-1/2 m-auto'}>
-        Roll up, roll up, we&apos;ve got t-shirts! Head over to our{' '}
-        <a
-          className={'text-purple underline hover:text-black'}
-          href={'https://fchoir.bandcamp.com/merch'}
-        >
-          Bandcamp
-        </a>{' '}
-        to grab one of these limited edition, handpainted beauties while stocks last x
-      </p>
-      <div className={'flex flex-row justify-center'}>
-        <Gallery id={''} title={''} pathOverride={true} images={data} />
-      </div>
+      <Wrap>
+        <RichText richText={data.pitchText} className={'text-2xl text-center pb-4'} />
+        <div className={'flex flex-row gap-4 justify-center'}>
+          {data.merchItems?.data.map((merchItem: any) => {
+            return (
+              <GalleryPreview
+                size={256}
+                titleText={merchItem.attributes.title}
+                imgSrc={merchItem.attributes.imgs.data[0].attributes.url}
+                uri={merchItem.attributes.vendorUrl}
+                isUnoptimised={true}
+                key={`${merchItem.attributes.title?.slice(0, 8)}-${Math.floor(
+                  Math.random() * 2048,
+                )}`}
+              />
+            );
+          })}
+        </div>
+      </Wrap>
     </main>
   );
 }
