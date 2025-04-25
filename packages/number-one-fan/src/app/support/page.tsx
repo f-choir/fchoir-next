@@ -37,17 +37,22 @@ export default async function Support() {
       <Wrap>
         <Embed className={'max-w[100vw]'} htmlString={data.embed} isCentered={true} />
         <RichText richText={data.richText} className={'pt-8 mx-4 m:ml-0'} />
-        {mediaUrls.map((url: string) => (
-          <Image
-            className="py-6 m-auto"
-            src={url}
-            alt={'F*Choir loves you'}
-            width={1200}
-            height={800}
-            unoptimized={true}
-            key={`${Math.floor(Math.random() * 2048)}`}
-          />
-        ))}
+        {mediaUrls.map((url: string) => {
+          const key = `${url.slice(url.length - 8, url.length - 4)}-${Math.floor(
+            Math.random() * 2048,
+          )}`;
+          return (
+            <Image
+              className="py-6 m-auto"
+              src={url}
+              alt={'F*Choir loves you'}
+              width={1200}
+              height={800}
+              unoptimized={true}
+              key={key}
+            />
+          );
+        })}
       </Wrap>
     </main>
   );
