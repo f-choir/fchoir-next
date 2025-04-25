@@ -726,6 +726,39 @@ export interface ApiMemberMember extends Schema.SingleType {
   };
 }
 
+export interface ApiMerchItemMerchItem extends Schema.CollectionType {
+  collectionName: 'merch_items';
+  info: {
+    displayName: 'MerchItem';
+    pluralName: 'merch-items';
+    singularName: 'merch-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::merch-item.merch-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    description: Attribute.Blocks;
+    imgs: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    publishedAt: Attribute.DateTime;
+    title: Attribute.String;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::merch-item.merch-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    vendorUrl: Attribute.String;
+  };
+}
+
 export interface ApiMerchMerch extends Schema.SingleType {
   collectionName: 'merches';
   info: {
@@ -750,6 +783,12 @@ export interface ApiMerchMerch extends Schema.SingleType {
       'oneToOne',
       'api::gallery.gallery'
     >;
+    merchItems: Attribute.Relation<
+      'api::merch.merch',
+      'oneToMany',
+      'api::merch-item.merch-item'
+    >;
+    pitchText: Attribute.Blocks;
     publishedAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -1313,6 +1352,7 @@ declare module '@strapi/types' {
       'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
       'api::member.member': ApiMemberMember;
+      'api::merch-item.merch-item': ApiMerchItemMerchItem;
       'api::merch.merch': ApiMerchMerch;
       'api::news-post.news-post': ApiNewsPostNewsPost;
       'api::singer.singer': ApiSingerSinger;

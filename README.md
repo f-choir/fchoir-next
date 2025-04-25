@@ -44,6 +44,7 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 - 21/03/25: added hardcoded crowdfunder link to frontpage
 - 28/03/25: updated About page with current roster and date range. Improve front page image aspect ratio and randomise the initial displayed gallery.
 - 11/04/25: added hidden Support page (not linked from elsewhere in the site) and supporting API. 
+
 - 25/04/25: 
   - updated dependencies for both packages.
   - Add motd feature on Strapi and remove the hardcoded crowdfunder link. 
