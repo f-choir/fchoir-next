@@ -6,6 +6,7 @@ import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
 import Link from 'next/link';
+import { RichText, RichTextNode } from '@/ui/organisms/RichText';
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -21,7 +22,12 @@ const homePropsFromStrapi = (strapi: any) => {
   const socials = strapi.data.attributes.socials.data.map((social: any) => {
     return { url: social.attributes.url, img: social.attributes.img.data.attributes.url };
   });
-  return { galleries, socials };
+
+  const motd = strapi.data.attributes.motd;
+
+  console.log('BEEBUG: motd', motd);
+
+  return { galleries, socials, motd };
 };
 
 const getData = async () => {
@@ -41,7 +47,9 @@ export default async function Home() {
   );
 
   const Motd = () => (
-    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3rem] justify-self-center">foo</div>
+    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3rem] justify-self-center">
+      <RichText richText={data.motd} />
+    </div>
   );
 
   return (

@@ -3,7 +3,7 @@ import { JSX } from 'react/jsx-runtime';
 import IntrinsicElements = JSX.IntrinsicElements;
 import { randomUUID } from 'node:crypto';
 
-interface RichTextNode {
+export interface RichTextNode {
   type: string;
   children: TextNode[];
   format?: 'ordered' | 'unordered';
@@ -22,7 +22,8 @@ interface TextNode {
   children?: TextNode[];
 }
 
-const nodeKey = (text: string) => `${text.slice(0, 12)}-${Math.floor(1024 * Math.random())}`;
+const nodeKey = (text: string) =>
+  `${text && text.length > 11 ? `${text.slice(0, 12)}-` : ``}${Math.floor(1024 * Math.random())}`;
 
 export const RichText: FC<{ richText: RichTextNode[]; className?: string }> = ({
   richText,
@@ -31,7 +32,7 @@ export const RichText: FC<{ richText: RichTextNode[]; className?: string }> = ({
   const renderTextNode = (node: TextNode) => {
     if (node.type === 'link' && node.url && node.children) {
       return (
-        <a href={node.url} key={nodeKey(node.text)}>
+        <a className={'text-purple underline'} href={node.url} key={nodeKey(node.text)}>
           {node.children.map((child, i) => renderTextNode(child))}
         </a>
       );
