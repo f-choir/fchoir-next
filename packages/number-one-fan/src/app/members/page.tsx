@@ -46,8 +46,8 @@ export default function Members() {
             ))}
           </div>
         )}
+        {data && <Embed htmlString={data.calendar} />}
       </Wrap>
-      {data && <Embed htmlString={data.calendar} isCentered={true} />}
     </>
   );
 }
