@@ -12,8 +12,7 @@ import Cohort from '@/ui/organisms/Cohort';
 import Flair from '@/ui/molecules/Flair';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  const cohortYear =
-    Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4)) + 1;
+  const cohortYear = Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4));
 
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
