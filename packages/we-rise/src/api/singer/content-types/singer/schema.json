@@ -37,6 +37,15 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "singer"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "pronouns": {
+      "type": "string"
     }
   }
 }

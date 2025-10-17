@@ -852,7 +852,10 @@ export interface ApiSingerSinger extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
     name: Attribute.String;
+    pronouns: Attribute.String;
     publishedAt: Attribute.DateTime;
     title: Attribute.String;
     updatedAt: Attribute.DateTime;
