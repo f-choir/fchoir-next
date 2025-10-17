@@ -50,4 +50,6 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
   - Clean up members page so calendar is just a link. Space for more members features.
   - Add the merch API and populate the merch page from it
   - Enable analytics
-- 17/10/25: Extend the Singer API to allow first name / last name and pronouns. Retain name field as an override. Update the About page.
+- 17/10/25: 
+  - Extend the Singer API to allow first name / last name and pronouns. Retain name field as an override. Update the About page.
+  - Take repo public as Vercel no longer allow free builds on push to `main`. Not great.
