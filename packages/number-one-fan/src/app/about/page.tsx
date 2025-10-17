@@ -39,8 +39,10 @@ const aboutPropsFromStrapi = (strapi: any) => {
     })),
     cohort: {
       title: `Current Voices - ${cohortYear} - ${cohortYear + 1}`,
-      names: strapi.data.attributes.cohort.data.attributes.singers.data.map(
-        (singer: any) => singer.attributes.name,
+      names: strapi.data.attributes.cohort.data.attributes.singers.data.map((singer: any) =>
+        singer.attributes.name
+          ? singer.attributes.name
+          : `${singer.attributes.firstName} ${singer.attributes.lastName}`,
       ),
     },
     flair: {
