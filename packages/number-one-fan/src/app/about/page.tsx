@@ -12,8 +12,7 @@ import Cohort from '@/ui/organisms/Cohort';
 import Flair from '@/ui/molecules/Flair';
 
 const aboutPropsFromStrapi = (strapi: any) => {
-  const cohortYear =
-    Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4)) + 1;
+  const cohortYear = Number(strapi.data.attributes.cohort.data.attributes.startDate.slice(0, 4));
 
   return {
     words: strapi.data.attributes.words.flatMap((block: any) =>
@@ -39,8 +38,10 @@ const aboutPropsFromStrapi = (strapi: any) => {
     })),
     cohort: {
       title: `Current Voices - ${cohortYear} - ${cohortYear + 1}`,
-      names: strapi.data.attributes.cohort.data.attributes.singers.data.map(
-        (singer: any) => singer.attributes.name,
+      names: strapi.data.attributes.cohort.data.attributes.singers.data.map((singer: any) =>
+        singer.attributes.name
+          ? singer.attributes.name
+          : `${singer.attributes.firstName} ${singer.attributes.lastName}`,
       ),
     },
     flair: {
