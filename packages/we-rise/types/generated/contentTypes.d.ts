@@ -703,6 +703,11 @@ export interface ApiMemberMember extends Schema.SingleType {
   };
   attributes: {
     calendar: Attribute.Text;
+    cohorts: Attribute.Relation<
+      'api::member.member',
+      'oneToMany',
+      'api::cohort.cohort'
+    >;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::member.member',

@@ -19,6 +19,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::external-link.external-link"
+    },
+    "cohorts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cohort.cohort"
     }
   }
 }
