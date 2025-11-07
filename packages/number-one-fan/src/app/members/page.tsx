@@ -68,7 +68,7 @@ export default function Members() {
         {data && (
           <ul className={'grid grid-cols-2 m:grid-cols-3 l:grid-cols-4 xl:grid-cols-5 gap-4'}>
             {data.polaroids.map((polaroid: any) => (
-              <li className="p-1">
+              <li className="p-1" key={polaroid.url}>
                 <PortraitImage
                   src={polaroid.url}
                   altText={polaroid.firstName}
