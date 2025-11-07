@@ -19,14 +19,6 @@ export default function Members() {
         const data = await members(jwt);
         const strapi = await data.json();
 
-        const polaroids = strapi.data.attributes.cohorts.data.sort(
-          (a: any, b: any) =>
-            Number(b.attributes.startDate.split('-')[0]) -
-            Number(a.attributes.startDate.split('-')[0]),
-        )[0].attributes.singers.data;
-
-        console.log('BEEBUG: polaroids', polaroids);
-
         return strapi
           ? {
               calendar: strapi.data.attributes.calendar,
@@ -34,7 +26,19 @@ export default function Members() {
                 text: link.attributes.text,
                 url: link.attributes.url,
               })),
-              polaroids,
+              polaroids: strapi.data.attributes.cohorts.data
+                .sort(
+                  (a: any, b: any) =>
+                    Number(b.attributes.startDate.split('-')[0]) -
+                    Number(a.attributes.startDate.split('-')[0]),
+                )[0]
+                .attributes.singers.data.filter((singer: any) =>
+                  Boolean(singer.attributes.avatar.data),
+                )
+                .map((singer: any) => ({
+                  firstName: singer.attributes.firstName,
+                  url: singer.attributes.avatar.data.attributes.url,
+                })),
             }
           : undefined;
       },
@@ -58,6 +62,15 @@ export default function Members() {
         )}
         {/* embed the Google calendar - enabled in API */}
         {data && <Embed htmlString={data.calendar} />}
+        {data && (
+          <>
+            <ul>
+              {data.polaroids.map((polaroid: any) => (
+                <li>{polaroid.firstName}</li>
+              ))}
+            </ul>
+          </>
+        )}
       </Wrap>
     </>
   );
