@@ -53,3 +53,5 @@ with domain forwarding to https://fchoir-number-one-fan.vercel.app/
 - 17/10/25: 
   - Extend the Singer API to allow first name / last name and pronouns. Retain name field as an override. Update the About page.
   - Take repo public as Vercel no longer allow free builds on push to `main`. Not great.
+- 7/11/25: 
+  - Add cohorts to the members page API to enable the polaroid wall
