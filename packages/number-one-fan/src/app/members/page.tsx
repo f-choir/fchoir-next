@@ -18,6 +18,15 @@ export default function Members() {
         const jwt = await authenticate(user); // TEMP: manually change the cookie domain in @/cookie to have this work on localhost
         const data = await members(jwt);
         const strapi = await data.json();
+
+        const polaroids = strapi.data.attributes.cohorts.data.sort(
+          (a: any, b: any) =>
+            Number(b.attributes.startDate.split('-')[0]) -
+            Number(a.attributes.startDate.split('-')[0]),
+        )[0].attributes.singers.data;
+
+        console.log('BEEBUG: polaroids', polaroids);
+
         return strapi
           ? {
               calendar: strapi.data.attributes.calendar,
@@ -25,6 +34,7 @@ export default function Members() {
                 text: link.attributes.text,
                 url: link.attributes.url,
               })),
+              polaroids,
             }
           : undefined;
       },
