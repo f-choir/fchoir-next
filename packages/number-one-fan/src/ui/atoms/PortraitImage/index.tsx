@@ -7,6 +7,7 @@ interface PortraitImageProps {
   style?: object;
   title?: string;
   isUnoptimised?: boolean;
+  isPreloaded?: boolean;
 }
 
 const PortraitImage = ({
@@ -16,6 +17,7 @@ const PortraitImage = ({
   style,
   title,
   isUnoptimised = false,
+  isPreloaded = false,
 }: PortraitImageProps) => (
   <Image
     src={src}
@@ -24,8 +26,9 @@ const PortraitImage = ({
     height={size * 1.5}
     style={style}
     title={title}
-    className="object-cover"
+    className="object-cover w-auto"
     unoptimized={isUnoptimised}
+    priority={isPreloaded}
   />
 );
 
