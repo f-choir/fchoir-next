@@ -10,6 +10,7 @@ import Embed from '@/ui/atoms/Embed/Embed';
 import SquareImage from '@/ui/atoms/SquareImage';
 import PortraitImage from '@/ui/atoms/PortraitImage';
 import Grid from '@/ui/atoms/Grid';
+import SubHeader from '@/ui/atoms/SubHeader';
 
 export default function Members() {
   const [user, setUser] = useState({ identifier: '', password: '' });
@@ -66,19 +67,26 @@ export default function Members() {
         {/* embed the Google calendar - enabled in API */}
         {data && <Embed htmlString={data.calendar} />}
         {data && (
-          <ul className={'grid grid-cols-2 m:grid-cols-3 l:grid-cols-4 xl:grid-cols-5 gap-4'}>
-            {data.polaroids.map((polaroid: any, idx: number) => (
-              <li className="p-1" key={polaroid.url}>
-                <PortraitImage
-                  src={polaroid.url}
-                  altText={polaroid.firstName}
-                  size={180}
-                  style={{ margin: 'auto' }}
-                  isPreloaded={idx <= 4}
-                />
-              </li>
-            ))}
-          </ul>
+          <>
+            <SubHeader text={'we are f* choir'} className={'mt-4'} />
+            <ul
+              className={
+                'grid grid-cols-2 m:grid-cols-3 l:grid-cols-4 xl:grid-cols-5 px-8 m:px-0 gap-4 my-4'
+              }
+            >
+              {data.polaroids.map((polaroid: any, idx: number) => (
+                <li className="p-1" key={polaroid.url}>
+                  <PortraitImage
+                    src={polaroid.url}
+                    altText={polaroid.firstName}
+                    size={180}
+                    style={{ margin: 'auto' }}
+                    isPreloaded={idx <= 4}
+                  />
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </Wrap>
     </>
