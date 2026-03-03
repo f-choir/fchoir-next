@@ -42,7 +42,8 @@ export default function Members() {
                 .map((singer: any) => ({
                   firstName: singer.attributes.firstName,
                   url: singer.attributes.avatar.data.attributes.url,
-                })),
+                }))
+                .sort((a: any, b: any) => (a.firstName > b.firstName ? 1 : -1)),
             }
           : undefined;
       },
