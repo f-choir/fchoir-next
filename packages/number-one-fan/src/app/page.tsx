@@ -52,7 +52,7 @@ export default async function Home() {
 
   return (
     <main className="pt-12 m:pt-8">
-      <div className='absolute z-20 top-6 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue'>{wordMarkSvg}</div>
+      <div className='absolute z-20 top-8 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue'>{wordMarkSvg}</div>
         <Wrap className="hidden l:inline-block">
           <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
             <Motd />
@@ -65,7 +65,7 @@ export default async function Home() {
             </div>
           </div>
         </Wrap>
-      <div className={'pt-12 m:pt-20 l:pt-4 xl:pt-0'}>
+      <div className={'pt-14 m:pt-20 l:pt-4 xl:pt-0'}>
         <AttractGallery items={data.galleries} />
 
         <SubHeader
