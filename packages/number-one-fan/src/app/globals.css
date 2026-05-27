@@ -23,8 +23,8 @@ body {
 
 .text-shadow {
   text-shadow:
-    rgba(0, 0, 0, 0.5) -1px -1px 0,
-    rgba(0, 0, 0, 0.5) 1px -1px 0,
-    rgba(0, 0, 0, 0.5) -1px 1px 0,
-    rgba(0, 0, 0, 0.5) 1px 1px 0;
+    rgba(153, 242, 124, 0.5) -1px -1px 0,
+    rgba(153, 242, 124, 0.5) 1px -1px 0,
+    rgba(153, 242, 124, 0.5) -1px 1px 0,
+    rgba(153, 242, 124, 0.5) 1px 1px 0;
 }

@@ -23,7 +23,7 @@ const Bio = ({ leader }: { leader: any }) => {
         <a
           key={`leader-links-${idx}`}
           href={link.url}
-          className="mr-4 text-purple underline hover:text-black"
+          className="mr-4 text-blue underline hover:text-black"
         >
           {link.label}
         </a>

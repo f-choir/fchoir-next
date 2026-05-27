@@ -59,7 +59,7 @@ export default function Members() {
         {data && (
           <div className="flex flex-row justify-center pb-4">
             {data.links.map((link: any) => (
-              <div key={link.text} className="p-8 m-2 w-1/3 text-l m:text-2xl bg-lilac text-center">
+              <div key={link.text} className="p-8 m-2 w-1/3 text-l m:text-2xl bg-green text-center">
                 <a href={link.url}>{link.text}</a>
               </div>
             ))}

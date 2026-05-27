@@ -26,7 +26,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
         <p
           className={classNames(
             'text-3xl m:text-4xl l:text-5xl xl:text-7xl',
-            'text-red font-medium',
+            'text-pink font-medium',
             'my-1 l:my-2 ',
             'text-center l:text-left',
             'text-shadow',
@@ -42,7 +42,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'm:text-lg l:text-2xl xl:text-3xl',
             'my-1 l:my-2 xl:my-4',
             'leading-5 m:leading-5 l:leading-7 xl:leading-9',
-            'text-purple',
+            'text-blue',
             'text-center',
             getAlignClass(aligns[idx]),
           )}

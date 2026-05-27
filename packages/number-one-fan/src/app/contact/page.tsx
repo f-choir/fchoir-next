@@ -64,7 +64,7 @@ export default async function Contact() {
                 case 'link':
                   return (
                     <span
-                      className="font-bold text-2xl text-purple underline hover:text-black"
+                      className="font-bold text-2xl text-blue underline hover:text-black"
                       key={randomUUID()}
                     >
                       <a href={fragment.url}>{fragment.text}</a>

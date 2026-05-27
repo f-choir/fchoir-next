@@ -9,7 +9,7 @@ interface ImagePreviewProps {
 
 const ImagePreview = ({ size, altText, src, onClickCallback }: ImagePreviewProps) => (
   <button
-    className={'hover:bg-lilac hover:opacity-50 transition duration-100'}
+    className={'hover:bg-green hover:opacity-50 transition duration-100'}
     onClick={onClickCallback}
   >
     <SquareImage

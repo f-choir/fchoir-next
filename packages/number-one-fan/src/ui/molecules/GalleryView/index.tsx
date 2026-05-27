@@ -80,7 +80,7 @@ const GalleryView = ({
         />
         {closeViewCallback && <CloseButton onClose={closeViewCallback} />}
       </div>
-      <p className="text-lilac text-center text-2xl m:text-3xl pt-4 m:pt-8">
+      <p className="text-green text-center text-2xl m:text-3xl pt-4 m:pt-8">
         {images[viewIdx].caption ?? ''}
       </p>
       {images[viewIdx].photoCredit && <p>Photo credit: {images[viewIdx].photoCredit}</p>}

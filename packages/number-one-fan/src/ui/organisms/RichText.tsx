@@ -32,7 +32,7 @@ export const RichText: FC<{ richText: RichTextNode[]; className?: string }> = ({
   const renderTextNode = (node: TextNode) => {
     if (node.type === 'link' && node.url && node.children) {
       return (
-        <a className={'text-purple underline'} href={node.url} key={nodeKey(node.text)}>
+        <a className={'text-blue underline'} href={node.url} key={nodeKey(node.text)}>
           {node.children.map((child, i) => renderTextNode(child))}
         </a>
       );
