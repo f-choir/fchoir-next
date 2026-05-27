@@ -8,6 +8,7 @@ import Wrap from '@/ui/atoms/Wrap';
 import Link from 'next/link';
 import { RichText, RichTextNode } from '@/ui/organisms/RichText';
 import classNames from "classnames";
+import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -44,24 +45,25 @@ export default async function Home() {
   );
 
   const Motd = () => (
-    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[3.5rem]">
+    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[2rem]">
       <RichText richText={data.motd} className={'text-center'} />
     </div>
   );
 
   return (
     <main className="pt-12 m:pt-8">
-      <div
-        className={
-          classNames(
-              'absolute top-16',
-              'm:top-28 l:top-28 xl:top-28',
-              'left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'
-          )
-        }
-      >
-        <Headline text={'f*choir'} wrapClasses={'relative z-20'} isWordMark />
-      </div>
+      {/*<div*/}
+      {/*  className={*/}
+      {/*    classNames(*/}
+      {/*        'absolute top-16',*/}
+      {/*        'm:top-28 l:top-28 xl:top-28',*/}
+      {/*        'left-1/5 m:left-4/5 l:left-1/2 xl:left-1/2'*/}
+      {/*    )*/}
+      {/*  }*/}
+      {/*>*/}
+        {/*<Headline text={'f*choir'} wrapClasses={'relative z-20'} isWordMark />*/}
+          <div className='absolute z-20 top-6 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue'>{wordMarkSvg}</div>
+      {/*</div>/*/}
       <Wrap className="hidden l:inline-block">
         <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
           <Motd />
