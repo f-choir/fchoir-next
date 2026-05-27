@@ -9,13 +9,12 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      pink: '#e594d9',
-      red: '#ff0000',
-      purple: '#5137AC',
-      lilac: '#b6bcec',
-      dove: '#d3defc',
-      white: '#ffffff',
-      black: '#112233',
+      black: '#2a2a2a',
+      blue: '#5e7ae3',
+      green: '#99fc7c',
+      orange: '#f09546',
+      pink: '#e33193',
+      white: '#fffef0',
     },
     screens: {
       m: '640px',
@@ -24,8 +23,9 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        jost: ['"Jost"', ...defaultTheme.fontFamily.sans],
-        barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],
+        // jost: ['"Jost"', ...defaultTheme.fontFamily.sans],
+        // barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],
+        workSans: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

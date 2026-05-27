@@ -10,7 +10,7 @@ const CloseButton = ({ onClose }: CloseButtonProps) => (
     <div className={'absolute top-0 right-0 p-4 z-20'}>
       <Icon
         path={Cross.path}
-        className={'fill-white p-1 hover:fill-red transition-fill duration-300'}
+        className={'fill-white p-1 hover:fill-pink transition-fill duration-300'}
         size={'48px'}
       />
     </div>

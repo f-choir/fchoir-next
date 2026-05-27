@@ -3,7 +3,7 @@ import Image from 'next/image';
 const Flair = ({ flair }: { flair: any }) => {
   return (
     <div className="pb-2">
-      <h3 className="text-center text-2xl mt-2 text-red">SUPPORTED BY</h3>
+      <h3 className="text-center text-2xl mt-2 text-pink">SUPPORTED BY</h3>
       {flair.items.map((item: any) => (
         <Image
           src={item.url}

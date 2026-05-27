@@ -43,7 +43,7 @@ const AttractGallery = ({ items }: AttractGalleryProps) => {
       <div
         className={`${
           isViewingHero ? 'inline-block' : 'hidden'
-        } absolute top-16 z-40 w-[100vw] h-[80vw] bg-dove`}
+        } absolute top-16 z-40 w-[100vw] h-[80vw] bg-white`}
       >
         <CloseButton onClose={() => updateIsViewingHero(false)} />
         <div className={'flex'}>
@@ -60,7 +60,7 @@ const AttractGallery = ({ items }: AttractGalleryProps) => {
             <div className={'text-2xl m:text-4xl font-bold'}>{items[viewIdx].galleryTitle}</div>
             <div className={'text-xl m:text-2xl py-4'}>{items[viewIdx].galleryDescription}</div>
             <a
-              className={'text-xl m:text-2xl hover:text-red hover:underline transition-all'}
+              className={'text-xl m:text-2xl hover:text-pink hover:underline transition-all'}
               href={`gallery/${items[viewIdx].galleryId}`}
             >
               See more

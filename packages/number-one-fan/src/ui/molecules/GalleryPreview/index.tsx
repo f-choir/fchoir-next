@@ -15,11 +15,11 @@ const GalleryPreview = ({ size, titleText, imgSrc, uri, isUnoptimised }: Gallery
   <div className={'relative group w-[256px]'}>
     <Link href={uri}>
       <div
-        className={`absolute text-center hover:bg-lilac hover:opacity-80 h-full w-full border-purple border-4`}
+        className={`absolute text-center hover:bg-green hover:opacity-80 h-full w-full border-blue border-4`}
       >
         <p
           className={
-            'text-red text-4xl font-medium text-center overflow-hidden hidden group-hover:inline-block p-6 overflow-ellipsis'
+            'text-pink text-4xl font-medium text-center overflow-hidden hidden group-hover:inline-block p-6 overflow-ellipsis'
           }
         >
           {titleText}

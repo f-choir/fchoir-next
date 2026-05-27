@@ -5,11 +5,11 @@ const EMAIL = 'mailto:wearefchoir@gmail.com';
 const FACEBOOK = 'https://facebook.com/fchoirlondon';
 
 const linkClasses = classNames(
-  'text-red text-l l:text-xl text-shadow p-2 m:p-4 pl-4 l:px-8 pt-2 pb-2 m:pb-6',
+  'text-orange text-l l:text-xl text-shadow p-2 m:p-4 pl-4 l:px-8 pt-2 pb-2 m:pb-6',
 );
 
 const Footer = () => (
-  <footer className={'flex flex-col m:flex-row justify-center bg-purple w-full '}>
+  <footer className={'flex flex-col m:flex-row justify-center bg-black w-full '}>
     {/*<a*/}
     {/*  href={INSTAGRAM}*/}
     {/*  className={linkClasses}*/}
