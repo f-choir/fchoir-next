@@ -11,6 +11,7 @@ const SubHeader = ({ text, className }: SubHeaderProps) => (
       className={classNames(
         'inline-block bg-black m-auto px-8 py-2',
         'text-green',
+        'font-seaSummerCalm',
         'text-xl m:text-2xl l:text-4xl',
         'tracking-widest',
         className,

@@ -50,8 +50,8 @@ const NavBar = () => {
             <Link
               className={classNames(
                 'transition-bg ease-in-out duration-150',
-                'm-2',
-                'l:px-2 hover:bg-green font-medium text-xl l:text-2xl',
+                'py-2 rounded-xl',
+                'l:px-2 hover:bg-green hover:font-seaSummer font-medium text-xl l:text-2xl',
                 link.isActive ? 'text-white' : 'text-pink',
               )}
               href={link.url}
