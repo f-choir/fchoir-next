@@ -8,7 +8,8 @@ export interface HeadlineProps {
 const Headline = ({ text, wrapClasses }: HeadlineProps) => (
   <Wrap className={wrapClasses ? wrapClasses : 'flex flex-row justify-center m:justify-end'}>
     <h1>
-      <div className='text-black text-shadow font-medium text-5xl m:text-7xl l:text-9xl'>{text.toUpperCase()}</div>
+      <div className='text-black font-seaSummer
+       text-shadow font-medium text-5xl m:text-7xl l:text-9xl'>{text.toUpperCase()}</div>
     </h1>
   </Wrap>
 );

@@ -30,6 +30,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'my-1 l:my-2 ',
             'text-center l:text-left',
             'text-shadow',
+            'font-seaSummer'
           )}
         >
           {words[0]}
