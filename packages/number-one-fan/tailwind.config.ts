@@ -25,6 +25,7 @@ const config: Config = {
       fontFamily: {
         workSans: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
         seaSummer: ["__seaSummer_5eac2b", ...defaultTheme.fontFamily.sans],
+        seaSummerCalm: ["__seaSummerCalm_53b2cf", ...defaultTheme.fontFamily.sans],
       },
     },
   },

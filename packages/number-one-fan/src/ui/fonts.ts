@@ -7,6 +7,14 @@ export const seaSummer =  localFont({
   weight: '400',
 });
 
+export const seaSummerCalm =  localFont({
+  src: '../public/fonts/seasummervthree-trial-calm.woff',
+  display: 'swap',
+  weight: '400',
+});
+
+// console.log(seaSummerCalm)
+
 export const workSans = Work_Sans({
   subsets: ['latin'],
   weight: '400',

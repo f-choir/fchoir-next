@@ -18,7 +18,7 @@ const NavBar = () => {
   const links = getNavLinks(usePathname());
   const doSetMenuClosed = () => setMenuOpen(false);
   return (
-    <nav className="bg-black sticky top-0 z-30">
+    <nav className="bg-black sticky top-0 z-30 font-seaSummerCalm">
       <button
         onClick={() => setMenuOpen(!isMenuOpen)}
         className="absolute flex flex-row items-center right-5 top-2 m:hidden z-40"
@@ -44,7 +44,7 @@ const NavBar = () => {
             className={classNames(
               isMenuOpen ? 'visible' : 'hidden m:visible m:inline-block',
               'bg-black m:bg-none',
-              'py-2 last:pb-2 m:py-2 l:py-4 px-4 m:px-1',
+              'py-3 last:pb-2 m:py-2 l:py-4 px-4 m:px-1',
             )}
           >
             <Link
