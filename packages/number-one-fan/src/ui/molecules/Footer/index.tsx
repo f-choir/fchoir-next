@@ -5,7 +5,7 @@ const EMAIL = 'mailto:wearefchoir@gmail.com';
 const FACEBOOK = 'https://facebook.com/fchoirlondon';
 
 const linkClasses = classNames(
-  'text-orange text-l l:text-xl text-shadow p-2 m:p-4 pl-4 l:px-8 pt-2 pb-2 m:pb-6',
+  'text-orange text-xl l:text-2xl p-2 m:p-4 pl-4 l:px-8 pt-2 pb-2 m:pb-6',
 );
 
 const Footer = () => (

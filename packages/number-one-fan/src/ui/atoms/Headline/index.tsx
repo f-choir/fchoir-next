@@ -1,20 +1,20 @@
 import classNames from 'classnames';
 import Wrap from '@/ui/atoms/Wrap';
+import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
 
 export interface HeadlineProps {
   text: string;
   wrapClasses?: string;
+  isWordMark: boolean;
 }
 
-const Headline = ({ text, wrapClasses }: HeadlineProps) => (
-  <Wrap className={wrapClasses ? wrapClasses : 'flex flex-row justify-start m:justify-end'}>
-    <h1
-      className={classNames(
-        'text-shadow text-pink font-medium px-5 m:px-0 text-5xl m:text-7xl l:text-9xl',
-      )}
-    >
-      {text.toUpperCase()}
-    </h1>
+const Headline = ({ text, wrapClasses, isWordMark=false }: HeadlineProps) => (
+  <Wrap className={wrapClasses ? wrapClasses : 'flex flex-row justify-center m:justify-end'}>
+      {  <h1>
+        {isWordMark ?
+          <div className='max-w-xl p-2 fill-blue overflow-visible'>{wordMarkSvg}</div>
+         : <div className='text-black text-shadow font-medium text-5xl m:text-7xl l:text-9xl'>{text.toUpperCase()}</div>}
+      </h1>}
   </Wrap>
 );
 

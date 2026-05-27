@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
 import Link from 'next/link';
 import { RichText, RichTextNode } from '@/ui/organisms/RichText';
+import classNames from "classnames";
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -52,10 +53,14 @@ export default async function Home() {
     <main className="pt-12 m:pt-8">
       <div
         className={
-          'absolute top-16 m:top-28 l:top-36 xl:top-32 left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'
+          classNames(
+              'absolute top-16',
+              'm:top-28 l:top-28 xl:top-28',
+              'left-1/5 m:left-4/5 l:left-1/3 xl:left-1/2'
+          )
         }
       >
-        <Headline text={'f*choir'} wrapClasses={'relative z-20'} />
+        <Headline text={'f*choir'} wrapClasses={'relative z-20'} isWordMark />
       </div>
       <Wrap className="hidden l:inline-block">
         <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
