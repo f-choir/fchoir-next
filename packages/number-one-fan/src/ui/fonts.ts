@@ -13,8 +13,6 @@ export const seaSummerCalm =  localFont({
   weight: '400',
 });
 
-// console.log(seaSummerCalm)
-
 export const workSans = Work_Sans({
   subsets: ['latin'],
   weight: '400',
