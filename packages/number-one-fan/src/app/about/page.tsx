@@ -69,8 +69,8 @@ export default async function About() {
   );
 
   return (
-    <main className="min-h-screen pt-12 m:pt-8">
-      <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center'} />
+    <main className="min-h-screen pt-12 m:pt-8 bg-pink">
+      <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center mb-2'} />
       <Wrap>
         {/*This is a demo of our own non-YT video embeds*/}
         <VideoPlayer videoId={data.videoId} />
@@ -78,7 +78,7 @@ export default async function About() {
         <Humanifesto words={data.words} />
         <HorizontalDivider />
         {data.choirBio?.map((para: string, idx: number) => (
-          <p className="px-2 py-4 font-medium" key={`bio-${idx}`}>
+          <p className="px-2 py-4 font-medium text-white" key={`bio-${idx}`}>
             {para}
           </p>
         ))}

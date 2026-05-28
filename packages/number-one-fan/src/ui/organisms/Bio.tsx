@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Bio = ({ leader }: { leader: any }) => {
   return (
-    <div className="my-4 mx-2">
+    <div className="my-4 mx-2 text-white">
       <div className="float-left w-1/3 mb-4 mr-4">
         <Image
           src={leader.avatarUrl}
@@ -23,7 +23,7 @@ const Bio = ({ leader }: { leader: any }) => {
         <a
           key={`leader-links-${idx}`}
           href={link.url}
-          className="mr-4 text-blue underline hover:text-black"
+          className="mr-4 text-white underline hover:text-black"
         >
           {link.label}
         </a>
