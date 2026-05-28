@@ -18,7 +18,7 @@ const CarouselButton = ({ scrollFn, isRight, viewIdx, isAtEnd }: CarouselButtonP
     <Icon
       path={ChevronRight.path}
       className={classNames(
-        'bg-green opacity-60 p-1.5 m-auto',
+        'bg-green rounded-xl opacity-60 p-1.5 m-auto',
         !isRight && 'rotate-180',
         isAtEnd(viewIdx)
           ? 'fill-white'
