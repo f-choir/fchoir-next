@@ -23,7 +23,7 @@ const SquareImage = ({
     width={size}
     height={size}
     style={style}
-    className={`aspect-square object-cover`}
+    className={`aspect-square object-cover rounded-xl`}
     title={title}
     unoptimized={isUnoptimised}
   />

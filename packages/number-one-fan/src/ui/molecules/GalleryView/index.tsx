@@ -43,7 +43,7 @@ const GalleryView = ({
     const containerClasses = 'w-11/12 flex flex-row relative';
     const image = (
       <Image
-        className={`opacity-100 object-cover pt-2 m:pt-4 l:pt-6 xl:pt-8 ${
+        className={`opacity-100 object-cover rounded-xl mt-2 m:mt-4 l:mt-6 xl:mt-8 ${
           isClickableImage ? 'cursor-pointer' : ''
         }`}
         src={images[viewIdx].uri}
