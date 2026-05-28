@@ -19,7 +19,7 @@ const GalleryPreview = ({ size, titleText, imgSrc, uri, isUnoptimised }: Gallery
       >
         <p
           className={
-            'text-pink text-2xl font-medium font-seaSummerCalm text-center overflow-hidden hidden group-hover:inline-block p-6 overflow-ellipsis'
+            'text-black text-2xl font-medium font-seaSummerCalm text-center overflow-hidden hidden group-hover:inline-block p-6 overflow-ellipsis'
           }
         >
           {titleText}
