@@ -26,7 +26,7 @@ const PortraitImage = ({
     height={size * 1.5}
     style={style}
     title={title}
-    className="object-cover w-auto"
+    className="object-cover w-auto rounded-xl"
     unoptimized={isUnoptimised}
     priority={isPreloaded}
   />
