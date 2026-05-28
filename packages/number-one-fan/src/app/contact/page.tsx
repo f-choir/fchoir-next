@@ -48,7 +48,7 @@ export default async function Contact() {
   );
 
   return (
-    <main className="min-h-screen pt-12 m:pt-8">
+    <main className="min-h-screen pt-12 m:pt-8 bg-green">
       <Headline text={'contact'} />
       <Wrap>
         {data.words.map((line: any, idx: number) => (
