@@ -9,7 +9,7 @@ const SubHeader = ({ text, className }: SubHeaderProps) => (
   <Wrap className={'text-center'}>
     <h2
       className={classNames(
-        'inline-block bg-black m-auto px-8 py-2',
+        'inline-block bg-black rounded-2xl m-auto px-8 py-2',
         'text-green',
         'font-seaSummerCalm',
         'text-xl m:text-2xl l:text-4xl',
