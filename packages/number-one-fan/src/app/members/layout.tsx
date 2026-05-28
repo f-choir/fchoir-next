@@ -7,7 +7,7 @@ export default function ClientSideFetchingLayout({ children }: { children: React
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="min-h-screen pt-12 m:pt-8">{children}</main>
+      <main className="min-h-screen pt-12 m:pt-8 bg-black">{children}</main>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

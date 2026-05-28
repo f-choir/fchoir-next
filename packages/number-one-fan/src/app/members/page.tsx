@@ -53,13 +53,13 @@ export default function Members() {
 
   return (
     <>
-      <Headline text={'f*members'} />
+      <Headline text={'f*members'} textClasses={'text-green'} />
       <Wrap>
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (
           <div className="flex flex-row justify-center pb-4">
             {data.links.map((link: any) => (
-              <div key={link.text} className="p-8 m-2 w-1/3 text-l m:text-2xl bg-green text-center">
+              <div key={link.text} className="p-8 m-2 w-1/3 text-l m:text-2xl bg-green text-center text-black font-workSans rounded-xl">
                 <a href={link.url}>{link.text}</a>
               </div>
             ))}

@@ -12,7 +12,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
   const queryClient = useQueryClient();
 
   return (
-    <form onSubmit={() => false} className="py-4">
+    <form onSubmit={() => false} className="py-4 text-white">
       <div className="flex flex-col">
         <div className="p-2">
           <label htmlFor="user" className="pr-2">
@@ -24,7 +24,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
             autoComplete="username"
             value={userField}
             onChange={(e) => setUserField(e.target.value)}
-            className="p-2"
+            className="p-2 text-black"
           />
         </div>
         <div className="p-2">
@@ -37,7 +37,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
             autoComplete="current-password"
             value={passwordField}
             onChange={(e) => setPasswordField(e.target.value)}
-            className="p-2"
+            className="p-2 text-black"
           />
           <input
             type="button"
@@ -46,7 +46,7 @@ const LoginForm = ({ setUser, queryKey }: LoginFormProps) => {
               setUser({ identifier: userField, password: passwordField });
               queryClient.invalidateQueries({ queryKey: queryKey });
             }}
-            className="px-2 font-bold text-black hover:underline"
+            className="px-2 font-bold text-white hover:underline"
           />
         </div>
       </div>

@@ -54,10 +54,10 @@ export default async function Merch() {
   );
 
   return (
-    <main className="min-h-screen pt-12 m:pt-8">
+    <main className="min-h-screen pt-12 m:pt-8 bg-blue">
       <Headline text={'merch'} />
       <Wrap>
-        <RichText richText={data.pitchText} className={'text-2xl text-center pb-4'} />
+        <RichText richText={data.pitchText} className={'text-2xl text-center pb-4 text-white'} />
         <div className={'flex flex-row gap-4 justify-center'}>
           {data.merchItems?.data.map((merchItem: any) => {
             return (

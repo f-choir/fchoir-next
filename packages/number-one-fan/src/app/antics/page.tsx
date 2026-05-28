@@ -67,7 +67,7 @@ export default async function Antics() {
   );
 
   return (
-    <main className="min-h-screen pt-12 m:pt-8">
+    <main className="min-h-screen pt-12 m:pt-8 bg-orange">
       <Headline text={'antics'} />
       <GalleryGrid galleries={galleryPreviewPropsFromStrapi(data)} />
     </main>
