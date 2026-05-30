@@ -23,12 +23,12 @@ const NavBar = () => {
         onClick={() => setMenuOpen(!isMenuOpen)}
         className="absolute flex flex-row items-center right-5 top-2 m:hidden z-40"
       >
-        <span className="text-pink text-xl font-medium">MENU</span>
+        <span className="text-pink text-shadow text-xl font-medium">MENU</span>
         <Icon
           {...chevronRight}
           size="16px"
           className={classNames(
-            'transition duration-150 fill-pink ml-2 rotate-90',
+            'transition duration-150 fill-white stroke-1 stroke-black ml-2 rotate-90',
             isMenuOpen && '-scale-x-100',
           )}
         />

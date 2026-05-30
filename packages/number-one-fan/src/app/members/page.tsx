@@ -53,7 +53,7 @@ export default function Members() {
 
   return (
     <>
-      <Headline text={'f*members'} textClasses={'text-green'} />
+      <Headline text={'f*members'} textClasses={'text-white'} />
       <Wrap>
         {!data && <LoginForm setUser={setUser} queryKey={['hello-world']} />}
         {data && (

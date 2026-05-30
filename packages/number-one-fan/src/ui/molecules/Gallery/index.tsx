@@ -29,7 +29,7 @@ const Gallery = ({ id, title, images, pathOverride, viewClassName }: GalleryProp
   return (
     <>
       <div className={`flex flex-col p-2 pb-4 ${isViewMode ? 'hidden' : 'inline-block'}`}>
-        {title && <SubHeader text={title} className={'inline-block text-center mb-4'} />}
+        {title && <SubHeader text={title} className={'inline-block text-center mt-4 mb-2'} />}
         <ImageGrid
           path={pathOverride ? '' : id}
           images={images
