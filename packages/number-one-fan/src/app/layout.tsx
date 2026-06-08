@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // `${seaSummer.className} font-${seaSummer.style.fontFamily}`,
           'text-black bg-white flex flex-col last:justify-end')}
       >
-        <NavBar />
+        <NavBar textColour={'white'} backgroundColour={'black'}/>
         {children}
         <Footer />
         <Analytics />

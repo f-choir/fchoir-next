@@ -44,7 +44,6 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'my-1 l:my-2 xl:my-4',
             'leading-5 m:leading-5 l:leading-7 xl:leading-9',
             'text-white',
-            "text-shadow",
             'text-center',
             getAlignClass(aligns[idx]),
           )}
