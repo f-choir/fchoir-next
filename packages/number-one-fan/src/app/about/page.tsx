@@ -70,7 +70,7 @@ export default async function About() {
 
   return (
     <main className="min-h-screen pt-12 m:pt-8 bg-pink">
-      <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center mb-2'} />
+      <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center my-2'} />
       <Wrap>
         {/*This is a demo of our own non-YT video embeds*/}
         <VideoPlayer videoId={data.videoId} />
