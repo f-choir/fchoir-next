@@ -29,8 +29,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'text-white font-medium',
             'my-1 l:my-2 ',
             'text-center l:text-left',
-            'text-shadow',
-            'font-seaSummer'
+            'font-bastardoSemi'
           )}
         >
           {words[0]}
@@ -44,8 +43,8 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
             'my-1 l:my-2 xl:my-4',
             'leading-5 m:leading-5 l:leading-7 xl:leading-9',
             'text-white',
-            "text-shadow",
             'text-center',
+            'font-bastardoSemi',
             getAlignClass(aligns[idx]),
           )}
         >

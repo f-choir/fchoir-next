@@ -3,7 +3,7 @@ import './globals.css';
 import NavBar from '../ui/molecules/NavBar';
 import Footer from '@/ui/molecules/Footer';
 import classNames from 'classnames';
-import {workSans, seaSummer, seaSummerCalm} from '@/ui/fonts';
+import {seaSummer, seaSummerCalm, bastardoSemiBold, nanHoloMono, inclusiveSans } from '@/ui/fonts';
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
@@ -15,12 +15,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={classNames(workSans.className, seaSummer.className, seaSummerCalm.className,
-
-          // `${seaSummer.className} font-${seaSummer.style.fontFamily}`,
+        className={classNames(seaSummer.className, seaSummerCalm.className, bastardoSemiBold.className, nanHoloMono.className, inclusiveSans.className,
           'text-black bg-white flex flex-col last:justify-end')}
       >
-        <NavBar />
+        <NavBar textColour={'white'} backgroundColour={'black'}/>
         {children}
         <Footer />
         <Analytics />

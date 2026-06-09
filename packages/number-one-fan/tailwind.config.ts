@@ -23,9 +23,11 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        workSans: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
-        seaSummer: ["__seaSummer_5eac2b", ...defaultTheme.fontFamily.sans],
-        seaSummerCalm: ["__seaSummerCalm_53b2cf", ...defaultTheme.fontFamily.sans],
+        inclusiveSans: ['__inclusiveSans_689f3b', ...defaultTheme.fontFamily.sans],
+        bastardoSemi: ['__bastardoSemiBold_4bfb2d', ...defaultTheme.fontFamily.sans],
+        nanHolo: ['__nanHoloMono_41ebc5', ...defaultTheme.fontFamily.sans],
+        seaSummer: ['__seaSummer_5eac2b', ...defaultTheme.fontFamily.sans],
+        seaSummerCalm: ['__seaSummerCalm_53b2cf', ...defaultTheme.fontFamily.sans],
       },
     },
   },

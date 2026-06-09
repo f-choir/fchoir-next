@@ -1,13 +1,10 @@
-import Headline from '@/ui/atoms/Headline';
 import SubHeader from '@/ui/atoms/SubHeader';
 import AttractGallery from '@/ui/molecules/AttractGallery/AttractGallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
-import Link from 'next/link';
 import { RichText, RichTextNode } from '@/ui/organisms/RichText';
-import classNames from "classnames";
 import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
 
 const homePropsFromStrapi = (strapi: any) => {
