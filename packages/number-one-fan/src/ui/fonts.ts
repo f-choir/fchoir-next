@@ -13,7 +13,8 @@ export const seaSummerCalm =  localFont({
   weight: '400',
 });
 
-export const workSans = Work_Sans({
-  subsets: ['latin'],
+export const bastardoSemiBold = localFont({
+  src: '../public/fonts/BastardoRounded-Semibold.otf',
+  display: 'swap',
   weight: '400',
-});
+})
