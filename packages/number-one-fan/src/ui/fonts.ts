@@ -19,7 +19,7 @@ export const bastardoSemiBold = localFont({
 })
 
 export const nanHoloMono = localFont({
-  src: '../public/fonts/NaNHoloMono_TRIAL-BLond.ttf',
+  src: '../public/fonts/NaNHoloMono_TRIAL-Blond.ttf',
   display: 'swap',
   weight: '400',
 })
