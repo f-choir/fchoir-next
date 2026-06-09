@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Bio = ({ leader }: { leader: any }) => {
   return (
-    <div className="my-4 mx-2 text-white">
+    <div className="my-6 mx-2 text-white">
       <div className="float-left w-1/3 mb-4 mr-4">
         <Image
           src={leader.avatarUrl}

@@ -68,17 +68,20 @@ export default async function About() {
     }),
   );
 
+  const player = <VideoPlayer videoId={data.videoId} />;
+
   return (
     <main className="min-h-screen pt-12 m:pt-8 bg-pink">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center my-2'} />
       <Wrap>
         {/*This is a demo of our own non-YT video embeds*/}
-        <VideoPlayer videoId={data.videoId} />
+        {/*<VideoPlayer videoId={data.videoId} />*/}
+        {player}
         {/*<Embed htmlString={super8} />*/}
         <Humanifesto words={data.words} />
         <HorizontalDivider />
         {data.choirBio?.map((para: string, idx: number) => (
-          <p className="px-2 py-4 font-medium text-white" key={`bio-${idx}`}>
+          <p className="px-2 pt-5 pb-3 font-medium text-white" key={`bio-${idx}`}>
             {para}
           </p>
         ))}

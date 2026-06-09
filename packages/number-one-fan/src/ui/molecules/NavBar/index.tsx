@@ -36,7 +36,7 @@ const NavBar = ({textColour, backgroundColour }: { textColour: string; backgroun
         />
       </button>
       <ul
-        className={`flex flex-col m:flex-row w-full m:w-auto justify-center absolute m:relative divide-y m:divide-y-0 border-${textColour} ${
+        className={`flex flex-col m:flex-row w-full m:w-auto justify-center absolute m:relative border-${textColour} ${
           isMenuOpen ? 'z-11' : ''
         }`}
       >
