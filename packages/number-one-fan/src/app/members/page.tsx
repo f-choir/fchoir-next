@@ -69,7 +69,7 @@ export default function Members() {
         {data && <Embed htmlString={data.calendar} />}
         {data && (
           <>
-            <SubHeader text={'we are f* choir'} className={'mt-4'} />
+            <SubHeader text={'we are f* choir'} className={'my-4'} inverted />
             <ul
               className={
                 'grid grid-cols-2 m:grid-cols-3 l:grid-cols-4 xl:grid-cols-5 px-8 m:px-0 gap-4 my-4'

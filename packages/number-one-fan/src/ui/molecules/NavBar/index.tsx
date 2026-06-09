@@ -21,7 +21,7 @@ const NavBar = ({textColour, backgroundColour }: { textColour: string; backgroun
     <nav className={`bg-${backgroundColour} sticky top-0 z-30 font-seaSummerCalm`}>
       <button
         onClick={() => setMenuOpen(!isMenuOpen)}
-        className={`absolute flex flex-row items-center right-5 top-2 m:hidden z-40  bg-${backgroundColour} px-2`}
+        className={`absolute flex flex-row items-center right-2 top-2 m:hidden z-40  bg-${backgroundColour} px-2 rounded-xl`}
       >
         <span className={`text-${textColour} text-2xl bg-${backgroundColour} font-medium`}>
           MENU
