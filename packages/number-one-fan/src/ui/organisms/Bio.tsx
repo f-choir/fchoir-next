@@ -12,8 +12,8 @@ const Bio = ({ leader }: { leader: any }) => {
           className={`aspect-square object-cover`}
         />
       </div>
-      <h3 className="text-3xl mb-2 font-seaSummerCalm">{leader.name}</h3>
-      <div className="text-2xl mb-2 font-seaSummerCalm" >{leader.title}</div>
+      <h3 className="text-3xl mb-2 font-bastardoSemi">{leader.name}</h3>
+      <div className="text-2xl mb-2 font-bastardoSemi" >{leader.title}</div>
       {leader.bio.map((para: string, idx: number) => (
         <p key={`leader-bio-${idx}`} className="text-l mb-2 mr-4">
           {para}

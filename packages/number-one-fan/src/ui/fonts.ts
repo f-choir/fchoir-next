@@ -1,4 +1,3 @@
-import { Work_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const seaSummer =  localFont({
@@ -18,3 +17,15 @@ export const bastardoSemiBold = localFont({
   display: 'swap',
   weight: '400',
 })
+
+export const nanHoloMono = localFont({
+  src: '../public/fonts/NaNHoloMono_TRIAL-BLond.ttf',
+  display: 'swap',
+  weight: '400',
+})
+
+export const inclusiveSans = localFont({
+  src: '../public/fonts/InclusiveSans-VariableFont_wght.ttf',
+  display: 'swap',
+  weight: '400',
+});
