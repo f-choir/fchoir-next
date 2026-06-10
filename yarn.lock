@@ -7826,10 +7826,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.85.5":
-  version: 5.85.5
-  resolution: "@tanstack/query-core@npm:5.85.5"
-  checksum: 10c0/344670ac117bc4775a9e812fc91e27befc9ef4f681e341d8f76af3cd075eecdcc5aa058a9544a6b56cccb8e07f22ef5c9e0c852331d428bcce5e1223deef14bd
+"@tanstack/query-core@npm:5.101.0":
+  version: 5.101.0
+  resolution: "@tanstack/query-core@npm:5.101.0"
+  checksum: 10c0/e3aacbb762887214b71d8f959930644594e2321b0cdca8eac098f894cbb75d1e32d45dc34a4b818fb8c68b344398905cf30f17c69cd87283adf73e64457e9320
   languageName: node
   linkType: hard
 
@@ -7852,14 +7852,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:5.85.5":
-  version: 5.85.5
-  resolution: "@tanstack/react-query@npm:5.85.5"
+"@tanstack/react-query@npm:5.101.0":
+  version: 5.101.0
+  resolution: "@tanstack/react-query@npm:5.101.0"
   dependencies:
-    "@tanstack/query-core": "npm:5.85.5"
+    "@tanstack/query-core": "npm:5.101.0"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/7518cd624f9fe7c258b460192a73021a1e7fe0e0ea4173de69ca0a69cf60cc812bdb59b13c7f9acdbf45f4f0e82e8efb1e739528cf26e334e4a80606d7c7050d
+  checksum: 10c0/a86add4402c23e26cf4a8c7dade5b0198a7abfb51720b91e83cfe5db8b5ed89acb027b3d5b67882098d0c83cf50099175f8310a41fd5c4b55f6c343779c3dfb6
   languageName: node
   linkType: hard
 
@@ -8776,9 +8776,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@vercel/analytics@npm:1.5.0"
+"@vercel/analytics@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@vercel/analytics@npm:1.6.1"
   peerDependencies:
     "@remix-run/react": ^2
     "@sveltejs/kit": ^1 || ^2
@@ -8802,7 +8802,7 @@ __metadata:
       optional: true
     vue-router:
       optional: true
-  checksum: 10c0/43d33ea83b32f5203fec21b7f43c399e398f0c37d2dd341d522969e0e6ee23fd652a2766a4203a3ce573f711beee5ee1ab7d36316f767a4901160e3e96ee31e5
+  checksum: 10c0/df39ec419299b43350ad80a06fe835502f22f71c32d21d58855ac39ef352d3478b8922e44375dbc5b0c02ceae04a9d23b32579eb517a602656f6460c90f5802a
   languageName: node
   linkType: hard
 
@@ -13870,12 +13870,12 @@ __metadata:
     "@storybook/react": "npm:7.5.3"
     "@storybook/testing-library": "npm:0.2.2"
     "@tanstack/eslint-plugin-query": "npm:5.81.2"
-    "@tanstack/react-query": "npm:5.85.5"
+    "@tanstack/react-query": "npm:5.101.0"
     "@tanstack/react-query-devtools": "npm:5.82.0"
     "@types/node": "npm:20"
     "@types/react": "npm:18"
     "@types/react-dom": "npm:18"
-    "@vercel/analytics": "npm:1.5.0"
+    "@vercel/analytics": "npm:1.6.1"
     autoprefixer: "npm:10.0.1"
     classnames: "npm:2.5.1"
     eslint: "npm:8.57.1"
@@ -13883,7 +13883,7 @@ __metadata:
     eslint-plugin-storybook: "npm:9.0.16"
     http-server: "npm:14.1.1"
     next: "npm:14.2.35"
-    next-cloudinary: "npm:6.16.0"
+    next-cloudinary: "npm:6.17.5"
     postcss: "npm:8.5.15"
     prettier: "npm:3.1.0"
     react: "npm:18.3.1"
@@ -18505,9 +18505,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-cloudinary@npm:6.16.0":
-  version: 6.16.0
-  resolution: "next-cloudinary@npm:6.16.0"
+"next-cloudinary@npm:6.17.5":
+  version: 6.17.5
+  resolution: "next-cloudinary@npm:6.17.5"
   dependencies:
     "@cloudinary-util/types": "npm:1.5.10"
     "@cloudinary-util/url-loader": "npm:5.10.4"
@@ -18515,7 +18515,7 @@ __metadata:
   peerDependencies:
     next: ^12 || ^13 || ^14 || >=15.0.0-rc || ^15
     react: ^17 || ^18 || >=19.0.0-beta || ^19
-  checksum: 10c0/9fa48324d0b88e9e7ad9330b7bda48a00ac38f859e8966caf073692e46ce7540a5dc3448f1f852ce4beb9eef85c157629ca05bc1bc3d619778120215a05174f1
+  checksum: 10c0/531acff250ec18046959936847cc701480327c3299f50e987be6df9e3d23a2cff989f92e98e3801c60f446e098b503faffbfa87a60cc2b2126f96fe00cbcef9b
   languageName: node
   linkType: hard
 

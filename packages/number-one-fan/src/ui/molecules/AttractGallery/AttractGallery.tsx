@@ -2,7 +2,7 @@
 
 import GalleryView from '@/ui/molecules/GalleryView';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CloseButton from '@/ui/atoms/CloseButton';
 
 interface AttractGalleryItem {
@@ -24,10 +24,14 @@ const AttractGallery = ({ items }: AttractGalleryProps) => {
 
   const updateIsViewingHero = (isViewing: boolean) => setIsViewingHero(isViewing);
 
+  useEffect(() => {
   if (!isInitialised) {
     setViewIdx(Math.floor(Math.random() * items.length));
     setIsInitialised(true);
   }
+
+  }, [isInitialised, items.length]);
+
 
   return (
     <>
