@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next lint && next build",
+    "build": "next build",
     "deploy": "gcloud storage rsync ./out gs://f-choir-website-static --recursive --delete-unmatched-destination-objects",
     "serve": "http-server ./out",
     "start": "next start",

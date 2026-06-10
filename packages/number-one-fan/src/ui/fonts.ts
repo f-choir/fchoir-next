@@ -29,5 +29,3 @@ export const inclusiveSans = localFont({
   display: 'swap',
   weight: '400',
 });
-
-console.log(inclusiveSans);
