@@ -23,11 +23,11 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        inclusiveSans: ['__inclusiveSans_689f3b', ...defaultTheme.fontFamily.sans],
-        bastardoSemi: ['__bastardoSemiBold_4bfb2d', ...defaultTheme.fontFamily.sans],
-        nanHolo: ['__nanHoloMono_41ebc5', ...defaultTheme.fontFamily.sans],
-        seaSummer: ['__seaSummer_5eac2b', ...defaultTheme.fontFamily.sans],
-        seaSummerCalm: ['__seaSummerCalm_53b2cf', ...defaultTheme.fontFamily.sans],
+        inclusiveSans: ['inclusiveSans', ...defaultTheme.fontFamily.sans],
+        bastardoSemi: ['bastardoSemiBold', ...defaultTheme.fontFamily.sans],
+        nanHolo: ['nanHoloMono', ...defaultTheme.fontFamily.sans],
+        seaSummer: ['seaSummer', ...defaultTheme.fontFamily.sans],
+        seaSummerCalm: ['seaSummerCalm', ...defaultTheme.fontFamily.sans],
       },
     },
   },
