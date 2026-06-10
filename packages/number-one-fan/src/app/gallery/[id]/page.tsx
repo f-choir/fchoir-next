@@ -5,6 +5,7 @@ import { gallery } from '@/api/dynamicRoutes';
 import { antics } from '@/api/staticRoutes';
 
 const galleryFromApi = (strapi: any) => {
+
   const {
     data: {
       attributes: { gallery_images: galleryImages },
@@ -13,7 +14,7 @@ const galleryFromApi = (strapi: any) => {
 
   return {
     id: `${strapi.data.id}`,
-    title: strapi.data.attributes.title,
+    title: strapi.data?.attributes?.title,
     images: galleryImages,
   };
 };
@@ -26,14 +27,16 @@ const Gallery = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
   // Galleries need a bit more building out with a headline, a blurb, a link, photo credit.
 
+  const { id: galleryId } = await params;
+
   const {
     id,
     title,
     images: { data: imageData },
   } = await queryClient.fetchQuery(
     queryOptions({
-      queryKey: [`gallery-${params.id}`],
-      queryFn: getData(params.id),
+      queryKey: [`gallery-${galleryId}`],
+      queryFn: getData(galleryId),
     }),
   );
 
@@ -44,9 +47,9 @@ const Gallery = async ({ params }: { params: { id: string } }) => {
         title={title}
         images={imageData.map((image: any) => {
           return {
-            uri: image.attributes.img.data.attributes.url,
-            caption: image.attributes.img.data.attributes.caption,
-            alt: image.attributes.img.data.attributes.alternativeText,
+            uri: image.attributes?.img.data?.attributes?.url,
+            caption: image.attributes?.img.data?.attributes?.caption,
+            alt: image.attributes?.img.data?.attributes?.alternativeText,
           };
         })}
       />
