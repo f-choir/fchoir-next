@@ -7,7 +7,7 @@ interface MaskedImageAttractProps {
 }
 const MaskedImageAttract = ({ imageUrls, dwellTime, path }: MaskedImageAttractProps) => (
   <MaskedImage
-    imageUrl={imageUrls[3]}
+    imageUrl={imageUrls[7]}
     path={path}
     className={'m-auto'}
   />

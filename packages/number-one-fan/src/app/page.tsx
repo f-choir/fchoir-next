@@ -52,30 +52,31 @@ export default async function Home() {
 
   return (
     <main className="pt-12 m:pt-8">
-      {/*<div className="absolute z-20 top-8 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue">*/}
-      {/*  {wordMarkSvg}*/}
-      {/*</div>*/}
-
-      <Wrap className="hidden l:inline-block">
-        <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
-          <Motd />
-          <div className="flex flex-row justify-start">
-            {data.socials.map((social: any) => (
-              <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
-                <Image src={social.img} width={48} height={48} alt="" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </Wrap>
-      <div className={'pt-14 m:pt-20 l:pt-4 xl:pt-0'}>
-        <div className={'max-w-xl m:max-w-2xl l:max-w-3xl xl:max-w-4xl m-auto -mt-2 pb-6 xl:pb-20'}>
+        {/*<div className={'max-w-xl m:max-w-2xl l:max-w-3xl xl:max-w-4xl m-auto -mt-2 pb-8 xl:pb-20'}>*/}
+        <div className={'max-w-[95vw] m-auto -mt-2 pb-8 xl:pb-20'}>
           <MaskedImageAttract
             imageUrls={data.galleries.map((item: any) => item.imgUrl)}
             dwellTime={5}
             path={letterMarkSvg}
           />
         </div>
+      {/*<div className="absolute z-20 top-8 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue">*/}
+      {/*  {wordMarkSvg}*/}
+      {/*</div>*/}
+
+      <Wrap className="hidden l:inline-block">
+        {/*<div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">*/}
+          {/*<Motd />*/}
+          {/*<div className="flex flex-row justify-start">*/}
+          {/*  {data.socials.map((social: any) => (*/}
+          {/*    <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>*/}
+          {/*      <Image src={social.img} width={48} height={48} alt="" />*/}
+          {/*    </a>*/}
+          {/*  ))}*/}
+          {/*</div>*/}
+        {/*</div>*/}
+      </Wrap>
+      <div className={'pt-14 m:pt-20 l:pt-4 xl:pt-0'}>
         {/*<AttractGallery items={data.galleries} />*/}
         <SubHeader
           className={'relative top-0 m:-top-4 text-center mb-2'}
