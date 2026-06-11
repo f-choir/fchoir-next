@@ -15,13 +15,15 @@ const MaskedImage = ({imageUrl, path, className}: MaskedImageProps) => {
         <clipPath id="imageMask">
           <path d={path} />
         </clipPath>
-        <g>
+        <g
+
+        >
           <image
+            x="-34%"
+            y="-34%"
+            width="160%"
+            height="160%"
             href={imageUrl}
-            x="-50%"
-            y="-50%"
-            width="200%"
-            height="200%"
             opacity={0.1}
           />
           <image
