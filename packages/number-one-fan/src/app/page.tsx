@@ -51,9 +51,9 @@ export default async function Home() {
   );
 
   return (
-    <main className="pt-12 m:pt-8">
+    <main className="pt-10 m:pt-8">
         {/*<div className={'max-w-xl m:max-w-2xl l:max-w-3xl xl:max-w-4xl m-auto -mt-2 pb-8 xl:pb-20'}>*/}
-        <div className={'max-w-[95vw] m-auto -mt-2 pb-8 xl:pb-20'}>
+        <div className={'max-w-[100vw] m-auto py-2 xl:pb-10'}>
           <MaskedImageAttract
             imageUrls={data.galleries.map((item: any) => item.imgUrl)}
             dwellTime={5}
@@ -82,18 +82,18 @@ export default async function Home() {
           className={'relative top-0 m:-top-4 text-center mb-2'}
           text={'causing a racket // singing together'}
         />
-        <Wrap className="l:hidden">
-          <Motd />
-          <div className="py-4 font-bold text-xl mr-14 m:mr-4">
-            <div className="flex flex-row justify-end">
-              {data.socials.map((social: any) => (
-                <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
-                  <Image src={social.img} width={32} height={32} alt="" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </Wrap>
+        {/*<Wrap className="l:hidden">*/}
+        {/*  <Motd />*/}
+        {/*  <div className="py-4 font-bold text-xl mr-14 m:mr-4">*/}
+        {/*    <div className="flex flex-row justify-end">*/}
+        {/*      {data.socials.map((social: any) => (*/}
+        {/*        <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>*/}
+        {/*          <Image src={social.img} width={32} height={32} alt="" />*/}
+        {/*        </a>*/}
+        {/*      ))}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</Wrap>*/}
       </div>
     </main>
   );
