@@ -4,8 +4,8 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import VideoPlayer from '@/ui/atoms/VideoPlayer';
 import Wrap from '@/ui/atoms/Wrap';
 import HorizontalDivider from '@/ui/atoms/HorizontalDivider';
-// import Embed from '@/ui/atoms/Embed/Embed';
-// import super8 from '@/app/about/super8';
+import Embed from '@/ui/atoms/Embed/Embed';
+import super8 from '@/app/about/super8';
 import Humanifesto from '@/ui/organisms/Humanifesto';
 import Bio from '@/ui/organisms/Bio';
 import Cohort from '@/ui/organisms/Cohort';
@@ -73,10 +73,10 @@ export default async function About() {
   return (
     <main className="min-h-screen pt-12 m:pt-8 bg-pink">
       <Headline text={'humanifesto'} wrapClasses={'flex flex-row justify-center my-2'} />
-      <Wrap>
+      <Wrap className="">
         {/*<VideoPlayer videoId={data.videoId} />*/}
-        {player}
-        {/*<Embed htmlString={super8} />*/}
+        {/*{player}*/}
+        <Embed htmlString={super8} className={'aspect-w-16 aspect-h-9'} />
         <Humanifesto words={data.words} />
         <HorizontalDivider />
         {data.choirBio?.map((para: string, idx: number) => (

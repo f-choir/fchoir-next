@@ -9,6 +9,7 @@ import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
 import MaskedImage from '@/ui/atoms/MaskedImage';
 import letterMarkSvg from '@/ui/atoms/Icon/svg/letterMarkSvg';
 import MaskedImageAttract from '@/ui/molecules/MaskedImageAttract';
+import Embed from '@/ui/atoms/Embed/Embed';
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -52,30 +53,48 @@ export default async function Home() {
 
   return (
     <main className="pt-10 m:pt-8">
-        {/*<div className={'max-w-xl m:max-w-2xl l:max-w-3xl xl:max-w-4xl m-auto -mt-2 pb-8 xl:pb-20'}>*/}
-        <div className={'max-w-[100vw] m-auto py-2 xl:pb-10'}>
-          <MaskedImageAttract
-            imageUrls={data.galleries.map((item: any) => item.imgUrl)}
-            dwellTime={5}
-            path={letterMarkSvg}
-          />
-        </div>
+      {/*<div className={'max-w-xl m:max-w-2xl l:max-w-3xl xl:max-w-4xl m-auto -mt-2 pb-8 xl:pb-20'}>*/}
+      {/*<Wrap className="m-auto">*/}
+      {/*  <Embed*/}
+      {/*    htmlString={*/}
+      {/*      '<div className="relative w-full h-0"><iframe className="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/P7EP6v1e2RI?si=z2mYy7DY7UW5AU9t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'*/}
+      {/*    }*/}
+      {/*    className="w-full min-w-[80vw]"*/}
+      {/*  />*/}
+      {/*</Wrap>*/}
+      {/*<div className="relative w-full h-0">*/}
+      {/*  <iframe*/}
+      {/*    src="https://www.youtube.com/embed/P7EP6v1e2RI?si=z2mYy7DY7UW5AU9t"*/}
+      {/*    frameBorder="0"*/}
+      {/*    allowFullScreen*/}
+      {/*    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+      {/*    referrerPolicy="strict-origin-when-cross-origin"*/}
+      {/*    className="absolute inset-0 w-full h-full"*/}
+      {/*  ></iframe>*/}
+      {/*</div>*/}
+      <div className={'max-w-[100vw] m-auto py-2 xl:pb-10'}>
+        <MaskedImageAttract
+          imageUrls={data.galleries.map((item: any) => item.imgUrl)}
+          dwellTime={5}
+          path={letterMarkSvg}
+        />
+      </div>
       {/*<div className="absolute z-20 top-8 m:top-20 l:top-32 xl:top-36 left-8 l:left-1/2 min-w-[20rem] l:min-w-[28rem] xl:min-w-[40rem] xl:fill-blue">*/}
       {/*  {wordMarkSvg}*/}
       {/*</div>*/}
 
-      <Wrap className="hidden l:inline-block">
-        {/*<div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">*/}
-          {/*<Motd />*/}
-          {/*<div className="flex flex-row justify-start">*/}
-          {/*  {data.socials.map((social: any) => (*/}
-          {/*    <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>*/}
-          {/*      <Image src={social.img} width={48} height={48} alt="" />*/}
-          {/*    </a>*/}
-          {/*  ))}*/}
-          {/*</div>*/}
-        {/*</div>*/}
-      </Wrap>
+      {/*<Wrap className="hidden l:inline-block">*/}
+      {/*<div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">*/}
+      {/*<Motd />*/}
+      {/*<div className="flex flex-row justify-start">*/}
+      {/*  {data.socials.map((social: any) => (*/}
+      {/*    <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>*/}
+      {/*      <Image src={social.img} width={48} height={48} alt="" />*/}
+      {/*    </a>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
+      {/*</div>*/}
+      {/*</Wrap>*/}
       <div className={'pt-14 m:pt-20 l:pt-4 xl:pt-0'}>
         {/*<AttractGallery items={data.galleries} />*/}
         <SubHeader
