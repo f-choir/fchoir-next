@@ -16,6 +16,7 @@ const SubHeader = ({ text, className, inverted }: SubHeaderProps) => (
         'font-bastardoSemibold',
         'text-xl m:text-2xl l:text-4xl',
         'tracking-widest',
+        'm-1',
         className,
       )}
     >
