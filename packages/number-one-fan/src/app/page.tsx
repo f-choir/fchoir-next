@@ -4,11 +4,9 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
-import { RichText, RichTextNode } from '@/ui/organisms/RichText';
+// import { RichText } from '@/ui/organisms/RichText';
 import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
-// import VideoPlayer from '@/ui/atoms/VideoPlayer';
 import Embed from '@/ui/atoms/Embed/Embed';
-import super8 from '@/app/about/super8';
 
 const homePropsFromStrapi = (strapi: any) => {
   const galleries = strapi.data.attributes.galleries.data
@@ -44,11 +42,11 @@ export default async function Home() {
     }),
   );
 
-  const Motd = () => (
-    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[2rem]">
-      <RichText richText={data.motd} className={'text-center'} />
-    </div>
-  );
+  // const Motd = () => (
+  //   <div className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[2rem]">
+  //     <RichText richText={data.motd} className={'text-center'} />
+  //   </div>
+  // );
 
   const htmlString =
     '<div class="min-h-[50vw]"><iframe class="aspect-video m-auto min-h-[40vw]" src="https://www.youtube.com/embed/P7EP6v1e2RI?si=z2mYy7DY7UW5AU9t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
