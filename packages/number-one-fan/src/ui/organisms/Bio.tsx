@@ -22,13 +22,30 @@ const Bio = ({ leader }: { leader: any }) => {
       {leader.bio.map((para: string, idx: number) => {
          return (
            <>
-             {
-               idx === 0 || isShowMore ? <p key={`leader-bio-${idx}`} className="text-l l:text-xl mb-2 mr-4">
+             {idx === 0 || isShowMore ? (
+               <p key={`leader-bio-${idx}`} className="text-l l:text-xl mb-2 mr-4">
                  {para}
-               </p> : null
-             }
-             {idx === 0 && !isShowMore ? <button onClick={() => setIsShowMore(true)}>show more</button> : null}
-             {idx === leader.bio.length - 1 && isShowMore ? <button onClick={() => setIsShowMore(false)}>show less</button> : null}
+               </p>
+             ) : null}
+             {idx === 0 && !isShowMore ? (
+               <div>
+                 <button
+                   className={'pr-2 pb-2 underline text-white hover:text-black font-bold font-nanHolo'}
+                   onClick={() => setIsShowMore(true)}
+                 >
+                   show more...
+                 </button>
+               </div>
+             ) : null}
+             {idx === leader.bio.length - 1 && isShowMore ? (
+               <div><button
+                 className={'pr-2 pb-2 underline text-white hover:text-black font-bold font-nanHolo'}
+                 onClick={() => setIsShowMore(false)}
+               >
+                 show less
+               </button>
+               </div>
+             ) : null}
            </>
          );
       })}
@@ -36,7 +53,7 @@ const Bio = ({ leader }: { leader: any }) => {
         <a
           key={`leader-links-${idx}`}
           href={link.url}
-          className="mr-4 text-white underline hover:text-black"
+          className="mr-4 text-white underline hover:text-black font-nanHolo"
         >
           {link.label}
         </a>
