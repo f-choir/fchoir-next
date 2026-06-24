@@ -10,11 +10,11 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
   const getAlignClass = (value: number) => {
     switch (value) {
       case -1:
-        return 'l:text-left';
+        return 'l:text-center';
       case 0:
         return 'l:text-center';
       case 1:
-        return 'l:text-right';
+        return 'l:text-center';
       default:
         return '';
     }
@@ -27,7 +27,7 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
           className={classNames(
             'text-3xl m:text-4xl l:text-5xl xl:text-7xl',
             'text-white font-medium',
-            'my-1 l:my-2 ',
+            'py-2 l:py-4',
             'text-center l:text-left',
             'font-bastardoSemi'
           )}
@@ -39,8 +39,10 @@ const Humanifesto = ({ words }: HumanifestoProps) => {
         <p
           key={`humanifesto-${idx}`}
           className={classNames(
-            'm:text-lg l:text-2xl xl:text-3xl',
-            'my-1 l:my-2 xl:my-4',
+            'm:text-xl l:text-2xl xl:text-3xl',
+            // idx % 3 === 0 && 'my-1 l:my-2 xl:my-4',
+            'mt-1',
+            idx % 4 === 0 && 'mt-3 l:mt-5 xl:mt-8',
             'leading-5 m:leading-5 l:leading-7 xl:leading-9',
             'text-white',
             'text-center',
