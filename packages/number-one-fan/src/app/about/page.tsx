@@ -80,7 +80,7 @@ export default async function About() {
         <Humanifesto words={data.words} />
         <HorizontalDivider />
         {data.choirBio?.map((para: string, idx: number) => (
-          <p className="px-2 pt-5 pb-3 font-medium text-white" key={`bio-${idx}`}>
+          <p className="px-2 py-8 text-lg l:text-xl text-white" key={`bio-${idx}`}>
             {para}
           </p>
         ))}
