@@ -45,6 +45,7 @@ next-env.d.ts
 
 # temp
 /public/
+/comms/
 
 #/src/data/galleries.json
 #/src/data/_old_galleries.json

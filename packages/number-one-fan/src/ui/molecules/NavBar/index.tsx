@@ -11,12 +11,20 @@ export type NavLink = {
   label: string;
   url: string;
   isActive: boolean;
+  isExternal?: boolean;
 };
 
 const NavBar = ({textColour, backgroundColour }: { textColour: string; backgroundColour: string; }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const links = getNavLinks(usePathname());
   const doSetMenuClosed = () => setMenuOpen(false);
+
+  const linkClasses = classNames(
+    'transition-bg ease-in-out duration-150',
+    'py-2 rounded-xl',
+    `l:px-2 hover:bg-${textColour} hover:text-${textColour} hover:font-seaSummer font-medium text-2xl l:text-3xl`,
+  );
+
   return (
     <nav className={`bg-${backgroundColour} sticky top-0 z-30 font-seaSummerCalm`}>
       <button
@@ -50,17 +58,24 @@ const NavBar = ({textColour, backgroundColour }: { textColour: string; backgroun
               'py-3 last:pb-2 m:py-2 l:py-4 px-4 m:px-2',
             )}
           >
-            <Link
-              className={classNames(
-                'transition-bg ease-in-out duration-150',
-                'py-2 rounded-xl',
-                `l:px-2 hover:bg-${textColour} hover:text-${textColour} hover:font-seaSummer font-medium text-2xl l:text-3xl`,
-              )}
-              href={link.url}
-              onClick={doSetMenuClosed}
-            >
-              {link.label}
-            </Link>
+            {!link.isExternal ? (
+              <Link
+                className={linkClasses}
+                href={link.url}
+                onClick={doSetMenuClosed}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                className={linkClasses}
+                href={link.url}
+                onClick={doSetMenuClosed}
+                target="_blank"
+              >
+                {link.label}
+              </a>
+            )}
           </li>
         ))}
       </ul>

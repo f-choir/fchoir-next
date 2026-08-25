@@ -4,7 +4,7 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { home } from '@/api/staticRoutes';
 import Image from 'next/image';
 import Wrap from '@/ui/atoms/Wrap';
-// import { RichText } from '@/ui/organisms/RichText';
+import { RichText } from '@/ui/organisms/RichText';
 import wordMarkSvg from "@/ui/atoms/Icon/svg/wordMarkSvg";
 import Embed from '@/ui/atoms/Embed/Embed';
 
@@ -42,11 +42,11 @@ export default async function Home() {
     }),
   );
 
-  // const Motd = () => (
-  //   <div className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[2rem]">
-  //     <RichText richText={data.motd} className={'text-center'} />
-  //   </div>
-  // );
+  const Motd = () => (
+    <div className="text-xl font-bold pl-2 pb-4 l:-mt-[4rem] xl:-mt-[2rem]">
+      <RichText richText={data.motd} className={'text-centertext-black'} />
+    </div>
+  );
 
   const htmlString =
     '<div class="min-h-[50vw]"><iframe class="aspect-video m-auto min-h-[40vw]" src="https://www.youtube.com/embed/P7EP6v1e2RI?si=z2mYy7DY7UW5AU9t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
@@ -58,7 +58,7 @@ export default async function Home() {
       </div>
       <Wrap className="hidden l:inline-block">
         <div className="font-bold ml-[10rem] xl:ml-[18rem] mt-[4rem] xl:mt-[2rem] xl:mb-[1rem]">
-          {/*<Motd />*/}
+          <Motd />
           <div className="flex flex-row justify-start">
             {data.socials.map((social: any) => (
               <a href={social.url} className="pl-2" key={`${social.url.split('.')[1]}-icon`}>
@@ -76,7 +76,7 @@ export default async function Home() {
           text={'causing a racket // singing together'}
         />
         <Wrap className="l:hidden">
-          {/*<Motd />*/}
+          <Motd />
           <div className="py-4 font-bold text-xl mr-14 m:mr-4">
             <div className="flex flex-row justify-end">
               {data.socials.map((social: any) => (
