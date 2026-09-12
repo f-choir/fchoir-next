@@ -1,1 +1,1 @@
-web: yarn install && cd packages/we-rise && yarn build && yarn start
+web: cd packages/we-rise && yarn build && yarn start
