@@ -1,1 +1,0 @@
-web: echo 'woohoo' && npm run start

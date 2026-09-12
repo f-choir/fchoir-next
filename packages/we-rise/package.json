@@ -14,7 +14,7 @@
     "@strapi/plugin-i18n": "4.25.13",
     "@strapi/plugin-users-permissions": "4.25.22",
     "@strapi/provider-upload-cloudinary": "4.25.22",
-    "@strapi/strapi": "4.25.22",
+    "@strapi/strapi": "4.26.2",
     "pg": "8.8.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -29,7 +29,7 @@
     "uuid": "b1107f5b-a772-443e-983e-c15decd73779"
   },
   "engines": {
-    "node": "24.x.x"
+    "node": "22.x.x"
   },
   "license": "MIT"
 }
