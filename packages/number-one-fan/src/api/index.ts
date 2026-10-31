@@ -1,6 +1,7 @@
 import { getCookieNamed, setCookieWith } from '@/cookie';
 
-const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
+const API_ROOT = 'https://eg-27ef25635b494d6e80653fe95e316924.ecs.eu-west-1.on.aws/api';
+// const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
 
 // TODO this could use a 'dev mode' where it fetches from the local Strapi
 /**
@@ -11,7 +12,7 @@ const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
 export const fetchApi = async (path: string, jwt?: string): Promise<Response> => {
   const options = jwt ? { headers: { Authorization: `Bearer ${jwt}` } } : {};
 
-  return fetch(`${HEROKU_API_ROOT}/${path}`, options);
+  return fetch(`${API_ROOT}/${path}`, options);
 };
 
 type StrapiAuthResponse = {
@@ -19,7 +20,7 @@ type StrapiAuthResponse = {
 };
 
 const postAuth = async (user: any): Promise<StrapiAuthResponse> => {
-  const login = await fetch(`${HEROKU_API_ROOT}/auth/local`, {
+  const login = await fetch(`${API_ROOT}/auth/local`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
