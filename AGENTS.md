@@ -23,7 +23,7 @@ Run from the repo root:
 ```sh
 yarn workspace fchoir-next dev        # next dev on :3000
 yarn workspace fchoir-next build      # next build, static export to ./out
-yarn workspace fchoir-next lint       # next lint (eslint 8, next/core-web-vitals)
+yarn workspace fchoir-next eslint src --ext .ts,.tsx  # lint (`lint` script is broken on Next 16)
 yarn workspace fchoir-next storybook  # storybook dev on :6006
 ```
 
