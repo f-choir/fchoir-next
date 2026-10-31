@@ -7,7 +7,6 @@ Guidance for AI coding agents working in this repo. See `README.md` for the proj
 Yarn 4 monorepo (`nodeLinker: node-modules`, workspaces `packages/*`).
 
 - `packages/number-one-fan/`: the F\*Choir public site. Next.js 16 (App Router), React 18, Tailwind 3, deployed to Vercel. Its workspace package name is `fchoir-next`. This is where most work happens.
-- `packages/gcloud/`: one-off helper scripts (`makeGalleries.js`) that use `@google-cloud/storage`.
 - `comms/`: plain text and notes, not code.
 
 The Strapi CMS backend is no longer in this repo. It lives in a separate repository, and the site reads it over REST at the `API_ROOT` in `packages/number-one-fan/src/api/index.ts`.
