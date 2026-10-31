@@ -1,5 +1,4 @@
 import Headline from '@/ui/atoms/Headline';
-import Gallery from '@/ui/molecules/Gallery';
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 import { merch } from '@/api/staticRoutes';
 import { RichText } from '@/ui/organisms/RichText';
@@ -43,6 +42,8 @@ const getData = async () => {
   const strapi = await res.json();
   return merchPropsfromStrapi(strapi);
 };
+
+// unused
 export default async function Merch() {
   const queryClient = new QueryClient();
 
