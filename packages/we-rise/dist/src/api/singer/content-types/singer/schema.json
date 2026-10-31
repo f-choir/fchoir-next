@@ -1,0 +1,51 @@
+{
+    "kind": "collectionType",
+    "collectionName": "singers",
+    "info": {
+        "singularName": "singer",
+        "pluralName": "singers",
+        "displayName": "Singer",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "avatar": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "bio": {
+            "type": "blocks"
+        },
+        "user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "singer"
+        },
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "pronouns": {
+            "type": "string"
+        }
+    }
+}
