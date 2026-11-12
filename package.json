@@ -6,6 +6,10 @@
   "repository": "git@github.com:f-choir/fchoir-next.git",
   "author": "Bee Godwin <bee.godwin@bbc.co.uk>",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn workspace fchoir-next build",
+    "dev": "yarn workspace fchoir-next dev"
+  },
   "workspaces": [
     "packages/*"
   ],
