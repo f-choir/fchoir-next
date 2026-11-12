@@ -1,7 +1,6 @@
-// const API_ROOT = 'https://lhq3c616pl.execute-api.eu-west-1.amazonaws.com/api'; // when serving the ECS backend
-const API_ROOT = 'https://hive.tail8348d8.ts.net/api'; // when serving the local build via Tailscale
+const API_ROOT = 'https://lhq3c616pl.execute-api.eu-west-1.amazonaws.com/api'; // when serving the ECS backend
+// const API_ROOT = 'https://hive.tail8348d8.ts.net/api'; // when serving the local build via Tailscale
 
-// TODO this could use a 'dev mode' where it fetches from the local Strapi
 /**
  *
  * @param path with prefix `<host>/api/` defining the REST API query to perform against strapi
