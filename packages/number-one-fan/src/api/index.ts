@@ -1,6 +1,5 @@
-// const API_ROOT = 'https://eg-27ef25635b494d6e80653fe95e316924.ecs.eu-west-1.on.aws/api';
-const API_ROOT = 'https://hive.tail8348d8.ts.net/api';
-// const HEROKU_API_ROOT = 'https://fchoir-we-rise-8a87570c698e.herokuapp.com/api';
+// const API_ROOT = 'https://lhq3c616pl.execute-api.eu-west-1.amazonaws.com/api'; // when serving the ECS backend
+const API_ROOT = 'https://hive.tail8348d8.ts.net/api'; // when serving the local build via Tailscale
 
 // TODO this could use a 'dev mode' where it fetches from the local Strapi
 /**
