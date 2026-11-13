@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'ANTICS', url: '/antics' },
   { label: 'MERCH', url: 'https://fchoir.bandcamp.com/merch' },
   { label: 'CONTACT', url: '/contact' },
-  { label: 'MEMBERS', url: '/members' },
+  // { label: 'MEMBERS', url: '/members' },
 ];
 
 export const getNavLinks = (pathname: string): NavLink[] => {
